@@ -1277,13 +1277,16 @@
         <div class="tnav" data-section="s10">
           <span class="nn">10</span> Programming
         </div>
+        <div class="tnav" data-section="s11">
+          <span class="nn">11</span> Build a Robot
+        </div>
       </nav>
       <div class="hdr-right">
         <div class="prog-pill">
           <div class="prog-bar">
             <div class="prog-fill" id="prog-fill" style="width: 10%"></div>
           </div>
-          <span class="prog-txt" id="prog-label">1 / 10</span>
+          <span class="prog-txt" id="prog-label">1 / 11</span>
         </div>
       </div>
     </header>
@@ -1319,6 +1322,9 @@
       </div>
       <div class="sicon" data-section="s10" title="Programming">
         💻<span class="sn">10</span>
+      </div>
+      <div class="sicon" data-section="s11" title="Build a Robot">
+        🔧<span class="sn">11</span>
       </div>
     </aside>
 
@@ -3822,7 +3828,7 @@
                         fill="#FFD700"
                         opacity=".1"
                         style="animation: glow 2s ease-in-out infinite"
-                      /> 
+                      />
                     </svg>
                     <div
                       style="
@@ -7200,7 +7206,7 @@
                   Sequence
                 </div>
                 <div style="font-size: 13.5px; color: var(--t3)">
-                  One step at a time, in exact order
+                  Like a recipe — do step 1, then step 2, then step 3
                 </div>
               </div>
               <div class="pconcept" onclick="showPillar('cond')">
@@ -7230,7 +7236,7 @@
                   Condition
                 </div>
                 <div style="font-size: 13.5px; color: var(--t3)">
-                  IF/ELSE decisions at runtime
+                  Ask a yes/no question, then choose what to do
                 </div>
               </div>
               <div class="pconcept" onclick="showPillar('loop')">
@@ -7260,7 +7266,7 @@
                   Loop
                 </div>
                 <div style="font-size: 13.5px; color: var(--t3)">
-                  Runs forever — thousands/second
+                  Keeps checking and reacting — never stops!
                 </div>
               </div>
               <div class="pconcept" onclick="showPillar('var')">
@@ -7290,7 +7296,7 @@
                   Variable
                 </div>
                 <div style="font-size: 13.5px; color: var(--t3)">
-                  Named memory box for sensor data
+                  A labelled box that stores a number for you
                 </div>
               </div>
             </div>
@@ -7442,6 +7448,86 @@
                 </div>
               </div>
             </div>
+
+            <!-- ═══ NEW SECTION: How the 4 concepts work together ═══ -->
+            <div class="card-big" style="margin-top:24px;">
+              <div style="font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">🧩 How Do They All Fit Together?</div>
+              <p style="font-size:14px;color:var(--t3);margin-bottom:18px;">Every Arduino program — no matter how complicated — is built from just these 4 ideas working as a team. Here's how they combine in a real robot:</p>
+              <div style="background:var(--bg);border-radius:14px;padding:18px 20px;font-size:13.5px;line-height:2.3;font-family:monospace;border:1px solid var(--border-l);">
+                <div style="color:var(--t3);margin-bottom:4px;font-family:'Inter',sans-serif;font-size:12px;">// 🤖 Obstacle-Avoiding Robot — full program idea</div>
+                <div><span style="color:var(--purple);font-weight:700;">distance</span> = <span style="color:var(--blue);">0</span> &nbsp;<span style="color:var(--t4);font-family:'Inter',sans-serif;font-size:12px;">← 📦 Variable: a box to store the sensor reading</span></div>
+                <div style="margin-top:4px;"><span style="color:var(--green);font-weight:700;">Repeat Forever:</span> &nbsp;<span style="color:var(--t4);font-family:'Inter',sans-serif;font-size:12px;">← 🔁 Loop: keep doing this non-stop</span></div>
+                <div style="padding-left:20px;"><span style="color:var(--blue);">📡 Read sensor → store in </span><span style="color:var(--purple);font-weight:700;">distance</span> &nbsp;<span style="color:var(--t4);font-family:'Inter',sans-serif;font-size:12px;">← 📋 Sequence Step 1</span></div>
+                <div style="padding-left:20px;"><span style="color:var(--amber);font-weight:700;">IF</span> <span style="color:var(--purple);">distance</span> <span style="color:var(--blue);">&lt; 20</span> &nbsp;<span style="color:var(--t4);font-family:'Inter',sans-serif;font-size:12px;">← 🔀 Condition: yes/no question</span></div>
+                <div style="padding-left:40px;"><span style="color:var(--coral);">Turn motors LEFT 🔄</span> &nbsp;<span style="color:var(--t4);font-family:'Inter',sans-serif;font-size:12px;">← 📋 Sequence Step 2a (if YES)</span></div>
+                <div style="padding-left:20px;"><span style="color:var(--amber);font-weight:700;">ELSE</span> &nbsp;<span style="color:var(--t4);font-family:'Inter',sans-serif;font-size:12px;">(if NO — path is clear)</span></div>
+                <div style="padding-left:40px;"><span style="color:var(--green);">Go FORWARD ➡️</span> &nbsp;<span style="color:var(--t4);font-family:'Inter',sans-serif;font-size:12px;">← 📋 Sequence Step 2b</span></div>
+                <div style="padding-left:20px;color:var(--t3);font-style:italic;font-family:'Inter',sans-serif;font-size:12px;margin-top:2px;">↩ loop jumps back to top and runs again instantly...</div>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+                <div style="background:var(--blue-l);border:1.5px solid var(--blue-m);border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--blue);">📋 Sequence = the order</div>
+                <div style="background:var(--amber-l);border:1.5px solid var(--amber-m);border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--amber);">🔀 Condition = the choice</div>
+                <div style="background:var(--green-l);border:1.5px solid var(--green-m);border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--green);">🔁 Loop = the heartbeat</div>
+                <div style="background:var(--purple-l);border:1.5px solid var(--purple-m);border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--purple);">📦 Variable = the memory</div>
+              </div>
+            </div>
+
+            <!-- ═══ NEW SECTION: Mini Simulator ═══ -->
+            <div class="card-big" style="margin-top:24px;">
+              <div style="font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">🎮 Try It — Mini Robot Simulator</div>
+              <p style="font-size:14px;color:var(--t3);margin-bottom:18px;">Move the slider to change how far away the obstacle is. Watch the robot's loop run and decide what to do — just like a real Arduino!</p>
+
+              <div style="display:flex;flex-direction:column;gap:16px;">
+                <!-- Sensor slider -->
+                <div style="background:var(--bg);border-radius:12px;padding:16px 20px;">
+                  <div style="font-size:13px;font-weight:700;color:var(--t2);margin-bottom:10px;">📡 Ultrasonic Sensor — drag to set obstacle distance</div>
+                  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+                    <span style="font-size:12px;color:var(--coral);font-weight:600;white-space:nowrap;">Very close (5 cm) 🧱</span>
+                    <input type="range" id="sim-slider" min="5" max="60" value="35"
+                      style="flex:1;min-width:120px;accent-color:var(--blue);cursor:pointer;"
+                      oninput="updateSim(this.value)" />
+                    <span style="font-size:12px;color:var(--green);font-weight:600;white-space:nowrap;">Far away (60 cm) 🛣️</span>
+                  </div>
+                  <div style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                    <div style="font-size:13px;color:var(--t2);">Sensor reading:</div>
+                    <div id="sim-dist-badge" style="background:var(--blue);color:white;border-radius:20px;padding:4px 16px;font-size:15px;font-weight:700;font-family:'Space Grotesk',sans-serif;min-width:75px;text-align:center;transition:background 0.3s;">35 cm</div>
+                    <div id="sim-zone-badge" style="background:var(--green-l);color:var(--green);border:1.5px solid var(--green-m);border-radius:20px;padding:4px 14px;font-size:12.5px;font-weight:700;transition:all 0.3s;">✅ Safe Zone</div>
+                  </div>
+                </div>
+
+                <!-- Variable memory box -->
+                <div style="background:var(--purple-l);border:2px solid var(--purple-m);border-radius:12px;padding:14px 20px;">
+                  <div style="font-size:11.5px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">📦 Variable in Memory</div>
+                  <div style="font-family:monospace;font-size:15px;"><span style="color:var(--purple);font-weight:700;">distance</span> &nbsp;=&nbsp; <span id="sim-var-val" style="color:var(--blue);font-weight:800;font-size:20px;transition:all 0.2s;">35</span></div>
+                  <div style="font-size:12px;color:var(--t3);margin-top:5px;">The Arduino updates this number every loop from the sensor 🔄</div>
+                </div>
+
+                <!-- IF condition check -->
+                <div id="sim-if-box" style="background:var(--amber-l);border:2px solid var(--amber-m);border-radius:12px;padding:14px 20px;transition:all 0.3s;">
+                  <div style="font-size:11.5px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">🔀 Condition Check (runs every loop)</div>
+                  <div style="font-family:monospace;font-size:13.5px;color:var(--t2);line-height:1.9;">
+                    <span style="color:var(--amber);font-weight:700;">IF</span>&nbsp;<span style="color:var(--purple);font-weight:700;">distance</span>&nbsp;&lt;&nbsp;<span style="color:var(--blue);font-weight:700;">20</span>&nbsp;
+                    <span style="font-family:'Inter',sans-serif;font-size:12px;color:var(--t3);">(is the obstacle closer than 20 cm?)</span><br>
+                    &nbsp;&nbsp;→ <span id="sim-if-result" style="font-weight:700;color:var(--coral);transition:all 0.3s;">FALSE ✘ — 35 is NOT less than 20</span>
+                  </div>
+                </div>
+
+                <!-- Robot action -->
+                <div id="sim-action-box" style="border-radius:12px;padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;transition:all 0.4s;background:var(--green-l);border:2px solid var(--green-m);">
+                  <div style="font-size:48px;transition:all 0.3s;" id="sim-robot-emoji">🤖➡️</div>
+                  <div>
+                    <div style="font-size:16px;font-weight:800;font-family:'Space Grotesk',sans-serif;transition:all 0.3s;" id="sim-action-title">Going FORWARD</div>
+                    <div style="font-size:13px;color:var(--t2);margin-top:4px;line-height:1.6;" id="sim-action-desc">Path is clear — the ELSE branch runs. Both motors spin forward at full speed!</div>
+                  </div>
+                </div>
+
+                <!-- Loop reminder -->
+                <div style="text-align:center;font-size:12.5px;color:var(--t3);padding:10px;background:var(--bg);border-radius:8px;border:1px solid var(--border-l);">
+                  🔁 The <strong>loop</strong> runs this whole check again <strong>immediately</strong> after — hundreds of times per second. Move the slider and watch it react!
+                </div>
+              </div>
+            </div>
+
           </div>
           <div class="lfooter">
             <button class="navbtn" onclick="goSection('s9')">
@@ -7451,6 +7537,543 @@
             <button class="navbtn pri" onclick="goSection('s1')">
               ↩ Start Over
             </button>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════
+  S11 · BUILD A ROBOT
+══════════════════════════════════════════════ -->
+        <section class="section" id="s11">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background:linear-gradient(135deg,#1d4ed8,#6d28d9);">11</div>
+              <div>
+                <div class="ltitle">Build a Robot 🤖</div>
+                <div class="lsub">Choose your robot, follow the wiring guide, upload the code — step by step</div>
+                <div class="lmeta">
+                  <span class="ltag blue">🔧 Assembly</span
+                  ><span class="ltag purple">💡 Interactive</span
+                  ><span class="ltag green">🏆 Project</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+
+            <div class="kc" style="background:linear-gradient(135deg,#f0fdf4,#eff6ff);border-color:#86efac;">
+              <div class="kc-icon">🏗️</div>
+              <div>
+                <div class="kc-title">Your first complete robot project</div>
+                <div class="kc-sub">Pick one of two robots below, then follow the interactive build guide — components, wiring, code, and testing all in one place.</div>
+              </div>
+            </div>
+
+            <div style="font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:16px;">Choose Your Robot</div>
+            <div class="g2" style="margin-bottom:28px;">
+
+              <!-- ROBOT 1 -->
+              <div id="rb-card-obs" onclick="selectRobot('obs')" style="background:white;border-radius:20px;border:2.5px solid var(--border-l);box-shadow:var(--sh);cursor:pointer;overflow:hidden;transition:all 0.25s;">
+                <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#dbeafe,#ede9fe);">
+                  <img src="obstacle_car.jpg" alt="Obstacle Avoidance Car"
+                    style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;"
+                    onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div style="display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;">
+                    <div style="font-size:60px;">🚗</div>
+                    <div style="font-size:12px;color:var(--t3);font-family:monospace;">obstacle_car.jpg</div>
+                  </div>
+                  <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,78,216,0.82);color:white;font-size:11px;font-weight:700;text-align:center;padding:7px;backdrop-filter:blur(4px);">📷 Click card to open build guide</div>
+                  <button onclick="event.stopPropagation();openLB('Obstacle Avoidance Car','obstacle_car.jpg','A 4-wheel robot that uses an HC-SR04 ultrasonic sensor to detect objects ahead and steer around them autonomously.',['HC-SR04','L298N','4x DC Motor','Arduino Uno','9V Battery'])" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.9);border:none;border-radius:8px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;color:var(--blue);">🔍 View Photo</button>
+                </div>
+                <div style="padding:20px 22px 22px;">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <div style="width:36px;height:36px;background:var(--blue-l);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;">🚗</div>
+                    <div>
+                      <div style="font-size:17px;font-weight:800;font-family:'Space Grotesk',sans-serif;">Obstacle Avoidance Car</div>
+                      <div style="font-size:12px;color:var(--t3);">Autonomous · Sensor-driven</div>
+                    </div>
+                  </div>
+                  <p style="font-size:13.5px;color:var(--t2);line-height:1.7;margin-bottom:14px;">This robot drives forward on its own and automatically steers away when the ultrasonic sensor detects an obstacle within 20 cm. No human input needed!</p>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <span class="tag tag-blue">📡 HC-SR04</span>
+                    <span class="tag tag-amber">⚙️ L298N Driver</span>
+                    <span class="tag tag-green">🔄 4x DC Motor</span>
+                    <span class="tag tag-coral">🤖 Autonomous</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ROBOT 2 -->
+              <div id="rb-card-bt" onclick="selectRobot('bt')" style="background:white;border-radius:20px;border:2.5px solid var(--border-l);box-shadow:var(--sh);cursor:pointer;overflow:hidden;transition:all 0.25s;">
+                <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#ecfdf5,#f0fdf4);">
+                  <img src="bluetooth_car.jpg" alt="Bluetooth Controlled Car"
+                    style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;"
+                    onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div style="display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;">
+                    <div style="font-size:60px;">📱</div>
+                    <div style="font-size:12px;color:var(--t3);font-family:monospace;">bluetooth_car.jpg</div>
+                  </div>
+                  <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(4,120,87,0.82);color:white;font-size:11px;font-weight:700;text-align:center;padding:7px;backdrop-filter:blur(4px);">📷 Click card to open build guide</div>
+                  <button onclick="event.stopPropagation();openLB('Bluetooth Controlled Car','bluetooth_car.jpg','A phone-controlled 4-wheel robot using HC-05 Bluetooth. Send F/B/L/R/S commands via any BT serial app.',['HC-05 Bluetooth','L298N','4x DC Motor','Arduino Uno','9V Battery'])" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.9);border:none;border-radius:8px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;color:var(--green);">🔍 View Photo</button>
+                </div>
+                <div style="padding:20px 22px 22px;">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                    <div style="width:36px;height:36px;background:var(--green-l);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;">📱</div>
+                    <div>
+                      <div style="font-size:17px;font-weight:800;font-family:'Space Grotesk',sans-serif;">Bluetooth Controlled Car</div>
+                      <div style="font-size:12px;color:var(--t3);">Remote-controlled · Phone app</div>
+                    </div>
+                  </div>
+                  <p style="font-size:13.5px;color:var(--t2);line-height:1.7;margin-bottom:14px;">Control this robot from your phone via Bluetooth! Send commands (F/B/L/R/S) using any BT serial app. Great for learning wireless communication.</p>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <span class="tag tag-green">📶 HC-05 BT</span>
+                    <span class="tag tag-amber">⚙️ L298N Driver</span>
+                    <span class="tag tag-blue">📱 Phone App</span>
+                    <span class="tag tag-purple">🎮 Remote</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BUILD GUIDE PANEL -->
+            <div id="rb-guide" style="display:none;">
+              <!-- Tab bar -->
+              <div style="display:flex;align-items:center;gap:4px;margin-bottom:20px;background:white;padding:6px;border-radius:14px;border:1px solid var(--border-l);box-shadow:var(--sh);width:fit-content;flex-wrap:wrap;">
+                <button id="rbt-parts"    onclick="rbTab('parts')"    style="padding:9px 16px;border-radius:10px;border:none;background:var(--blue);color:white;font-weight:700;font-size:12.5px;cursor:pointer;font-family:'Inter',sans-serif;">📦 Parts</button>
+                <button id="rbt-wiring"   onclick="rbTab('wiring')"   style="padding:9px 16px;border-radius:10px;border:none;background:transparent;color:var(--t3);font-weight:600;font-size:12.5px;cursor:pointer;font-family:'Inter',sans-serif;">🔌 Wiring</button>
+                <button id="rbt-assemble" onclick="rbTab('assemble')" style="padding:9px 16px;border-radius:10px;border:none;background:transparent;color:var(--t3);font-weight:600;font-size:12.5px;cursor:pointer;font-family:'Inter',sans-serif;">🔧 Assembly</button>
+                <button id="rbt-code"     onclick="rbTab('code')"     style="padding:9px 16px;border-radius:10px;border:none;background:transparent;color:var(--t3);font-weight:600;font-size:12.5px;cursor:pointer;font-family:'Inter',sans-serif;">💻 Code</button>
+                <button id="rbt-test"     onclick="rbTab('test')"     style="padding:9px 16px;border-radius:10px;border:none;background:transparent;color:var(--t3);font-weight:600;font-size:12.5px;cursor:pointer;font-family:'Inter',sans-serif;">✅ Test</button>
+              </div>
+
+              <!-- PARTS -->
+              <div id="rbp-parts" class="card-big" style="animation:fadeSlide 0.3s ease;">
+                <div style="font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">📦 Parts List</div>
+                <p style="font-size:13.5px;color:var(--t3);margin-bottom:18px;">Click any component card to view a photo and details.</p>
+                <div id="rb-parts-obs">
+                  <div class="g3" style="margin-bottom:16px;">
+                    <div style="background:var(--blue-l);border-radius:14px;padding:16px;border:1.5px solid var(--blue-m);cursor:pointer;" onclick="openLB('Arduino Uno R3','arduino_uno.jpg','The brain. Runs your program, reads sensors, controls motors.',['ATmega328P','16 MHz','14 Digital Pins'])">
+                      <div style="font-size:34px;margin-bottom:6px;">🤖</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">Arduino Uno R3</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">The brain</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--blue);font-weight:700;">Qty: 1 · 🔍 view photo</div>
+                    </div>
+                    <div style="background:var(--amber-l);border-radius:14px;padding:16px;border:1.5px solid var(--amber-m);cursor:pointer;" onclick="openLB('HC-SR04 Ultrasonic Sensor','hc_sr04.jpg','Sends 40kHz pulse and measures echo time to calculate distance. Range: 2–400 cm.',['2–400 cm','±3 mm','5V powered','4-pin'])">
+                      <div style="font-size:34px;margin-bottom:6px;">📡</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">HC-SR04 Sensor</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Ultrasonic distance</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--amber);font-weight:700;">Qty: 1 · 🔍 view photo</div>
+                    </div>
+                    <div style="background:var(--coral-l);border-radius:14px;padding:16px;border:1.5px solid var(--coral-m);cursor:pointer;" onclick="openLB('L298N Motor Driver','l298n.jpg','H-bridge driver. Controls 2 motors — direction and speed. 12V input.',['Dual H-bridge','PWM speed','Built-in 5V reg'])">
+                      <div style="font-size:34px;margin-bottom:6px;">⚙️</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">L298N Driver</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Motor direction & speed</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--coral);font-weight:700;">Qty: 1 · 🔍 view photo</div>
+                    </div>
+                    <div style="background:var(--green-l);border-radius:14px;padding:16px;border:1.5px solid var(--green-m);">
+                      <div style="font-size:34px;margin-bottom:6px;">🔄</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">DC Motors + Wheels</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">4 motors, 4 wheels, chassis</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--green);font-weight:700;">Qty: 4 each</div>
+                    </div>
+                    <div style="background:var(--purple-l);border-radius:14px;padding:16px;border:1.5px solid var(--purple-m);">
+                      <div style="font-size:34px;margin-bottom:6px;">🔋</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">9V Battery + Holder</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Powers motors & Arduino</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--purple);font-weight:700;">Qty: 1</div>
+                    </div>
+                    <div style="background:var(--slate-l);border-radius:14px;padding:16px;border:1.5px solid var(--border);">
+                      <div style="font-size:34px;margin-bottom:6px;">🧵</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">Jumper Wires</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Male-to-male, ~20 wires</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--slate);font-weight:700;">Qty: 20+</div>
+                    </div>
+                  </div>
+                  <div class="kp green"><div class="kp-icon">💡</div><div class="kp-text">Many robot car kits include chassis + 4 motors + wheels already assembled. Search "4WD Arduino robot car kit".<span>The L298N and HC-SR04 are usually sold separately.</span></div></div>
+                </div>
+                <div id="rb-parts-bt" style="display:none;">
+                  <div class="g3" style="margin-bottom:16px;">
+                    <div style="background:var(--blue-l);border-radius:14px;padding:16px;border:1.5px solid var(--blue-m);cursor:pointer;" onclick="openLB('Arduino Uno R3','arduino_uno.jpg','Receives BT commands and tells the motor driver how to move.',['ATmega328P','Serial RX/TX'])">
+                      <div style="font-size:34px;margin-bottom:6px;">🤖</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">Arduino Uno R3</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Receives BT commands</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--blue);font-weight:700;">Qty: 1 · 🔍 view photo</div>
+                    </div>
+                    <div style="background:var(--green-l);border-radius:14px;padding:16px;border:1.5px solid var(--green-m);cursor:pointer;" onclick="openLB('HC-05 Bluetooth Module','hc05.jpg','Serial Bluetooth module. Pairs with phone like a headset. Range ~10 m.',['BT 2.0','9600 baud','3.3V logic','10 m range'])">
+                      <div style="font-size:34px;margin-bottom:6px;">📶</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">HC-05 Bluetooth</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Wireless phone connection</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--green);font-weight:700;">Qty: 1 · 🔍 view photo</div>
+                    </div>
+                    <div style="background:var(--coral-l);border-radius:14px;padding:16px;border:1.5px solid var(--coral-m);cursor:pointer;" onclick="openLB('L298N Motor Driver','l298n.jpg','H-bridge. Controls 2 motors — direction and speed.',['Dual H-bridge','PWM speed','12V input'])">
+                      <div style="font-size:34px;margin-bottom:6px;">⚙️</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">L298N Driver</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Motor direction & speed</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--coral);font-weight:700;">Qty: 1 · 🔍 view photo</div>
+                    </div>
+                    <div style="background:var(--green-l);border-radius:14px;padding:16px;border:1.5px solid var(--green-m);">
+                      <div style="font-size:34px;margin-bottom:6px;">🔄</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">DC Motors + Wheels</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">4 motors, 4 wheels, chassis</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--green);font-weight:700;">Qty: 4 each</div>
+                    </div>
+                    <div style="background:var(--purple-l);border-radius:14px;padding:16px;border:1.5px solid var(--purple-m);">
+                      <div style="font-size:34px;margin-bottom:6px;">🔋</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">9V Battery + Holder</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">Powers motors & Arduino</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--purple);font-weight:700;">Qty: 1</div>
+                    </div>
+                    <div style="background:var(--amber-l);border-radius:14px;padding:16px;border:1.5px solid var(--amber-m);">
+                      <div style="font-size:34px;margin-bottom:6px;">📱</div>
+                      <div style="font-weight:800;font-size:14px;font-family:'Space Grotesk',sans-serif;">Phone + BT App</div>
+                      <div style="font-size:11.5px;color:var(--t3);margin-top:2px;">"Serial Bluetooth Terminal"</div>
+                      <div style="margin-top:8px;font-size:11px;color:var(--amber);font-weight:700;">Free on Play Store</div>
+                    </div>
+                  </div>
+                  <div class="kp green"><div class="kp-icon">📱</div><div class="kp-text">Use <strong>"Serial Bluetooth Terminal"</strong> (Android) or <strong>"Bluetooth Serial"</strong> (iOS). Pair with HC-05, then send F, B, L, R, S.<span>Default HC-05 pairing password is <strong>1234</strong> or <strong>0000</strong>.</span></div></div>
+                </div>
+              </div>
+
+              <!-- WIRING -->
+              <div id="rbp-wiring" class="card-big" style="display:none;animation:fadeSlide 0.3s ease;">
+                <div style="font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">🔌 Wiring Diagram</div>
+                <p style="font-size:13.5px;color:var(--t3);margin-bottom:16px;">Click any row in the table to highlight that wire on the diagram.</p>
+
+                <!-- Obstacle wiring SVG -->
+                <div id="rb-wiring-obs">
+                  <div style="background:var(--bg);border-radius:14px;padding:16px;margin-bottom:16px;overflow-x:auto;">
+                    <svg viewBox="0 0 700 330" style="width:100%;max-width:700px;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="10" y="90" width="105" height="165" rx="8" fill="#00549E" stroke="#003E7A" stroke-width="2"/>
+                      <text x="62" y="110" text-anchor="middle" fill="white" font-size="9.5" font-family="Space Grotesk" font-weight="700">ARDUINO UNO</text>
+                      <circle cx="115" cy="130" r="4" fill="#fca5a5"/><text x="113" y="132" fill="#b91c1c" font-size="7.5" font-family="monospace">GND</text>
+                      <circle cx="115" cy="148" r="4" fill="#93c5fd"/><text x="113" y="150" fill="#1d4ed8" font-size="7.5" font-family="monospace">Pin9</text>
+                      <circle cx="115" cy="166" r="4" fill="#bfdbfe"/><text x="113" y="168" fill="#1d4ed8" font-size="7.5" font-family="monospace">Pin10</text>
+                      <circle cx="115" cy="188" r="4" fill="#fcd34d"/><text x="113" y="190" fill="#b45309" font-size="7.5" font-family="monospace">Pin5</text>
+                      <circle cx="115" cy="204" r="4" fill="#fde68a"/><text x="113" y="206" fill="#b45309" font-size="7.5" font-family="monospace">Pin6</text>
+                      <circle cx="115" cy="220" r="4" fill="#6ee7b7"/><text x="113" y="222" fill="#047857" font-size="7.5" font-family="monospace">Pin7</text>
+                      <circle cx="115" cy="236" r="4" fill="#a7f3d0"/><text x="113" y="238" fill="#047857" font-size="7.5" font-family="monospace">Pin8</text>
+                      <circle cx="115" cy="252" r="4" fill="#c4b5fd"/><text x="113" y="254" fill="#6d28d9" font-size="7.5" font-family="monospace">Pin3</text>
+                      <circle cx="115" cy="268" r="4" fill="#ddd6fe"/><text x="113" y="270" fill="#6d28d9" font-size="7.5" font-family="monospace">Pin4</text>
+                      <!-- HC-SR04 -->
+                      <rect x="290" y="20" width="130" height="76" rx="8" fill="#1a1a2a" stroke="#334155" stroke-width="1.5"/>
+                      <text x="355" y="42" text-anchor="middle" fill="white" font-size="9.5" font-family="Space Grotesk" font-weight="700">HC-SR04</text>
+                      <circle cx="308" cy="60" r="13" fill="#2a2a3a" stroke="#555" stroke-width="1"/><circle cx="308" cy="60" r="7" fill="#555"/>
+                      <circle cx="400" cy="60" r="13" fill="#2a2a3a" stroke="#555" stroke-width="1"/><circle cx="400" cy="60" r="7" fill="#555"/>
+                      <circle cx="308" cy="92" r="3.5" fill="#93c5fd"/><text x="308" y="104" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">TRIG</text>
+                      <circle cx="330" cy="92" r="3.5" fill="#bfdbfe"/><text x="330" y="104" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">ECHO</text>
+                      <circle cx="352" cy="92" r="3.5" fill="#fca5a5"/><text x="352" y="104" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">GND</text>
+                      <circle cx="380" cy="92" r="3.5" fill="#86efac"/><text x="380" y="104" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">VCC</text>
+                      <!-- L298N -->
+                      <rect x="455" y="80" width="125" height="165" rx="8" fill="#1a1a2a" stroke="#334155" stroke-width="1.5"/>
+                      <text x="517" y="100" text-anchor="middle" fill="white" font-size="9.5" font-family="Space Grotesk" font-weight="700">L298N</text>
+                      <circle cx="455" cy="140" r="3.5" fill="#fcd34d"/><text x="453" y="142" text-anchor="end" fill="#b45309" font-size="7.5" font-family="monospace">ENA</text>
+                      <circle cx="455" cy="157" r="3.5" fill="#fde68a"/><text x="453" y="159" text-anchor="end" fill="#b45309" font-size="7.5" font-family="monospace">ENB</text>
+                      <circle cx="455" cy="176" r="3.5" fill="#6ee7b7"/><text x="453" y="178" text-anchor="end" fill="#047857" font-size="7.5" font-family="monospace">IN1</text>
+                      <circle cx="455" cy="193" r="3.5" fill="#a7f3d0"/><text x="453" y="195" text-anchor="end" fill="#047857" font-size="7.5" font-family="monospace">IN2</text>
+                      <circle cx="455" cy="210" r="3.5" fill="#c4b5fd"/><text x="453" y="212" text-anchor="end" fill="#6d28d9" font-size="7.5" font-family="monospace">IN3</text>
+                      <circle cx="455" cy="227" r="3.5" fill="#ddd6fe"/><text x="453" y="229" text-anchor="end" fill="#6d28d9" font-size="7.5" font-family="monospace">IN4</text>
+                      <circle cx="497" cy="80" r="3.5" fill="#fca5a5"/><text x="497" y="76" text-anchor="middle" fill="#b91c1c" font-size="7" font-family="monospace">GND</text>
+                      <circle cx="517" cy="80" r="3.5" fill="#1e293b"/><text x="517" y="76" text-anchor="middle" fill="#1e293b" font-size="7" font-family="monospace">+9V</text>
+                      <circle cx="537" cy="80" r="3.5" fill="#86efac"/><text x="537" y="76" text-anchor="middle" fill="#047857" font-size="7" font-family="monospace">5Vout</text>
+                      <!-- Wires -->
+                      <path id="obs-trig" d="M115 148 Q212 148 308 92" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="obs-echo" d="M115 166 Q222 166 330 92" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="obs-ena"  d="M115 188 Q285 188 455 140" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="obs-enb"  d="M115 204 Q285 204 455 157" stroke="#fcd34d" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="obs-in1"  d="M115 220 Q285 220 455 176" stroke="#10b981" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="obs-in2"  d="M115 236 Q285 236 455 193" stroke="#34d399" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="obs-in3"  d="M115 252 Q285 258 455 210" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="obs-in4"  d="M115 268 Q285 274 455 227" stroke="#a78bfa" stroke-width="2" fill="none" opacity="0.75"/>
+                      <!-- GND bus dashed -->
+                      <path d="M115 130 Q230 20 352 92" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.55"/>
+                      <path d="M230 20 L497 80" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.55"/>
+                      <!-- 5V bus dashed -->
+                      <path d="M380 92 Q410 50 537 80" stroke="#22c55e" stroke-width="1.5" fill="none" stroke-dasharray="5 3" opacity="0.55"/>
+                      <text x="10" y="318" fill="#64748b" font-size="9" font-family="Inter">👆 Click a row below to highlight the wire</text>
+                    </svg>
+                  </div>
+                  <table class="wtbl">
+                    <thead><tr><th>From Arduino</th><th>To Component</th><th>Colour</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                      <tr onclick="hlWire('obs-trig')" style="cursor:pointer;"><td><strong>Pin 9</strong></td><td>HC-SR04 TRIG</td><td><span style="display:inline-block;width:36px;height:4px;background:#3b82f6;border-radius:2px;vertical-align:middle;"></span></td><td>Send pulse</td></tr>
+                      <tr onclick="hlWire('obs-echo')" style="cursor:pointer;"><td><strong>Pin 10</strong></td><td>HC-SR04 ECHO</td><td><span style="display:inline-block;width:36px;height:4px;background:#60a5fa;border-radius:2px;vertical-align:middle;"></span></td><td>Receive echo</td></tr>
+                      <tr onclick="hlWire('obs-ena')"  style="cursor:pointer;"><td><strong>Pin 5 (PWM)</strong></td><td>L298N ENA</td><td><span style="display:inline-block;width:36px;height:4px;background:#f59e0b;border-radius:2px;vertical-align:middle;"></span></td><td>Left speed</td></tr>
+                      <tr onclick="hlWire('obs-enb')"  style="cursor:pointer;"><td><strong>Pin 6 (PWM)</strong></td><td>L298N ENB</td><td><span style="display:inline-block;width:36px;height:4px;background:#fcd34d;border-radius:2px;vertical-align:middle;"></span></td><td>Right speed</td></tr>
+                      <tr onclick="hlWire('obs-in1')"  style="cursor:pointer;"><td><strong>Pin 7</strong></td><td>L298N IN1</td><td><span style="display:inline-block;width:36px;height:4px;background:#10b981;border-radius:2px;vertical-align:middle;"></span></td><td>Left dir A</td></tr>
+                      <tr onclick="hlWire('obs-in2')"  style="cursor:pointer;"><td><strong>Pin 8</strong></td><td>L298N IN2</td><td><span style="display:inline-block;width:36px;height:4px;background:#34d399;border-radius:2px;vertical-align:middle;"></span></td><td>Left dir B</td></tr>
+                      <tr onclick="hlWire('obs-in3')"  style="cursor:pointer;"><td><strong>Pin 3</strong></td><td>L298N IN3</td><td><span style="display:inline-block;width:36px;height:4px;background:#8b5cf6;border-radius:2px;vertical-align:middle;"></span></td><td>Right dir A</td></tr>
+                      <tr onclick="hlWire('obs-in4')"  style="cursor:pointer;"><td><strong>Pin 4</strong></td><td>L298N IN4</td><td><span style="display:inline-block;width:36px;height:4px;background:#a78bfa;border-radius:2px;vertical-align:middle;"></span></td><td>Right dir B</td></tr>
+                      <tr><td><strong>5V</strong></td><td>HC-SR04 VCC</td><td><span style="display:inline-block;width:36px;height:4px;background:#22c55e;border-radius:2px;vertical-align:middle;border:1px dashed #22c55e;"></span></td><td>Power sensor</td></tr>
+                      <tr><td><strong>GND</strong></td><td>HC-SR04 GND · L298N GND</td><td><span style="display:inline-block;width:36px;height:4px;background:#ef4444;border-radius:2px;vertical-align:middle;border:1px dashed #ef4444;"></span></td><td>Common ground</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Bluetooth wiring -->
+                <div id="rb-wiring-bt" style="display:none;">
+                  <div style="background:var(--bg);border-radius:14px;padding:16px;margin-bottom:16px;overflow-x:auto;">
+                    <svg viewBox="0 0 700 310" style="width:100%;max-width:700px;display:block;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="10" y="80" width="105" height="170" rx="8" fill="#00549E" stroke="#003E7A" stroke-width="2"/>
+                      <text x="62" y="100" text-anchor="middle" fill="white" font-size="9.5" font-family="Space Grotesk" font-weight="700">ARDUINO UNO</text>
+                      <circle cx="115" cy="128" r="4" fill="#f9a8d4"/><text x="113" y="130" fill="#db2777" font-size="7.5" font-family="monospace">TX(1)</text>
+                      <circle cx="115" cy="146" r="4" fill="#86efac"/><text x="113" y="148" fill="#047857" font-size="7.5" font-family="monospace">RX(0)</text>
+                      <circle cx="115" cy="168" r="4" fill="#fcd34d"/><text x="113" y="170" fill="#b45309" font-size="7.5" font-family="monospace">Pin5</text>
+                      <circle cx="115" cy="184" r="4" fill="#fde68a"/><text x="113" y="186" fill="#b45309" font-size="7.5" font-family="monospace">Pin6</text>
+                      <circle cx="115" cy="200" r="4" fill="#6ee7b7"/><text x="113" y="202" fill="#047857" font-size="7.5" font-family="monospace">Pin7</text>
+                      <circle cx="115" cy="216" r="4" fill="#a7f3d0"/><text x="113" y="218" fill="#047857" font-size="7.5" font-family="monospace">Pin8</text>
+                      <circle cx="115" cy="232" r="4" fill="#c4b5fd"/><text x="113" y="234" fill="#6d28d9" font-size="7.5" font-family="monospace">Pin3</text>
+                      <circle cx="115" cy="248" r="4" fill="#ddd6fe"/><text x="113" y="250" fill="#6d28d9" font-size="7.5" font-family="monospace">Pin4</text>
+                      <!-- HC-05 -->
+                      <rect x="280" y="40" width="120" height="76" rx="8" fill="#1a1a2a" stroke="#3b82f6" stroke-width="1.5"/>
+                      <text x="340" y="60" text-anchor="middle" fill="white" font-size="9.5" font-family="Space Grotesk" font-weight="700">HC-05</text>
+                      <text x="340" y="74" text-anchor="middle" fill="#94a3b8" font-size="7.5" font-family="monospace">Bluetooth</text>
+                      <circle cx="297" cy="112" r="3.5" fill="#fca5a5"/><text x="297" y="124" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">GND</text>
+                      <circle cx="317" cy="112" r="3.5" fill="#1e293b"/><text x="317" y="124" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="monospace">VCC</text>
+                      <circle cx="337" cy="112" r="3.5" fill="#86efac"/><text x="337" y="124" text-anchor="middle" fill="#047857" font-size="7" font-family="monospace">TXD</text>
+                      <circle cx="360" cy="112" r="3.5" fill="#f9a8d4"/><text x="360" y="124" text-anchor="middle" fill="#db2777" font-size="7" font-family="monospace">RXD</text>
+                      <!-- L298N -->
+                      <rect x="455" y="80" width="120" height="155" rx="8" fill="#1a1a2a" stroke="#334155" stroke-width="1.5"/>
+                      <text x="515" y="100" text-anchor="middle" fill="white" font-size="9.5" font-family="Space Grotesk" font-weight="700">L298N</text>
+                      <circle cx="455" cy="135" r="3.5" fill="#fcd34d"/><text x="453" y="137" text-anchor="end" fill="#b45309" font-size="7" font-family="monospace">ENA</text>
+                      <circle cx="455" cy="152" r="3.5" fill="#fde68a"/><text x="453" y="154" text-anchor="end" fill="#b45309" font-size="7" font-family="monospace">ENB</text>
+                      <circle cx="455" cy="170" r="3.5" fill="#6ee7b7"/><text x="453" y="172" text-anchor="end" fill="#047857" font-size="7" font-family="monospace">IN1</text>
+                      <circle cx="455" cy="187" r="3.5" fill="#a7f3d0"/><text x="453" y="189" text-anchor="end" fill="#047857" font-size="7" font-family="monospace">IN2</text>
+                      <circle cx="455" cy="204" r="3.5" fill="#c4b5fd"/><text x="453" y="206" text-anchor="end" fill="#6d28d9" font-size="7" font-family="monospace">IN3</text>
+                      <circle cx="455" cy="221" r="3.5" fill="#ddd6fe"/><text x="453" y="223" text-anchor="end" fill="#6d28d9" font-size="7" font-family="monospace">IN4</text>
+                      <!-- BT wires -->
+                      <path id="bt-tx"  d="M115 128 Q200 128 360 112" stroke="#f472b6" stroke-width="2" fill="none" opacity="0.8"/>
+                      <path id="bt-rx"  d="M115 146 Q200 146 337 112" stroke="#4ade80" stroke-width="2" fill="none" opacity="0.8"/>
+                      <path id="bt-ena" d="M115 168 Q285 168 455 135" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="bt-enb" d="M115 184 Q285 184 455 152" stroke="#fcd34d" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="bt-in1" d="M115 200 Q285 200 455 170" stroke="#10b981" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="bt-in2" d="M115 216 Q285 216 455 187" stroke="#34d399" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="bt-in3" d="M115 232 Q285 238 455 204" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.75"/>
+                      <path id="bt-in4" d="M115 248 Q285 254 455 221" stroke="#a78bfa" stroke-width="2" fill="none" opacity="0.75"/>
+                      <text x="195" y="108" fill="#db2777" font-size="8" font-family="monospace" transform="rotate(-4 195 108)">TX→RXD (cross!)</text>
+                      <text x="10" y="300" fill="#64748b" font-size="9" font-family="Inter">👆 Click any table row to highlight that wire</text>
+                    </svg>
+                  </div>
+                  <div class="kp amber" style="margin-bottom:14px;"><div class="kp-icon">⚠️</div><div class="kp-text">UART Cross: Arduino TX → HC-05 RXD, Arduino RX → HC-05 TXD. TX and RX always cross!<span>Use a voltage divider on RXD pin: HC-05 is 3.3V logic, Arduino outputs 5V. Use 1kΩ + 2kΩ resistors.</span></div></div>
+                  <table class="wtbl">
+                    <thead><tr><th>From Arduino</th><th>To HC-05 / L298N</th><th>Colour</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                      <tr onclick="hlWire('bt-tx')"  style="cursor:pointer;"><td><strong>TX (Pin 1)</strong></td><td>HC-05 RXD</td><td><span style="display:inline-block;width:36px;height:4px;background:#f472b6;border-radius:2px;vertical-align:middle;"></span></td><td>Send to BT</td></tr>
+                      <tr onclick="hlWire('bt-rx')"  style="cursor:pointer;"><td><strong>RX (Pin 0)</strong></td><td>HC-05 TXD</td><td><span style="display:inline-block;width:36px;height:4px;background:#4ade80;border-radius:2px;vertical-align:middle;"></span></td><td>Receive from BT</td></tr>
+                      <tr onclick="hlWire('bt-ena')" style="cursor:pointer;"><td><strong>Pin 5 (PWM)</strong></td><td>L298N ENA</td><td><span style="display:inline-block;width:36px;height:4px;background:#f59e0b;border-radius:2px;vertical-align:middle;"></span></td><td>Left speed</td></tr>
+                      <tr onclick="hlWire('bt-enb')" style="cursor:pointer;"><td><strong>Pin 6 (PWM)</strong></td><td>L298N ENB</td><td><span style="display:inline-block;width:36px;height:4px;background:#fcd34d;border-radius:2px;vertical-align:middle;"></span></td><td>Right speed</td></tr>
+                      <tr onclick="hlWire('bt-in1')" style="cursor:pointer;"><td><strong>Pin 7</strong></td><td>L298N IN1</td><td><span style="display:inline-block;width:36px;height:4px;background:#10b981;border-radius:2px;vertical-align:middle;"></span></td><td>Left dir A</td></tr>
+                      <tr onclick="hlWire('bt-in2')" style="cursor:pointer;"><td><strong>Pin 8</strong></td><td>L298N IN2</td><td><span style="display:inline-block;width:36px;height:4px;background:#34d399;border-radius:2px;vertical-align:middle;"></span></td><td>Left dir B</td></tr>
+                      <tr onclick="hlWire('bt-in3')" style="cursor:pointer;"><td><strong>Pin 3</strong></td><td>L298N IN3</td><td><span style="display:inline-block;width:36px;height:4px;background:#8b5cf6;border-radius:2px;vertical-align:middle;"></span></td><td>Right dir A</td></tr>
+                      <tr onclick="hlWire('bt-in4')" style="cursor:pointer;"><td><strong>Pin 4</strong></td><td>L298N IN4</td><td><span style="display:inline-block;width:36px;height:4px;background:#a78bfa;border-radius:2px;vertical-align:middle;"></span></td><td>Right dir B</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- ASSEMBLY -->
+              <div id="rbp-assemble" class="card-big" style="display:none;animation:fadeSlide 0.3s ease;">
+                <div style="font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">🔧 Assembly Steps</div>
+                <p style="font-size:13.5px;color:var(--t3);margin-bottom:16px;">Click each step to check it off. Complete all 7 steps before uploading code.</p>
+                <div id="rb-assemble-obs">
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">1</div><div><div class="pstep-title">Assemble the chassis</div><div class="pstep-desc">Attach all 4 DC motors to the chassis frame using screws. Fit wheels onto motor shafts. The chassis should roll freely on all 4 wheels.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">2</div><div><div class="pstep-title">Mount Arduino &amp; L298N</div><div class="pstep-desc">Stick Arduino Uno and L298N motor driver onto the chassis top plate using double-sided tape or M3 screws. Keep them close to reduce wire length.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">3</div><div><div class="pstep-title">Connect motors to L298N</div><div class="pstep-desc">Left motors (both) → Motor A terminals. Right motors (both) → Motor B terminals. Twist motor wire pairs together to reduce interference.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">4</div><div><div class="pstep-title">Mount &amp; wire HC-SR04</div><div class="pstep-desc">Mount the ultrasonic sensor at the front, facing forward. Wire: VCC→5V, GND→GND, TRIG→Pin 9, ECHO→Pin 10.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">5</div><div><div class="pstep-title">Wire Arduino → L298N</div><div class="pstep-desc">Pin 5→ENA, Pin 6→ENB, Pin 7→IN1, Pin 8→IN2, Pin 3→IN3, Pin 4→IN4. Double-check each wire against the table before continuing.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">6</div><div><div class="pstep-title">Connect 9V battery</div><div class="pstep-desc">Connect battery holder to L298N power input (+9V and GND). The L298N's 5V output can power the Arduino via the 5V pin.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum g">7</div><div><div class="pstep-title">Final check before power-on</div><div class="pstep-desc">Confirm all connections match the wiring table. No bare wires touching. Battery disconnected during wiring — connect only when ready to test.</div></div></div>
+                </div>
+                <div id="rb-assemble-bt" style="display:none;">
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">1</div><div><div class="pstep-title">Assemble the chassis</div><div class="pstep-desc">Attach all 4 motors and wheels. All wheels should spin freely and motors firmly fastened.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">2</div><div><div class="pstep-title">Mount Arduino, L298N &amp; HC-05</div><div class="pstep-desc">Secure all three boards. Mount HC-05 where its antenna has clear line-of-sight — not buried in metal or near motor coils.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">3</div><div><div class="pstep-title">Wire motors to L298N</div><div class="pstep-desc">Left motor pair → Motor A on L298N. Right motor pair → Motor B on L298N.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">4</div><div><div class="pstep-title">Wire HC-05 to Arduino</div><div class="pstep-desc">VCC→5V, GND→GND. HC-05 TXD → Arduino RX (Pin 0). HC-05 RXD → Arduino TX (Pin 1) via voltage divider (1kΩ + 2kΩ). TX and RX always cross!</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">5</div><div><div class="pstep-title">Wire Arduino → L298N</div><div class="pstep-desc">Pin 5→ENA, Pin 6→ENB, Pin 7→IN1, Pin 8→IN2, Pin 3→IN3, Pin 4→IN4.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum">6</div><div><div class="pstep-title">Pair HC-05 with your phone</div><div class="pstep-desc">Power on. Go to phone Bluetooth settings → select HC-05 → enter 1234 or 0000. Open BT serial app and connect. HC-05 LED slows down when connected.</div></div></div>
+                  <div class="pstep" onclick="toggleStep(this)" style="cursor:pointer;"><div class="pnum g">7</div><div><div class="pstep-title">Final check</div><div class="pstep-desc">Disconnect RX wire from Pin 0 before uploading code. Reconnect after upload. Then connect battery and test commands from phone.</div></div></div>
+                </div>
+                <div style="margin-top:16px;padding:14px 18px;background:var(--bg);border-radius:12px;display:flex;align-items:center;gap:14px;">
+                  <div style="flex:1;">
+                    <div style="font-size:11px;font-weight:700;color:var(--t3);margin-bottom:5px;">ASSEMBLY PROGRESS</div>
+                    <div style="height:7px;background:var(--border);border-radius:4px;overflow:hidden;">
+                      <div id="rb-progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:4px;transition:width 0.4s;"></div>
+                    </div>
+                  </div>
+                  <div id="rb-progress-txt" style="font-size:22px;font-weight:800;font-family:'Space Grotesk',sans-serif;color:var(--blue);">0/7</div>
+                </div>
+              </div>
+
+              <!-- CODE -->
+              <div id="rbp-code" class="card-big" style="display:none;animation:fadeSlide 0.3s ease;">
+                <div style="font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">💻 Arduino Code</div>
+                <p style="font-size:13.5px;color:var(--t3);margin-bottom:16px;">Copy into Arduino IDE and upload via USB. Read the comments — they explain every line.</p>
+                <div id="rb-code-obs">
+                  <div style="background:#0f172a;border-radius:14px;padding:18px;font-family:monospace;font-size:12.5px;line-height:1.9;color:#e2e8f0;position:relative;overflow-x:auto;">
+                    <button onclick="copyCode('obs')" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:white;padding:4px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif;">📋 Copy</button>
+                    <pre id="code-obs" style="margin:0;white-space:pre-wrap;"><span style="color:#64748b;">// ══ OBSTACLE AVOIDANCE CAR ══</span>
+
+<span style="color:#7dd3fc;">// Pin Definitions</span>
+<span style="color:#f472b6;">const int</span> trigPin = <span style="color:#fcd34d;">9</span>;   <span style="color:#64748b;">// HC-SR04 trigger</span>
+<span style="color:#f472b6;">const int</span> echoPin = <span style="color:#fcd34d;">10</span>;  <span style="color:#64748b;">// HC-SR04 echo</span>
+<span style="color:#f472b6;">const int</span> ENA=<span style="color:#fcd34d;">5</span>, ENB=<span style="color:#fcd34d;">6</span>;  <span style="color:#64748b;">// Motor speed (PWM)</span>
+<span style="color:#f472b6;">const int</span> IN1=<span style="color:#fcd34d;">7</span>, IN2=<span style="color:#fcd34d;">8</span>, IN3=<span style="color:#fcd34d;">3</span>, IN4=<span style="color:#fcd34d;">4</span>;
+<span style="color:#f472b6;">long</span> duration; <span style="color:#f472b6;">int</span> distance;
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">setup</span>() {
+  pinMode(trigPin,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(echoPin,<span style="color:#fcd34d;">INPUT</span>);
+  pinMode(ENA,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(ENB,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN1,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN2,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN3,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN4,<span style="color:#fcd34d;">OUTPUT</span>);
+  Serial.begin(<span style="color:#fcd34d;">9600</span>);
+}
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">loop</span>() {
+  distance = <span style="color:#a78bfa;">getDistance</span>();
+  Serial.println(distance);
+  <span style="color:#f472b6;">if</span> (distance &lt; <span style="color:#fcd34d;">20</span>) {   <span style="color:#64748b;">// Obstacle!</span>
+    <span style="color:#a78bfa;">stopMotors</span>(); delay(<span style="color:#fcd34d;">300</span>);
+    <span style="color:#a78bfa;">turnLeft</span>();   delay(<span style="color:#fcd34d;">500</span>);
+  } <span style="color:#f472b6;">else</span> {
+    <span style="color:#a78bfa;">moveForward</span>();           <span style="color:#64748b;">// Clear path</span>
+  }
+}
+
+<span style="color:#f472b6;">int</span> <span style="color:#a78bfa;">getDistance</span>() {
+  digitalWrite(trigPin,<span style="color:#fcd34d;">LOW</span>); delayMicroseconds(<span style="color:#fcd34d;">2</span>);
+  digitalWrite(trigPin,<span style="color:#fcd34d;">HIGH</span>); delayMicroseconds(<span style="color:#fcd34d;">10</span>);
+  digitalWrite(trigPin,<span style="color:#fcd34d;">LOW</span>);
+  duration = pulseIn(echoPin,<span style="color:#fcd34d;">HIGH</span>);
+  <span style="color:#f472b6;">return</span> duration * <span style="color:#fcd34d;">0.034</span> / <span style="color:#fcd34d;">2</span>;
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">moveForward</span>() {
+  analogWrite(ENA,<span style="color:#fcd34d;">180</span>); analogWrite(ENB,<span style="color:#fcd34d;">180</span>);
+  digitalWrite(IN1,<span style="color:#fcd34d;">HIGH</span>); digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);
+  digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>); digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>);
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">turnLeft</span>() {
+  analogWrite(ENA,<span style="color:#fcd34d;">160</span>); analogWrite(ENB,<span style="color:#fcd34d;">160</span>);
+  digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>); digitalWrite(IN2,<span style="color:#fcd34d;">HIGH</span>);
+  digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>); digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>);
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">stopMotors</span>() {
+  digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>); digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);
+  digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>); digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>);
+}</pre>
+                  </div>
+                  <!-- Distance simulator -->
+                  <div style="margin-top:18px;background:var(--bg);border-radius:14px;padding:18px;">
+                    <div style="font-size:15px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:10px;">🎮 Live Code Simulator</div>
+                    <div style="font-size:13px;font-weight:600;margin-bottom:8px;">Drag slider to change distance reading:</div>
+                    <input type="range" min="2" max="100" value="40" id="sim11-dist" oninput="sim11Update(this.value)">
+                    <div style="display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap;">
+                      <div id="sim11-badge" style="padding:7px 16px;border-radius:20px;font-weight:800;font-size:17px;font-family:'Space Grotesk',sans-serif;background:var(--blue);color:white;transition:all 0.3s;">40 cm</div>
+                      <div id="sim11-emoji" style="font-size:34px;">🤖➡️</div>
+                      <div id="sim11-action" style="font-size:13.5px;font-weight:700;color:var(--green);">Moving Forward — path clear</div>
+                    </div>
+                    <div id="sim11-code-highlight" style="margin-top:12px;background:#0f172a;border-radius:10px;padding:10px 14px;font-family:monospace;font-size:12.5px;line-height:1.8;color:#e2e8f0;">
+                      <span style="color:#10b981;">→ moveForward();</span> <span style="color:#64748b;">// Both motors forward at 180</span>
+                    </div>
+                  </div>
+                </div>
+                <div id="rb-code-bt" style="display:none;">
+                  <div class="kp amber" style="margin-bottom:12px;"><div class="kp-icon">📱</div><div class="kp-text">Phone sends single chars: F=Forward, B=Back, L=Left, R=Right, S=Stop.<span>Disconnect HC-05 RX wire from Pin 0 BEFORE uploading. Reattach after upload.</span></div></div>
+                  <div style="background:#0f172a;border-radius:14px;padding:18px;font-family:monospace;font-size:12.5px;line-height:1.9;color:#e2e8f0;position:relative;overflow-x:auto;">
+                    <button onclick="copyCode('bt')" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:white;padding:4px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif;">📋 Copy</button>
+                    <pre id="code-bt" style="margin:0;white-space:pre-wrap;"><span style="color:#64748b;">// ══ BLUETOOTH CONTROLLED CAR ══</span>
+
+<span style="color:#f472b6;">const int</span> ENA=<span style="color:#fcd34d;">5</span>,ENB=<span style="color:#fcd34d;">6</span>,IN1=<span style="color:#fcd34d;">7</span>,IN2=<span style="color:#fcd34d;">8</span>,IN3=<span style="color:#fcd34d;">3</span>,IN4=<span style="color:#fcd34d;">4</span>;
+<span style="color:#f472b6;">char</span> cmd;
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">setup</span>() {
+  Serial.begin(<span style="color:#fcd34d;">9600</span>);
+  pinMode(ENA,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(ENB,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN1,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN2,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN3,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN4,<span style="color:#fcd34d;">OUTPUT</span>);
+  analogWrite(ENA,<span style="color:#fcd34d;">200</span>); analogWrite(ENB,<span style="color:#fcd34d;">200</span>);
+}
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">loop</span>() {
+  <span style="color:#f472b6;">if</span> (Serial.available() > <span style="color:#fcd34d;">0</span>) {
+    cmd = Serial.read();
+    <span style="color:#f472b6;">switch</span>(cmd) {
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'F'</span>: <span style="color:#a78bfa;">moveForward</span>(); <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'B'</span>: <span style="color:#a78bfa;">moveBack</span>();    <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'L'</span>: <span style="color:#a78bfa;">turnLeft</span>();   <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'R'</span>: <span style="color:#a78bfa;">turnRight</span>();  <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'S'</span>: <span style="color:#a78bfa;">stopMotors</span>(); <span style="color:#f472b6;">break</span>;
+    }
+  }
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">moveForward</span>() { digitalWrite(IN1,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">moveBack</span>()    { digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN2,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN4,<span style="color:#fcd34d;">HIGH</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">turnLeft</span>()    { digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN2,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">turnRight</span>()   { digitalWrite(IN1,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN4,<span style="color:#fcd34d;">HIGH</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">stopMotors</span>()  { digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>); }</pre>
+                  </div>
+                  <!-- BT simulator -->
+                  <div style="margin-top:18px;background:var(--bg);border-radius:14px;padding:18px;">
+                    <div style="font-size:15px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:10px;">🎮 Command Simulator</div>
+                    <div style="font-size:13px;margin-bottom:10px;">Tap a button to simulate sending from your phone:</div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+                      <button onclick="simBT('F')" style="padding:10px 20px;background:var(--blue);color:white;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;">▲ F</button>
+                      <button onclick="simBT('B')" style="padding:10px 20px;background:var(--coral);color:white;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;">▼ B</button>
+                      <button onclick="simBT('L')" style="padding:10px 20px;background:var(--amber);color:white;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;">◀ L</button>
+                      <button onclick="simBT('R')" style="padding:10px 20px;background:var(--green);color:white;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;">▶ R</button>
+                      <button onclick="simBT('S')" style="padding:10px 20px;background:var(--slate);color:white;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;">⬛ S</button>
+                    </div>
+                    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                      <div id="bt-sim-emoji" style="font-size:38px;">🤖</div>
+                      <div>
+                        <div id="bt-sim-action" style="font-size:15px;font-weight:800;font-family:'Space Grotesk',sans-serif;color:var(--t3);">Waiting for command…</div>
+                        <div id="bt-sim-code" style="font-family:monospace;font-size:12px;color:var(--t2);margin-top:3px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TEST & DEBUG -->
+              <div id="rbp-test" class="card-big" style="display:none;animation:fadeSlide 0.3s ease;">
+                <div style="font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">✅ Test &amp; Debug</div>
+                <p style="font-size:13.5px;color:var(--t3);margin-bottom:16px;">Something not working? Diagnose it with this checklist.</p>
+                <div id="rb-test-obs">
+                  <div style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--blue);">🚗 Obstacle Car</div>
+                  <div class="g2" style="margin-bottom:14px;">
+                    <div style="background:var(--green-l);border-radius:12px;padding:16px;border:1.5px solid var(--green-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--green);">✅ First: Serial Monitor</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Tools → Serial Monitor (9600 baud). Should show distance numbers. Seeing 0 or garbage? → Check TRIG/ECHO wiring.</div></div>
+                    <div style="background:var(--amber-l);border-radius:12px;padding:16px;border:1.5px solid var(--amber-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--amber);">⚙️ Motors not spinning?</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Check: (1) Battery on L298N? (2) ENA/ENB wired? (3) Motor wires tight in terminals? (4) IN1–IN4 all connected?</div></div>
+                    <div style="background:var(--coral-l);border-radius:12px;padding:16px;border:1.5px solid var(--coral-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--coral);">🔄 Doesn't avoid obstacles?</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Distance always 0 → TRIG/ECHO swapped. Always &gt;20 → sensor not facing forward. Try threshold 30 cm instead of 20.</div></div>
+                    <div style="background:var(--blue-l);border-radius:12px;padding:16px;border:1.5px solid var(--blue-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--blue);">🔧 Motor goes wrong way?</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Swap the two wires in that motor's terminal (Motor A+ ↔ Motor A−). No code change needed — this is mechanical.</div></div>
+                  </div>
+                </div>
+                <div id="rb-test-bt" style="display:none;">
+                  <div style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--green);">📱 Bluetooth Car</div>
+                  <div class="g2" style="margin-bottom:14px;">
+                    <div style="background:var(--green-l);border-radius:12px;padding:16px;border:1.5px solid var(--green-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--green);">✅ Can't pair HC-05?</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Power robot first (HC-05 LED blinks fast). Go to phone BT settings, select HC-05, enter 1234 or 0000. Pair from settings, not from app.</div></div>
+                    <div style="background:var(--amber-l);border-radius:12px;padding:16px;border:1.5px solid var(--amber-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--amber);">⚙️ Paired but no response?</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Check: (1) RX disconnected before upload? (2) App sending uppercase F/B/L/R/S? (3) Baud = 9600? HC-05 slow blink = connected ✅</div></div>
+                    <div style="background:var(--coral-l);border-radius:12px;padding:16px;border:1.5px solid var(--coral-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--coral);">🔄 Wrong direction?</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Swap the two wires in that motor's terminal. If left/right swapped, swap IN1&amp;IN2 with IN3&amp;IN4.</div></div>
+                    <div style="background:var(--purple-l);border-radius:12px;padding:16px;border:1.5px solid var(--purple-m);"><div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--purple);">📡 Signal drops?</div><div style="font-size:12.5px;color:var(--t2);line-height:1.7;">Stay within 5–8 m. Keep HC-05 antenna exposed. Add 100nF capacitors across motor terminals to reduce noise.</div></div>
+                  </div>
+                </div>
+                <div style="background:linear-gradient(135deg,#1d4ed8,#6d28d9);border-radius:14px;padding:22px;color:white;text-align:center;margin-top:6px;">
+                  <div style="font-size:44px;margin-bottom:8px;">🏆</div>
+                  <div style="font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">Robot Complete!</div>
+                  <div style="font-size:13.5px;opacity:0.85;line-height:1.7;max-width:480px;margin:0 auto;">You built a real robot from scratch — wired it, coded it, debugged it. That's the full engineering loop. 🎉</div>
+                  <div style="display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap;">
+                    <span style="background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">⚡ Electronics</span>
+                    <span style="background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">🔌 Wiring</span>
+                    <span style="background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">💻 Code</span>
+                    <span style="background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;">🐛 Debugging</span>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /rb-guide -->
+          </div><!-- /lbody -->
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s10')">← Programming</button>
+            <span class="lesson-info">Lesson 11 of 11 · Build a Robot</span>
+            <button class="navbtn pri" onclick="goSection('s1')">↩ Start Over</button>
           </div>
         </section>
       </main>
@@ -7488,6 +8111,7 @@
         "s8",
         "s9",
         "s10",
+        "s11",
       ];
       let currentIdx = 0;
 
@@ -8152,23 +8776,52 @@
       // ── S10 PROGRAMMING ──
       const pillars = {
         seq: {
-          title: "📋 Sequence",
-          text: "Instructions are executed ONE AT A TIME, in the exact order they are written. Step 1 completes fully, then Step 2 begins. If you reverse two steps, the result changes entirely. Order is not optional — it is the foundation of all logic.",
+          title: "📋 Sequence — Do Things in Order",
+          text: `<strong>Imagine making a sandwich 🥪</strong> — you can't put the lid on before the filling! A program works the same way: it reads your instructions from top to bottom, <em>one at a time</em>, and never skips ahead.<br><br>
+<div style="background:var(--blue-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2;">
+  <span style="color:#888;">// Blink an LED — order matters!</span><br>
+  <span style="color:var(--blue);font-weight:700;">Set Pin 13 HIGH</span>  <span style="color:#888;">← LED turns ON ✅</span><br>
+  <span style="color:var(--purple);font-weight:700;">Wait 1 second</span><br>
+  <span style="color:var(--blue);font-weight:700;">Set Pin 13 LOW</span>   <span style="color:#888;">← LED turns OFF ✅</span><br>
+  <span style="color:var(--purple);font-weight:700;">Wait 1 second</span>
+</div>
+<strong>🔄 Swap the first two lines?</strong> The LED turns on with zero time to stay on — you'd never see it! Order is everything.`,
           color: "var(--blue)",
         },
         cond: {
-          title: "🔀 Condition (IF/ELSE)",
-          text: "A condition is a yes/no question evaluated at runtime. IF the sensor value meets a threshold → do one thing. ELSE → do something different. Without conditions, a robot cannot adapt to changing environments — it would repeat the same action forever regardless of what it senses.",
+          title: "🔀 Condition — Ask a Yes/No Question",
+          text: `<strong>Think of a condition like a security guard 🚪</strong> — it checks something and decides what to do based on the answer.<br><br>
+<div style="background:var(--amber-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2.2;">
+  <span style="color:var(--amber);font-weight:700;">IF</span> <span style="color:var(--blue);">distance &lt; 20cm</span> <span style="color:var(--t3);">(is something close?)</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--coral);font-weight:700;">→ turn the robot away 🔄</span><br>
+  <span style="color:var(--amber);font-weight:700;">ELSE</span> <span style="color:var(--t3);">(no obstacle nearby)</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--green);font-weight:700;">→ keep moving forward ➡️</span>
+</div>
+<strong>Without IF/ELSE</strong>, your robot would just keep driving forward — straight into a wall! 🧱 Conditions are what make robots <em>smart</em> and able to react to the world around them.`,
           color: "var(--amber)",
         },
         loop: {
-          title: "🔁 Loop (Repeat Forever)",
-          text: "Arduino's main program runs inside an infinite loop — it NEVER stops unless power is cut. After the last instruction, it immediately returns to the first. This happens thousands of times per second, making robots responsive and real-time. Without a loop, the robot would sense once, act once, then freeze permanently.",
+          title: "🔁 Loop — Never Stop Checking",
+          text: `<strong>Imagine a security camera 📷</strong> — it doesn't record one photo and stop. It keeps watching, every second, all day long. That's what a loop does for your robot.<br><br>
+<div style="background:var(--green-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2.2;">
+  <span style="color:var(--green);font-weight:700;">Repeat Forever:</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--blue);">📡 Read distance sensor</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--amber);">🧠 IF obstacle → turn away</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--coral);">⚡ ELSE → move forward</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--t3);font-style:italic;">↩ back to top... forever</span>
+</div>
+This loop runs <strong>hundreds of times per second</strong> ⚡ — that's why robots feel smooth and reactive. <strong>No loop = robot reads once, acts once, then freezes forever.</strong> The loop is the heartbeat of every robot! 💓`,
           color: "var(--green)",
         },
         var: {
-          title: "📦 Variable (Store a Value)",
-          text: "A variable is a named storage location in memory that holds a value you can update. Example: distance = 45. Every loop cycle, the program reads fresh sensor data into variables, compares them in conditions, and uses them to decide what to do. Without variables, the program cannot remember anything between instructions.",
+          title: "📦 Variable — A Labelled Box for Data",
+          text: `<strong>A variable is like a labelled box 📦</strong> — you can put a number in it, check what's inside, and replace it with a new number any time you want.<br><br>
+<div style="background:var(--purple-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2.2;">
+  <span style="color:var(--purple);font-weight:700;">distance</span> = <span style="color:var(--blue);">45</span> &nbsp;<span style="color:var(--t3);">← box labelled "distance", holding 45</span><br>
+  <span style="color:var(--purple);font-weight:700;">distance</span> = <span style="color:var(--coral);">12</span> &nbsp;<span style="color:var(--t3);">← same box, new value from sensor</span><br>
+  <span style="color:var(--amber);font-weight:700;">IF</span> <span style="color:var(--purple);">distance</span> &lt; <span style="color:var(--blue);">20</span> → <span style="color:var(--coral);">turn away!</span>
+</div>
+Every time the loop runs, the Arduino <strong>reads the sensor and puts the fresh number into the variable</strong>. The condition then checks <em>that</em> number. Without variables, the robot can't remember anything — it wouldn't even know what the sensor just said! 🤖`,
           color: "var(--purple)",
         },
       };
@@ -8177,15 +8830,211 @@
         const el = document.getElementById("pillar-panel");
         el.style.display = "block";
         el.style.borderColor = p.color;
-        el.innerHTML = `<div style="font-size:14px;font-weight:700;margin-bottom:6px;color:${p.color};">${p.title}</div><div style="font-size:13.5px;color:var(--t2);line-height:1.8;">${p.text}</div>`;
+        el.innerHTML = `<div style="font-size:15px;font-weight:800;margin-bottom:10px;color:${p.color};font-family:'Space Grotesk',sans-serif;">${p.title}</div><div style="font-size:13.5px;color:var(--t2);line-height:1.85;">${p.text}</div>`;
         el.style.animation = "none";
         void el.offsetWidth;
         el.style.animation = "slideUp .22s ease";
       }
 
+      // ── S10 MINI SIMULATOR ──
+      function updateSim(val) {
+        val = parseInt(val);
+        const isClose = val < 20;
+
+        // Distance badge
+        const badge = document.getElementById('sim-dist-badge');
+        badge.textContent = val + ' cm';
+        badge.style.background = isClose ? 'var(--coral)' : 'var(--blue)';
+
+        // Zone badge
+        const zone = document.getElementById('sim-zone-badge');
+        if (isClose) {
+          zone.textContent = '⚠️ Danger Zone';
+          zone.style.background = 'var(--coral-l)';
+          zone.style.color = 'var(--coral)';
+          zone.style.borderColor = 'var(--coral-m)';
+        } else {
+          zone.textContent = '✅ Safe Zone';
+          zone.style.background = 'var(--green-l)';
+          zone.style.color = 'var(--green)';
+          zone.style.borderColor = 'var(--green-m)';
+        }
+
+        // Variable
+        document.getElementById('sim-var-val').textContent = val;
+
+        // IF result
+        const ifRes = document.getElementById('sim-if-result');
+        if (isClose) {
+          ifRes.textContent = 'TRUE ✔ — ' + val + ' IS less than 20 → TURN AWAY!';
+          ifRes.style.color = 'var(--green)';
+        } else {
+          ifRes.textContent = 'FALSE ✘ — ' + val + ' is NOT less than 20';
+          ifRes.style.color = 'var(--coral)';
+        }
+
+        // Action box
+        const box = document.getElementById('sim-action-box');
+        const emoji = document.getElementById('sim-robot-emoji');
+        const title = document.getElementById('sim-action-title');
+        const desc = document.getElementById('sim-action-desc');
+        if (isClose) {
+          box.style.background = 'var(--coral-l)';
+          box.style.borderColor = 'var(--coral-m)';
+          emoji.textContent = '🤖🔄';
+          title.textContent = 'TURNING LEFT — Obstacle detected!';
+          desc.textContent = 'IF branch runs: obstacle is ' + val + ' cm away — too close! Left motor stops, right motor goes → robot turns left to avoid it.';
+        } else {
+          box.style.background = 'var(--green-l)';
+          box.style.borderColor = 'var(--green-m)';
+          emoji.textContent = '🤖➡️';
+          title.textContent = 'Going FORWARD';
+          desc.textContent = 'Path is clear at ' + val + ' cm — the ELSE branch runs. Both motors spin forward at full speed!';
+        }
+      }
+
       // Init
       drawDigital();
       updateAnalogDemo(512);
+      // ── S11 BUILD A ROBOT ──
+      let currentRobot = 'obs';
+      let currentTab = 'parts';
+      let stepsCompleted = 0;
+
+      function selectRobot(type) {
+        currentRobot = type;
+        // Highlight selected card
+        document.getElementById('rb-card-obs').style.borderColor = type === 'obs' ? 'var(--blue)' : 'var(--border-l)';
+        document.getElementById('rb-card-obs').style.boxShadow = type === 'obs' ? '0 0 0 3px rgba(29,78,216,0.18), var(--sh-lg)' : 'var(--sh)';
+        document.getElementById('rb-card-bt').style.borderColor = type === 'bt' ? 'var(--green)' : 'var(--border-l)';
+        document.getElementById('rb-card-bt').style.boxShadow = type === 'bt' ? '0 0 0 3px rgba(4,120,87,0.18), var(--sh-lg)' : 'var(--sh)';
+        // Show guide
+        document.getElementById('rb-guide').style.display = 'block';
+        document.getElementById('rb-guide').style.animation = 'fadeSlide 0.3s ease';
+        // Reset tabs
+        stepsCompleted = 0;
+        updateProgress();
+        // Uncheck steps
+        document.querySelectorAll('.pstep').forEach(s => {
+          s.style.background = '';
+          s.style.borderColor = '';
+          s.querySelector('.pnum').style.background = '';
+        });
+        showRobotContent(type);
+        rbTab('parts');
+      }
+
+      function showRobotContent(type) {
+        ['obs','bt'].forEach(r => {
+          ['parts','wiring','assemble','code','test'].forEach(t => {
+            const el = document.getElementById('rb-' + t + '-' + r);
+            if (el) el.style.display = r === type ? '' : 'none';
+          });
+        });
+        // Simulators
+        const simObs = document.getElementById('sim11-dist');
+        const simBtPanel = document.getElementById('bt-sim-emoji');
+      }
+
+      function rbTab(tab) {
+        currentTab = tab;
+        const tabs = ['parts','wiring','assemble','code','test'];
+        const accentCol = currentRobot === 'obs' ? 'var(--blue)' : 'var(--green)';
+        tabs.forEach(t => {
+          const btn = document.getElementById('rbt-' + t);
+          const panel = document.getElementById('rbp-' + t);
+          if (btn) {
+            btn.style.background = t === tab ? (currentRobot === 'obs' ? 'var(--blue)' : 'var(--green)') : 'transparent';
+            btn.style.color = t === tab ? 'white' : 'var(--t3)';
+          }
+          if (panel) panel.style.display = t === tab ? '' : 'none';
+        });
+      }
+
+      function hlWire(id) {
+        // Reset all wires
+        document.querySelectorAll('path[id^="obs-"], path[id^="bt-"]').forEach(p => {
+          p.style.opacity = '0.75';
+          p.style.strokeWidth = p.getAttribute('stroke-width') || '2';
+        });
+        const wire = document.getElementById(id);
+        if (wire) {
+          wire.style.opacity = '1';
+          wire.style.strokeWidth = '4';
+          setTimeout(() => {
+            if (wire) { wire.style.strokeWidth = '2'; wire.style.opacity = '0.75'; }
+          }, 2500);
+        }
+      }
+
+      function toggleStep(el) {
+        const done = el.dataset.done === '1';
+        if (!done) {
+          el.dataset.done = '1';
+          el.style.background = 'var(--green-l)';
+          el.style.borderColor = 'var(--green)';
+          el.querySelector('.pnum').style.background = 'var(--green)';
+          stepsCompleted++;
+        } else {
+          el.dataset.done = '0';
+          el.style.background = '';
+          el.style.borderColor = '';
+          el.querySelector('.pnum').style.background = '';
+          stepsCompleted = Math.max(0, stepsCompleted - 1);
+        }
+        updateProgress();
+      }
+
+      function updateProgress() {
+        const bar = document.getElementById('rb-progress-bar');
+        const txt = document.getElementById('rb-progress-txt');
+        if (bar) bar.style.width = ((stepsCompleted / 7) * 100) + '%';
+        if (txt) txt.textContent = stepsCompleted + '/7';
+        if (txt) txt.style.color = stepsCompleted >= 7 ? 'var(--green)' : 'var(--blue)';
+      }
+
+      function copyCode(type) {
+        const pre = document.getElementById('code-' + type);
+        if (!pre) return;
+        const text = pre.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = pre.parentElement.querySelector('button');
+          if (btn) { const orig = btn.textContent; btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = orig, 2000); }
+        });
+      }
+
+      function sim11Update(val) {
+        val = parseInt(val);
+        const isClose = val < 20;
+        const badge = document.getElementById('sim11-badge');
+        const emoji = document.getElementById('sim11-emoji');
+        const action = document.getElementById('sim11-action');
+        const codeH = document.getElementById('sim11-code-highlight');
+        if (badge) { badge.textContent = val + ' cm'; badge.style.background = isClose ? 'var(--coral)' : 'var(--blue)'; }
+        if (emoji) emoji.textContent = isClose ? '🤖🔄' : '🤖➡️';
+        if (action) { action.textContent = isClose ? '⚠️ Obstacle! Stopping & turning left…' : '✅ Moving Forward — path clear'; action.style.color = isClose ? 'var(--coral)' : 'var(--green)'; }
+        if (codeH) codeH.innerHTML = isClose
+          ? '<span style="color:#ef4444;">→ stopMotors(); delay(300);</span> <span style="color:#64748b;">// Halt first</span><br><span style="color:#f59e0b;">→ turnLeft(); delay(500);</span> <span style="color:#64748b;">// Steer away</span>'
+          : '<span style="color:#10b981;">→ moveForward();</span> <span style="color:#64748b;">// Both motors forward at 180</span>';
+      }
+
+      function simBT(cmd) {
+        const emoji = document.getElementById('bt-sim-emoji');
+        const action = document.getElementById('bt-sim-action');
+        const code = document.getElementById('bt-sim-code');
+        const map = {
+          F: { e: '🤖⬆️', a: 'Moving FORWARD', c: "case 'F': moveForward(); break;" },
+          B: { e: '🤖⬇️', a: 'Moving BACKWARD', c: "case 'B': moveBack(); break;" },
+          L: { e: '🤖↰', a: 'Turning LEFT', c: "case 'L': turnLeft(); break;" },
+          R: { e: '🤖↱', a: 'Turning RIGHT', c: "case 'R': turnRight(); break;" },
+          S: { e: '🤖⬛', a: 'STOPPED', c: "case 'S': stopMotors(); break;" },
+        };
+        const m = map[cmd];
+        if (emoji) emoji.textContent = m.e;
+        if (action) { action.textContent = m.a; action.style.color = cmd === 'S' ? 'var(--t3)' : 'var(--blue)'; }
+        if (code) code.textContent = m.c;
+      }
+
     </script>
   </body>
 </html>
