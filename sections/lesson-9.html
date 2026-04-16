@@ -1,0 +1,212 @@
+        <section class="section" id="s9">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: var(--green)">9</div>
+              <div>
+                <div class="ltitle">Complete Robot Systems</div>
+                <div class="lsub">
+                  Sensor + Arduino + Actuator = a working robot — click each
+                  project to explore
+                </div>
+                <div class="lmeta">
+                  <span class="ltag green">🏗️ Applied</span
+                  ><span class="ltag blue">4 Projects</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <div
+              class="kc"
+              style="
+                background: linear-gradient(135deg, var(--green-l), #f0fdf4);
+                border-color: var(--green-m);
+              "
+            >
+              <div class="kc-icon">🔗</div>
+              <div>
+                <div class="kc-title" style="color: var(--green)">
+                  Sensor → Arduino → Actuator
+                </div>
+                <div class="kc-sub">
+                  Every real robot follows this exact architecture
+                </div>
+              </div>
+            </div>
+
+            <div class="g4" style="margin-bottom: 24px">
+              <div class="syscard" onclick="showSystem('trash')">
+                <div
+                  style="
+                    height: 90px;
+                    background: var(--green-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 50px;
+                  "
+                >
+                  🗑️
+                </div>
+                <div style="padding: 16px">
+                  <div
+                    style="
+                      font-size: 16px;
+                      font-weight: 700;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Smart Trash Can
+                  </div>
+                  <p
+                    style="
+                      font-size: 13px;
+                      color: var(--t3);
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Lid opens when hand detected nearby
+                  </p>
+                  <div style="display: flex; gap: 5px; flex-wrap: wrap">
+                    <span class="tag tag-blue">Ultrasonic</span
+                    ><span class="tag tag-coral">Servo</span>
+                  </div>
+                </div>
+              </div>
+              <div class="syscard" onclick="showSystem('parking')">
+                <div
+                  style="
+                    height: 90px;
+                    background: var(--blue-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 50px;
+                  "
+                >
+                  🅿️
+                </div>
+                <div style="padding: 16px">
+                  <div
+                    style="
+                      font-size: 16px;
+                      font-weight: 700;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Parking Sensor
+                  </div>
+                  <p
+                    style="
+                      font-size: 13px;
+                      color: var(--t3);
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Beeps faster as car gets closer
+                  </p>
+                  <div style="display: flex; gap: 5px; flex-wrap: wrap">
+                    <span class="tag tag-blue">Distance</span
+                    ><span class="tag tag-coral">Buzzer</span
+                    ><span class="tag tag-amber">LED</span>
+                  </div>
+                </div>
+              </div>
+              <div class="syscard" onclick="showSystem('line')">
+                <div
+                  style="
+                    height: 90px;
+                    background: var(--amber-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 50px;
+                  "
+                >
+                  📏
+                </div>
+                <div style="padding: 16px">
+                  <div
+                    style="
+                      font-size: 16px;
+                      font-weight: 700;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Line Follower
+                  </div>
+                  <p
+                    style="
+                      font-size: 13px;
+                      color: var(--t3);
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Follows black line via IR sensors
+                  </p>
+                  <div style="display: flex; gap: 5px; flex-wrap: wrap">
+                    <span class="tag tag-blue">IR × 2</span
+                    ><span class="tag tag-coral">DC Motors × 2</span>
+                  </div>
+                </div>
+              </div>
+              <div class="syscard" onclick="showSystem('light')">
+                <div
+                  style="
+                    height: 90px;
+                    background: var(--coral-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 50px;
+                  "
+                >
+                  💡
+                </div>
+                <div style="padding: 16px">
+                  <div
+                    style="
+                      font-size: 16px;
+                      font-weight: 700;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Auto Lighting
+                  </div>
+                  <p
+                    style="
+                      font-size: 13px;
+                      color: var(--t3);
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Turns on automatically when dark
+                  </p>
+                  <div style="display: flex; gap: 5px; flex-wrap: wrap">
+                    <span class="tag tag-blue">LDR</span
+                    ><span class="tag tag-amber">LED Strip</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="system-panel"
+              class="card-big"
+              style="display: none; animation: slideUp 0.22s ease"
+            ></div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s8')">
+              ← Robot Thinking
+            </button>
+            <span class="lesson-info">Lesson 9 of 10 · Robot Systems</span>
+            <button class="navbtn pri" onclick="goSection('s10')">
+              Next: Programming →
+            </button>
+          </div>
+        </section>

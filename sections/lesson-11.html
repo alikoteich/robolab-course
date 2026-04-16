@@ -1,0 +1,3406 @@
+        <section class="section" id="s11">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div
+                class="lnum"
+                style="background: linear-gradient(135deg, #1d4ed8, #6d28d9)"
+              >
+                11
+              </div>
+              <div>
+                <div class="ltitle">Build a Robot 🤖</div>
+                <div class="lsub">
+                  Choose your robot, follow the wiring guide, upload the code —
+                  step by step
+                </div>
+                <div class="lmeta">
+                  <span class="ltag blue">🔧 Assembly</span
+                  ><span class="ltag purple">💡 Interactive</span
+                  ><span class="ltag green">🏆 Project</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <div
+              class="kc"
+              style="
+                background: linear-gradient(135deg, #f0fdf4, #eff6ff);
+                border-color: #86efac;
+              "
+            >
+              <div class="kc-icon">🏗️</div>
+              <div>
+                <div class="kc-title">Your first complete robot project</div>
+                <div class="kc-sub">
+                  Pick one of two robots below, then follow the interactive
+                  build guide — components, wiring, code, and testing all in one
+                  place.
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                font-size: 20px;
+                font-weight: 800;
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                margin-bottom: 16px;
+              "
+            >
+              Choose Your Robot
+            </div>
+            <div class="g2" style="margin-bottom: 28px">
+              <!-- ROBOT 1 -->
+              <div
+                id="rb-card-obs"
+                onclick="selectRobot('obs')"
+                style="
+                  background: white;
+                  border-radius: 20px;
+                  border: 2.5px solid var(--border-l);
+                  box-shadow: var(--sh);
+                  cursor: pointer;
+                  overflow: hidden;
+                  transition: all 0.25s;
+                "
+              >
+                <div
+                  style="
+                    height: 180px;
+                    position: relative;
+                    overflow: hidden;
+                    background: linear-gradient(135deg, #dbeafe, #ede9fe);
+                  "
+                >
+                  <img
+                    src="assets/images/obstacle_car.jpg"
+                    alt="Obstacle Avoidance Car"
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      display: block;
+                      transition: transform 0.3s;
+                    "
+                    onmouseover="this.style.transform = 'scale(1.06)'"
+                    onmouseout="this.style.transform = 'scale(1)'"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div
+                    style="
+                      display: none;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                      height: 100%;
+                      gap: 8px;
+                    "
+                  >
+                    <div style="font-size: 60px">🚗</div>
+                    <div
+                      style="
+                        font-size: 12px;
+                        color: var(--t3);
+                        font-family: monospace;
+                      "
+                    >
+                      obstacle_car.jpg
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      position: absolute;
+                      bottom: 0;
+                      left: 0;
+                      right: 0;
+                      background: rgba(29, 78, 216, 0.82);
+                      color: white;
+                      font-size: 11px;
+                      font-weight: 700;
+                      text-align: center;
+                      padding: 7px;
+                      backdrop-filter: blur(4px);
+                    "
+                  >
+                    📷 Click card to open build guide
+                  </div>
+                  <button
+                    onclick="
+                      event.stopPropagation();
+                      openLB(
+                        'Obstacle Avoidance Car',
+                        'assets/images/obstacle_car.jpg',
+                        'A 4-wheel robot that uses an HC-SR04 ultrasonic sensor to detect objects ahead and steer around them autonomously.',
+                        [
+                          'HC-SR04',
+                          'L298N',
+                          '4x DC Motor',
+                          'Arduino Uno',
+                          '9V Battery',
+                        ],
+                      );
+                    "
+                    style="
+                      position: absolute;
+                      top: 10px;
+                      right: 10px;
+                      background: rgba(255, 255, 255, 0.9);
+                      border: none;
+                      border-radius: 8px;
+                      padding: 5px 10px;
+                      font-size: 11px;
+                      font-weight: 700;
+                      cursor: pointer;
+                      color: var(--blue);
+                    "
+                  >
+                    🔍 View Photo
+                  </button>
+                </div>
+                <div style="padding: 20px 22px 22px">
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 36px;
+                        height: 36px;
+                        background: var(--blue-l);
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 20px;
+                      "
+                    >
+                      🚗
+                    </div>
+                    <div>
+                      <div
+                        style="
+                          font-size: 17px;
+                          font-weight: 800;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        Obstacle Avoidance Car
+                      </div>
+                      <div style="font-size: 12px; color: var(--t3)">
+                        Autonomous · Sensor-driven
+                      </div>
+                    </div>
+                  </div>
+                  <p
+                    style="
+                      font-size: 13.5px;
+                      color: var(--t2);
+                      line-height: 1.7;
+                      margin-bottom: 14px;
+                    "
+                  >
+                    This robot drives forward on its own and automatically
+                    steers away when the ultrasonic sensor detects an obstacle
+                    within 20 cm. No human input needed!
+                  </p>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap">
+                    <span class="tag tag-blue">📡 HC-SR04</span>
+                    <span class="tag tag-amber">⚙️ L298N Driver</span>
+                    <span class="tag tag-green">🔄 4x DC Motor</span>
+                    <span class="tag tag-coral">🤖 Autonomous</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ROBOT 2 -->
+              <div
+                id="rb-card-bt"
+                onclick="selectRobot('bt')"
+                style="
+                  background: white;
+                  border-radius: 20px;
+                  border: 2.5px solid var(--border-l);
+                  box-shadow: var(--sh);
+                  cursor: pointer;
+                  overflow: hidden;
+                  transition: all 0.25s;
+                "
+              >
+                <div
+                  style="
+                    height: 180px;
+                    position: relative;
+                    overflow: hidden;
+                    background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+                  "
+                >
+                  <img
+                    src="assets/images/bluetooth_car.jpg"
+                    alt="Bluetooth Controlled Car"
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      display: block;
+                      transition: transform 0.3s;
+                    "
+                    onmouseover="this.style.transform = 'scale(1.06)'"
+                    onmouseout="this.style.transform = 'scale(1)'"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div
+                    style="
+                      display: none;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                      height: 100%;
+                      gap: 8px;
+                    "
+                  >
+                    <div style="font-size: 60px">📱</div>
+                    <div
+                      style="
+                        font-size: 12px;
+                        color: var(--t3);
+                        font-family: monospace;
+                      "
+                    >
+                      bluetooth_car.jpg
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      position: absolute;
+                      bottom: 0;
+                      left: 0;
+                      right: 0;
+                      background: rgba(4, 120, 87, 0.82);
+                      color: white;
+                      font-size: 11px;
+                      font-weight: 700;
+                      text-align: center;
+                      padding: 7px;
+                      backdrop-filter: blur(4px);
+                    "
+                  >
+                    📷 Click card to open build guide
+                  </div>
+                  <button
+                    onclick="
+                      event.stopPropagation();
+                      openLB(
+                        'Bluetooth Controlled Car',
+                        'assets/images/bluetooth_car.jpg',
+                        'A phone-controlled 4-wheel robot using HC-05 Bluetooth. Send F/B/L/R/S commands via any BT serial app.',
+                        [
+                          'HC-05 Bluetooth',
+                          'L298N',
+                          '4x DC Motor',
+                          'Arduino Uno',
+                          '9V Battery',
+                        ],
+                      );
+                    "
+                    style="
+                      position: absolute;
+                      top: 10px;
+                      right: 10px;
+                      background: rgba(255, 255, 255, 0.9);
+                      border: none;
+                      border-radius: 8px;
+                      padding: 5px 10px;
+                      font-size: 11px;
+                      font-weight: 700;
+                      cursor: pointer;
+                      color: var(--green);
+                    "
+                  >
+                    🔍 View Photo
+                  </button>
+                </div>
+                <div style="padding: 20px 22px 22px">
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 36px;
+                        height: 36px;
+                        background: var(--green-l);
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 20px;
+                      "
+                    >
+                      📱
+                    </div>
+                    <div>
+                      <div
+                        style="
+                          font-size: 17px;
+                          font-weight: 800;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        Bluetooth Controlled Car
+                      </div>
+                      <div style="font-size: 12px; color: var(--t3)">
+                        Remote-controlled · Phone app
+                      </div>
+                    </div>
+                  </div>
+                  <p
+                    style="
+                      font-size: 13.5px;
+                      color: var(--t2);
+                      line-height: 1.7;
+                      margin-bottom: 14px;
+                    "
+                  >
+                    Control this robot from your phone via Bluetooth! Send
+                    commands (F/B/L/R/S) using any BT serial app. Great for
+                    learning wireless communication.
+                  </p>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap">
+                    <span class="tag tag-green">📶 HC-05 BT</span>
+                    <span class="tag tag-amber">⚙️ L298N Driver</span>
+                    <span class="tag tag-blue">📱 Phone App</span>
+                    <span class="tag tag-purple">🎮 Remote</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BUILD GUIDE PANEL -->
+            <div id="rb-guide" style="display: none">
+              <!-- Tab bar -->
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+                  margin-bottom: 20px;
+                  background: white;
+                  padding: 6px;
+                  border-radius: 14px;
+                  border: 1px solid var(--border-l);
+                  box-shadow: var(--sh);
+                  width: fit-content;
+                  flex-wrap: wrap;
+                "
+              >
+                <button
+                  id="rbt-parts"
+                  onclick="rbTab('parts')"
+                  style="
+                    padding: 9px 16px;
+                    border-radius: 10px;
+                    border: none;
+                    background: var(--blue);
+                    color: white;
+                    font-weight: 700;
+                    font-size: 12.5px;
+                    cursor: pointer;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                  "
+                >
+                  📦 Parts
+                </button>
+                <button
+                  id="rbt-wiring"
+                  onclick="rbTab('wiring')"
+                  style="
+                    padding: 9px 16px;
+                    border-radius: 10px;
+                    border: none;
+                    background: transparent;
+                    color: var(--t3);
+                    font-weight: 600;
+                    font-size: 12.5px;
+                    cursor: pointer;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                  "
+                >
+                  🔌 Wiring
+                </button>
+                <button
+                  id="rbt-assemble"
+                  onclick="rbTab('assemble')"
+                  style="
+                    padding: 9px 16px;
+                    border-radius: 10px;
+                    border: none;
+                    background: transparent;
+                    color: var(--t3);
+                    font-weight: 600;
+                    font-size: 12.5px;
+                    cursor: pointer;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                  "
+                >
+                  🔧 Assembly
+                </button>
+                <button
+                  id="rbt-code"
+                  onclick="rbTab('code')"
+                  style="
+                    padding: 9px 16px;
+                    border-radius: 10px;
+                    border: none;
+                    background: transparent;
+                    color: var(--t3);
+                    font-weight: 600;
+                    font-size: 12.5px;
+                    cursor: pointer;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                  "
+                >
+                  💻 Code
+                </button>
+                <button
+                  id="rbt-test"
+                  onclick="rbTab('test')"
+                  style="
+                    padding: 9px 16px;
+                    border-radius: 10px;
+                    border: none;
+                    background: transparent;
+                    color: var(--t3);
+                    font-weight: 600;
+                    font-size: 12.5px;
+                    cursor: pointer;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                  "
+                >
+                  ✅ Test
+                </button>
+              </div>
+
+              <!-- PARTS -->
+              <div
+                id="rbp-parts"
+                class="card-big"
+                style="animation: fadeSlide 0.3s ease"
+              >
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 4px;
+                  "
+                >
+                  📦 Parts List
+                </div>
+                <p
+                  style="
+                    font-size: 13.5px;
+                    color: var(--t3);
+                    margin-bottom: 18px;
+                  "
+                >
+                  Click any component card to view a photo and details.
+                </p>
+                <div id="rb-parts-obs">
+                  <div class="g3" style="margin-bottom: 16px">
+                    <!-- Arduino -->
+                    <div
+                      style="
+                        background: var(--blue-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--blue-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'Arduino Uno R3',
+                          'assets/images/arduino_uno_r3.png',
+                          'Microcontroller development board based on ATmega328P. It reads sensors, processes logic, and controls actuators using digital and analog pins.',
+                          [
+                            'ATmega328P',
+                            '16 MHz clock',
+                            '14 Digital Pins (6 PWM)',
+                            '6 Analog Inputs',
+                            '5V operating voltage',
+                            '32KB Flash memory',
+                          ],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">🤖</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        Arduino Uno R3
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        The brain
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--blue);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 1 · 🔍 view photo
+                      </div>
+                    </div>
+
+                    <!-- Ultrasonic -->
+                    <div
+                      style="
+                        background: var(--amber-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--amber-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'HC-SR04 Ultrasonic Sensor',
+                          'hc_sr04.png',
+                          'Distance sensor that sends a 40kHz ultrasonic pulse and measures the echo return time to calculate distance using time-of-flight principle.',
+                          [
+                            'Range: 2–400 cm',
+                            'Accuracy: ±3 mm',
+                            'Operating Voltage: 5V',
+                            'Pins: VCC, Trig, Echo, GND',
+                          ],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">📡</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        HC-SR04 Sensor
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        Ultrasonic distance
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--amber);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 1 · 🔍 view photo
+                      </div>
+                    </div>
+
+                    <!-- L298N -->
+                    <div
+                      style="
+                        background: var(--coral-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--coral-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'L298N Motor Driver',
+                          'l298n.png',
+                          'Dual H-bridge motor driver module used to control DC motor direction and speed via PWM signals from Arduino.',
+                          [
+                            'Dual H-Bridge IC',
+                            'Motor Voltage: 5–35V',
+                            'Control via PWM',
+                            'Built-in 5V regulator',
+                            'Controls 2 DC motors',
+                          ],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">⚙️</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        L298N Driver
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        Motor direction & speed
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--coral);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 1 · 🔍 view photo
+                      </div>
+                    </div>
+
+                    <!-- DC Motors -->
+                    <div
+                      style="
+                        background: var(--green-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--green-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'DC Gear Motors with Wheels',
+                          'assets/images/dc_motor_wheel.png',
+                          'Low-voltage DC geared motors that convert electrical energy into rotational mechanical motion to move the robot chassis.',
+                          [
+                            'Operating Voltage: 3–12V',
+                            'High torque gearbox',
+                            'Used with L298N driver',
+                            '4 motors for 4WD chassis',
+                          ],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">🔄</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        DC Motors + Wheels
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        4 motors, 4 wheels, chassis
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--green);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 4 each · 🔍 view photo
+                      </div>
+                    </div>
+
+                    <!-- Battery -->
+                    <div
+                      style="
+                        background: var(--purple-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--purple-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          '9V Battery with Holder',
+                          'assets/images/9v_battery_holder.png',
+                          'Power source supplying voltage to Arduino and motor driver. Provides portable energy for standalone operation.',
+                          [
+                            'Nominal Voltage: 9V',
+                            'Used via VIN or DC jack',
+                            'Portable power supply',
+                            'Not ideal for high-current motors',
+                          ],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">🔋</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        9V Battery + Holder
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        Powers system
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--purple);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 1 · 🔍 view photo
+                      </div>
+                    </div>
+
+                    <!-- Jumper Wires -->
+                    <div
+                      style="
+                        background: var(--slate-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--border);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'Jumper Wires (Male-to-Male)',
+                          'assets/images/jumper_wires.png',
+                          'Flexible conductive wires used to connect Arduino pins to sensors, drivers, and breadboard rows.',
+                          [
+                            'Male-to-male connectors',
+                            'Breadboard compatible',
+                            'Used for signal and power lines',
+                            'Low current connections',
+                          ],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">🧵</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        Jumper Wires
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        Male-to-male wires
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--slate);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 20+ · 🔍 view photo
+                      </div>
+                    </div>
+                  </div>
+                  <div class="kp green">
+                    <div class="kp-icon">💡</div>
+                    <div class="kp-text">
+                      Many robot car kits include chassis + 4 motors + wheels
+                      already assembled. Search "4WD Arduino robot car
+                      kit".<span
+                        >The L298N and HC-SR04 are usually sold
+                        separately.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div id="rb-parts-bt" style="display: none">
+                  <div class="g3" style="margin-bottom: 16px">
+                    <div
+                      style="
+                        background: var(--blue-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--blue-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'Arduino Uno R3',
+                          'assets/images/arduino_uno.jpg',
+                          'Receives BT commands and tells the motor driver how to move.',
+                          ['ATmega328P', 'Serial RX/TX'],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">🤖</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        Arduino Uno R3
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        Receives BT commands
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--blue);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 1 · 🔍 view photo
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--green-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--green-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'HC-05 Bluetooth Module',
+                          'assets/images/hc05.jpg',
+                          'Serial Bluetooth module. Pairs with phone like a headset. Range ~10 m.',
+                          ['BT 2.0', '9600 baud', '3.3V logic', '10 m range'],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">📶</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        HC-05 Bluetooth
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        Wireless phone connection
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--green);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 1 · 🔍 view photo
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--coral-l);
+                        border-radius: 14px;
+                        padding: 16px;
+                        border: 1.5px solid var(--coral-m);
+                        cursor: pointer;
+                      "
+                      onclick="
+                        openLB(
+                          'L298N Motor Driver',
+                          'assets/images/l298n.jpg',
+                          'H-bridge. Controls 2 motors — direction and speed.',
+                          ['Dual H-bridge', 'PWM speed', '12V input'],
+                        )
+                      "
+                    >
+                      <div style="font-size: 34px; margin-bottom: 6px">⚙️</div>
+                      <div
+                        style="
+                          font-weight: 800;
+                          font-size: 14px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        "
+                      >
+                        L298N Driver
+                      </div>
+                      <div
+                        style="
+                          font-size: 11.5px;
+                          color: var(--t3);
+                          margin-top: 2px;
+                        "
+                      >
+                        Motor direction & speed
+                      </div>
+                      <div
+                        style="
+                          margin-top: 8px;
+                          font-size: 11px;
+                          color: var(--coral);
+                          font-weight: 700;
+                        "
+                      >
+                        Qty: 1 · 🔍 view photo
+                      </div>
+                    </div>
+                    <div
+  style="
+    background: var(--green-l);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1.5px solid var(--green-m);
+    cursor: pointer;
+  "
+  onclick="openLB(
+    'DC Gear Motors with Wheels',
+    'assets/images/dc_motor_wheel.png',
+    'Low-voltage DC geared motors used to move the robot chassis. They convert electrical energy into rotational motion and are controlled through the L298N motor driver.',
+    [
+      'Operating Voltage: 3–12V',
+      'High torque gearbox',
+      'Used with L298N driver',
+      '4WD robot chassis'
+    ]
+  )"
+>
+  <div style="font-size: 34px; margin-bottom: 6px">🔄</div>
+  <div style="font-weight: 800; font-size: 14px; font-family: 'Space Grotesk', sans-serif;">
+    DC Motors + Wheels
+  </div>
+  <div style="font-size: 11.5px; color: var(--t3); margin-top: 2px;">
+    4 motors, 4 wheels, chassis
+  </div>
+  <div style="margin-top: 8px; font-size: 11px; color: var(--green); font-weight: 700;">
+    Qty: 4 each · 🔍 View Photo
+  </div>
+</div>
+                    <div
+  style="
+    background: var(--purple-l);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1.5px solid var(--purple-m);
+    cursor: pointer;
+  "
+  onclick="openLB(
+    '9V Battery with Holder',
+    'assets/images/9v_battery_holder.png',
+    'Portable 9V power supply used to power the Arduino through the VIN pin or DC jack. Not recommended for high-current motors due to limited output current.',
+    [
+      'Nominal Voltage: 9V',
+      'Connect via VIN or DC Jack',
+      'Portable power supply',
+      'Low current capacity'
+    ]
+  )"
+>
+  <div style="font-size: 34px; margin-bottom: 6px">🔋</div>
+  <div style="font-weight: 800; font-size: 14px; font-family: 'Space Grotesk', sans-serif;">
+    9V Battery + Holder
+  </div>
+  <div style="font-size: 11.5px; color: var(--t3); margin-top: 2px;">
+    Powers motors & Arduino
+  </div>
+  <div style="margin-top: 8px; font-size: 11px; color: var(--purple); font-weight: 700;">
+    Qty: 1 · 🔍 View Photo
+  </div>
+</div>
+                    <div
+  style="
+    background: var(--amber-l);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1.5px solid var(--amber-m);
+    cursor: pointer;
+  "
+  onclick="openLB(
+    'Phone with Bluetooth App',
+    'assets/images/bluetooth_app.jpg',
+    'Smartphone used to control the robot via Bluetooth. Commands like F, B, L, R, and S are sent using a serial Bluetooth terminal application.',
+    [
+      'Bluetooth communication',
+      'HC-05 compatible',
+      'Serial Bluetooth Terminal',
+      'Free on Play Store'
+    ]
+  )"
+>
+  <div style="font-size: 34px; margin-bottom: 6px">📱</div>
+  <div style="font-weight: 800; font-size: 14px; font-family: 'Space Grotesk', sans-serif;">
+    Phone + BT App
+  </div>
+  <div style="font-size: 11.5px; color: var(--t3); margin-top: 2px;">
+    "Serial Bluetooth Terminal"
+  </div>
+  <div style="margin-top: 8px; font-size: 11px; color: var(--amber); font-weight: 700;">
+    Free on Play Store · 🔍 View Photo
+  </div>
+</div>
+                  </div>
+                  <div class="kp green">
+                    <div class="kp-icon">📱</div>
+                    <div class="kp-text">
+                      Use <strong>"Serial Bluetooth Terminal"</strong> (Android)
+                      or <strong>"Bluetooth Serial"</strong> (iOS). Pair with
+                      HC-05, then send F, B, L, R, S.<span
+                        >Default HC-05 pairing password is
+                        <strong>1234</strong> or <strong>0000</strong>.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WIRING -->
+              <div
+                id="rbp-wiring"
+                class="card-big"
+                style="display: none; animation: fadeSlide 0.3s ease"
+              >
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 4px;
+                  "
+                >
+                  🔌 Wiring Diagram
+                </div>
+                <p
+                  style="
+                    font-size: 13.5px;
+                    color: var(--t3);
+                    margin-bottom: 16px;
+                  "
+                >
+                  Click any row in the table to highlight that wire on the
+                  diagram.
+                </p>
+
+                <!-- Obstacle wiring SVG -->
+                <div id="rb-wiring-obs">
+                  <div
+                    style="
+                      background: var(--bg);
+                      border-radius: 14px;
+                      padding: 16px;
+                      margin-bottom: 16px;
+                      overflow-x: auto;
+                    "
+                  >
+                    <svg
+                      viewBox="0 0 700 330"
+                      style="
+                        width: 100%;
+                        max-width: 700px;
+                        display: block;
+                        margin: 0 auto;
+                      "
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="10"
+                        y="90"
+                        width="105"
+                        height="165"
+                        rx="8"
+                        fill="#00549E"
+                        stroke="#003E7A"
+                        stroke-width="2"
+                      />
+                      <text
+                        x="62"
+                        y="110"
+                        text-anchor="middle"
+                        fill="white"
+                        font-size="9.5"
+                        font-family="Space Grotesk"
+                        font-weight="700"
+                      >
+                        ARDUINO UNO
+                      </text>
+                      <circle cx="115" cy="130" r="4" fill="#fca5a5" />
+                      <text
+                        x="113"
+                        y="132"
+                        fill="#b91c1c"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        GND
+                      </text>
+                      <circle cx="115" cy="148" r="4" fill="#93c5fd" />
+                      <text
+                        x="113"
+                        y="150"
+                        fill="#1d4ed8"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin9
+                      </text>
+                      <circle cx="115" cy="166" r="4" fill="#bfdbfe" />
+                      <text
+                        x="113"
+                        y="168"
+                        fill="#1d4ed8"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin10
+                      </text>
+                      <circle cx="115" cy="188" r="4" fill="#fcd34d" />
+                      <text
+                        x="113"
+                        y="190"
+                        fill="#b45309"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin5
+                      </text>
+                      <circle cx="115" cy="204" r="4" fill="#fde68a" />
+                      <text
+                        x="113"
+                        y="206"
+                        fill="#b45309"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin6
+                      </text>
+                      <circle cx="115" cy="220" r="4" fill="#6ee7b7" />
+                      <text
+                        x="113"
+                        y="222"
+                        fill="#047857"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin7
+                      </text>
+                      <circle cx="115" cy="236" r="4" fill="#a7f3d0" />
+                      <text
+                        x="113"
+                        y="238"
+                        fill="#047857"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin8
+                      </text>
+                      <circle cx="115" cy="252" r="4" fill="#c4b5fd" />
+                      <text
+                        x="113"
+                        y="254"
+                        fill="#6d28d9"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin3
+                      </text>
+                      <circle cx="115" cy="268" r="4" fill="#ddd6fe" />
+                      <text
+                        x="113"
+                        y="270"
+                        fill="#6d28d9"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin4
+                      </text>
+                      <!-- HC-SR04 -->
+                      <rect
+                        x="290"
+                        y="20"
+                        width="130"
+                        height="76"
+                        rx="8"
+                        fill="#1a1a2a"
+                        stroke="#334155"
+                        stroke-width="1.5"
+                      />
+                      <text
+                        x="355"
+                        y="42"
+                        text-anchor="middle"
+                        fill="white"
+                        font-size="9.5"
+                        font-family="Space Grotesk"
+                        font-weight="700"
+                      >
+                        HC-SR04
+                      </text>
+                      <circle
+                        cx="308"
+                        cy="60"
+                        r="13"
+                        fill="#2a2a3a"
+                        stroke="#555"
+                        stroke-width="1"
+                      />
+                      <circle cx="308" cy="60" r="7" fill="#555" />
+                      <circle
+                        cx="400"
+                        cy="60"
+                        r="13"
+                        fill="#2a2a3a"
+                        stroke="#555"
+                        stroke-width="1"
+                      />
+                      <circle cx="400" cy="60" r="7" fill="#555" />
+                      <circle cx="308" cy="92" r="3.5" fill="#93c5fd" />
+                      <text
+                        x="308"
+                        y="104"
+                        text-anchor="middle"
+                        fill="#94a3b8"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        TRIG
+                      </text>
+                      <circle cx="330" cy="92" r="3.5" fill="#bfdbfe" />
+                      <text
+                        x="330"
+                        y="104"
+                        text-anchor="middle"
+                        fill="#94a3b8"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        ECHO
+                      </text>
+                      <circle cx="352" cy="92" r="3.5" fill="#fca5a5" />
+                      <text
+                        x="352"
+                        y="104"
+                        text-anchor="middle"
+                        fill="#94a3b8"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        GND
+                      </text>
+                      <circle cx="380" cy="92" r="3.5" fill="#86efac" />
+                      <text
+                        x="380"
+                        y="104"
+                        text-anchor="middle"
+                        fill="#94a3b8"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        VCC
+                      </text>
+                      <!-- L298N -->
+                      <rect
+                        x="455"
+                        y="80"
+                        width="125"
+                        height="165"
+                        rx="8"
+                        fill="#1a1a2a"
+                        stroke="#334155"
+                        stroke-width="1.5"
+                      />
+                      <text
+                        x="517"
+                        y="100"
+                        text-anchor="middle"
+                        fill="white"
+                        font-size="9.5"
+                        font-family="Space Grotesk"
+                        font-weight="700"
+                      >
+                        L298N
+                      </text>
+                      <circle cx="455" cy="140" r="3.5" fill="#fcd34d" />
+                      <text
+                        x="453"
+                        y="142"
+                        text-anchor="end"
+                        fill="#b45309"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        ENA
+                      </text>
+                      <circle cx="455" cy="157" r="3.5" fill="#fde68a" />
+                      <text
+                        x="453"
+                        y="159"
+                        text-anchor="end"
+                        fill="#b45309"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        ENB
+                      </text>
+                      <circle cx="455" cy="176" r="3.5" fill="#6ee7b7" />
+                      <text
+                        x="453"
+                        y="178"
+                        text-anchor="end"
+                        fill="#047857"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        IN1
+                      </text>
+                      <circle cx="455" cy="193" r="3.5" fill="#a7f3d0" />
+                      <text
+                        x="453"
+                        y="195"
+                        text-anchor="end"
+                        fill="#047857"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        IN2
+                      </text>
+                      <circle cx="455" cy="210" r="3.5" fill="#c4b5fd" />
+                      <text
+                        x="453"
+                        y="212"
+                        text-anchor="end"
+                        fill="#6d28d9"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        IN3
+                      </text>
+                      <circle cx="455" cy="227" r="3.5" fill="#ddd6fe" />
+                      <text
+                        x="453"
+                        y="229"
+                        text-anchor="end"
+                        fill="#6d28d9"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        IN4
+                      </text>
+                      <circle cx="497" cy="80" r="3.5" fill="#fca5a5" />
+                      <text
+                        x="497"
+                        y="76"
+                        text-anchor="middle"
+                        fill="#b91c1c"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        GND
+                      </text>
+                      <circle cx="517" cy="80" r="3.5" fill="#1e293b" />
+                      <text
+                        x="517"
+                        y="76"
+                        text-anchor="middle"
+                        fill="#1e293b"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        +9V
+                      </text>
+                      <circle cx="537" cy="80" r="3.5" fill="#86efac" />
+                      <text
+                        x="537"
+                        y="76"
+                        text-anchor="middle"
+                        fill="#047857"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        5Vout
+                      </text>
+                      <!-- Wires -->
+                      <path
+                        id="obs-trig"
+                        d="M115 148 Q212 148 308 92"
+                        stroke="#3b82f6"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="obs-echo"
+                        d="M115 166 Q222 166 330 92"
+                        stroke="#60a5fa"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="obs-ena"
+                        d="M115 188 Q285 188 455 140"
+                        stroke="#f59e0b"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="obs-enb"
+                        d="M115 204 Q285 204 455 157"
+                        stroke="#fcd34d"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="obs-in1"
+                        d="M115 220 Q285 220 455 176"
+                        stroke="#10b981"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="obs-in2"
+                        d="M115 236 Q285 236 455 193"
+                        stroke="#34d399"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="obs-in3"
+                        d="M115 252 Q285 258 455 210"
+                        stroke="#8b5cf6"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="obs-in4"
+                        d="M115 268 Q285 274 455 227"
+                        stroke="#a78bfa"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <!-- GND bus dashed -->
+                      <path
+                        d="M115 130 Q230 20 352 92"
+                        stroke="#ef4444"
+                        stroke-width="1.5"
+                        fill="none"
+                        stroke-dasharray="5 3"
+                        opacity="0.55"
+                      />
+                      <path
+                        d="M230 20 L497 80"
+                        stroke="#ef4444"
+                        stroke-width="1.5"
+                        fill="none"
+                        stroke-dasharray="5 3"
+                        opacity="0.55"
+                      />
+                      <!-- 5V bus dashed -->
+                      <path
+                        d="M380 92 Q410 50 537 80"
+                        stroke="#22c55e"
+                        stroke-width="1.5"
+                        fill="none"
+                        stroke-dasharray="5 3"
+                        opacity="0.55"
+                      />
+                      <text
+                        x="10"
+                        y="318"
+                        fill="#64748b"
+                        font-size="9"
+                        font-family="Inter"
+                      >
+                        👆 Click a row below to highlight the wire
+                      </text>
+                    </svg>
+                  </div>
+                  <table class="wtbl">
+                    <thead>
+                      <tr>
+                        <th>From Arduino</th>
+                        <th>To Component</th>
+                        <th>Colour</th>
+                        <th>Purpose</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr onclick="hlWire('obs-trig')" style="cursor: pointer">
+                        <td><strong>Pin 9</strong></td>
+                        <td>HC-SR04 TRIG</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #3b82f6;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Send pulse</td>
+                      </tr>
+                      <tr onclick="hlWire('obs-echo')" style="cursor: pointer">
+                        <td><strong>Pin 10</strong></td>
+                        <td>HC-SR04 ECHO</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #60a5fa;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Receive echo</td>
+                      </tr>
+                      <tr onclick="hlWire('obs-ena')" style="cursor: pointer">
+                        <td><strong>Pin 5 (PWM)</strong></td>
+                        <td>L298N ENA</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #f59e0b;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Left speed</td>
+                      </tr>
+                      <tr onclick="hlWire('obs-enb')" style="cursor: pointer">
+                        <td><strong>Pin 6 (PWM)</strong></td>
+                        <td>L298N ENB</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #fcd34d;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Right speed</td>
+                      </tr>
+                      <tr onclick="hlWire('obs-in1')" style="cursor: pointer">
+                        <td><strong>Pin 7</strong></td>
+                        <td>L298N IN1</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #10b981;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Left dir A</td>
+                      </tr>
+                      <tr onclick="hlWire('obs-in2')" style="cursor: pointer">
+                        <td><strong>Pin 8</strong></td>
+                        <td>L298N IN2</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #34d399;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Left dir B</td>
+                      </tr>
+                      <tr onclick="hlWire('obs-in3')" style="cursor: pointer">
+                        <td><strong>Pin 3</strong></td>
+                        <td>L298N IN3</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #8b5cf6;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Right dir A</td>
+                      </tr>
+                      <tr onclick="hlWire('obs-in4')" style="cursor: pointer">
+                        <td><strong>Pin 4</strong></td>
+                        <td>L298N IN4</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #a78bfa;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Right dir B</td>
+                      </tr>
+                      <tr>
+                        <td><strong>5V</strong></td>
+                        <td>HC-SR04 VCC</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #22c55e;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                              border: 1px dashed #22c55e;
+                            "
+                          ></span>
+                        </td>
+                        <td>Power sensor</td>
+                      </tr>
+                      <tr>
+                        <td><strong>GND</strong></td>
+                        <td>HC-SR04 GND · L298N GND</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #ef4444;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                              border: 1px dashed #ef4444;
+                            "
+                          ></span>
+                        </td>
+                        <td>Common ground</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Bluetooth wiring -->
+                <div id="rb-wiring-bt" style="display: none">
+                  <div
+                    style="
+                      background: var(--bg);
+                      border-radius: 14px;
+                      padding: 16px;
+                      margin-bottom: 16px;
+                      overflow-x: auto;
+                    "
+                  >
+                    <svg
+                      viewBox="0 0 700 310"
+                      style="
+                        width: 100%;
+                        max-width: 700px;
+                        display: block;
+                        margin: 0 auto;
+                      "
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="10"
+                        y="80"
+                        width="105"
+                        height="170"
+                        rx="8"
+                        fill="#00549E"
+                        stroke="#003E7A"
+                        stroke-width="2"
+                      />
+                      <text
+                        x="62"
+                        y="100"
+                        text-anchor="middle"
+                        fill="white"
+                        font-size="9.5"
+                        font-family="Space Grotesk"
+                        font-weight="700"
+                      >
+                        ARDUINO UNO
+                      </text>
+                      <circle cx="115" cy="128" r="4" fill="#f9a8d4" />
+                      <text
+                        x="113"
+                        y="130"
+                        fill="#db2777"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        TX(1)
+                      </text>
+                      <circle cx="115" cy="146" r="4" fill="#86efac" />
+                      <text
+                        x="113"
+                        y="148"
+                        fill="#047857"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        RX(0)
+                      </text>
+                      <circle cx="115" cy="168" r="4" fill="#fcd34d" />
+                      <text
+                        x="113"
+                        y="170"
+                        fill="#b45309"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin5
+                      </text>
+                      <circle cx="115" cy="184" r="4" fill="#fde68a" />
+                      <text
+                        x="113"
+                        y="186"
+                        fill="#b45309"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin6
+                      </text>
+                      <circle cx="115" cy="200" r="4" fill="#6ee7b7" />
+                      <text
+                        x="113"
+                        y="202"
+                        fill="#047857"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin7
+                      </text>
+                      <circle cx="115" cy="216" r="4" fill="#a7f3d0" />
+                      <text
+                        x="113"
+                        y="218"
+                        fill="#047857"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin8
+                      </text>
+                      <circle cx="115" cy="232" r="4" fill="#c4b5fd" />
+                      <text
+                        x="113"
+                        y="234"
+                        fill="#6d28d9"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin3
+                      </text>
+                      <circle cx="115" cy="248" r="4" fill="#ddd6fe" />
+                      <text
+                        x="113"
+                        y="250"
+                        fill="#6d28d9"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Pin4
+                      </text>
+                      <!-- HC-05 -->
+                      <rect
+                        x="280"
+                        y="40"
+                        width="120"
+                        height="76"
+                        rx="8"
+                        fill="#1a1a2a"
+                        stroke="#3b82f6"
+                        stroke-width="1.5"
+                      />
+                      <text
+                        x="340"
+                        y="60"
+                        text-anchor="middle"
+                        fill="white"
+                        font-size="9.5"
+                        font-family="Space Grotesk"
+                        font-weight="700"
+                      >
+                        HC-05
+                      </text>
+                      <text
+                        x="340"
+                        y="74"
+                        text-anchor="middle"
+                        fill="#94a3b8"
+                        font-size="7.5"
+                        font-family="monospace"
+                      >
+                        Bluetooth
+                      </text>
+                      <circle cx="297" cy="112" r="3.5" fill="#fca5a5" />
+                      <text
+                        x="297"
+                        y="124"
+                        text-anchor="middle"
+                        fill="#94a3b8"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        GND
+                      </text>
+                      <circle cx="317" cy="112" r="3.5" fill="#1e293b" />
+                      <text
+                        x="317"
+                        y="124"
+                        text-anchor="middle"
+                        fill="#94a3b8"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        VCC
+                      </text>
+                      <circle cx="337" cy="112" r="3.5" fill="#86efac" />
+                      <text
+                        x="337"
+                        y="124"
+                        text-anchor="middle"
+                        fill="#047857"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        TXD
+                      </text>
+                      <circle cx="360" cy="112" r="3.5" fill="#f9a8d4" />
+                      <text
+                        x="360"
+                        y="124"
+                        text-anchor="middle"
+                        fill="#db2777"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        RXD
+                      </text>
+                      <!-- L298N -->
+                      <rect
+                        x="455"
+                        y="80"
+                        width="120"
+                        height="155"
+                        rx="8"
+                        fill="#1a1a2a"
+                        stroke="#334155"
+                        stroke-width="1.5"
+                      />
+                      <text
+                        x="515"
+                        y="100"
+                        text-anchor="middle"
+                        fill="white"
+                        font-size="9.5"
+                        font-family="Space Grotesk"
+                        font-weight="700"
+                      >
+                        L298N
+                      </text>
+                      <circle cx="455" cy="135" r="3.5" fill="#fcd34d" />
+                      <text
+                        x="453"
+                        y="137"
+                        text-anchor="end"
+                        fill="#b45309"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        ENA
+                      </text>
+                      <circle cx="455" cy="152" r="3.5" fill="#fde68a" />
+                      <text
+                        x="453"
+                        y="154"
+                        text-anchor="end"
+                        fill="#b45309"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        ENB
+                      </text>
+                      <circle cx="455" cy="170" r="3.5" fill="#6ee7b7" />
+                      <text
+                        x="453"
+                        y="172"
+                        text-anchor="end"
+                        fill="#047857"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        IN1
+                      </text>
+                      <circle cx="455" cy="187" r="3.5" fill="#a7f3d0" />
+                      <text
+                        x="453"
+                        y="189"
+                        text-anchor="end"
+                        fill="#047857"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        IN2
+                      </text>
+                      <circle cx="455" cy="204" r="3.5" fill="#c4b5fd" />
+                      <text
+                        x="453"
+                        y="206"
+                        text-anchor="end"
+                        fill="#6d28d9"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        IN3
+                      </text>
+                      <circle cx="455" cy="221" r="3.5" fill="#ddd6fe" />
+                      <text
+                        x="453"
+                        y="223"
+                        text-anchor="end"
+                        fill="#6d28d9"
+                        font-size="7"
+                        font-family="monospace"
+                      >
+                        IN4
+                      </text>
+                      <!-- BT wires -->
+                      <path
+                        id="bt-tx"
+                        d="M115 128 Q200 128 360 112"
+                        stroke="#f472b6"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.8"
+                      />
+                      <path
+                        id="bt-rx"
+                        d="M115 146 Q200 146 337 112"
+                        stroke="#4ade80"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.8"
+                      />
+                      <path
+                        id="bt-ena"
+                        d="M115 168 Q285 168 455 135"
+                        stroke="#f59e0b"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="bt-enb"
+                        d="M115 184 Q285 184 455 152"
+                        stroke="#fcd34d"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="bt-in1"
+                        d="M115 200 Q285 200 455 170"
+                        stroke="#10b981"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="bt-in2"
+                        d="M115 216 Q285 216 455 187"
+                        stroke="#34d399"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="bt-in3"
+                        d="M115 232 Q285 238 455 204"
+                        stroke="#8b5cf6"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <path
+                        id="bt-in4"
+                        d="M115 248 Q285 254 455 221"
+                        stroke="#a78bfa"
+                        stroke-width="2"
+                        fill="none"
+                        opacity="0.75"
+                      />
+                      <text
+                        x="195"
+                        y="108"
+                        fill="#db2777"
+                        font-size="8"
+                        font-family="monospace"
+                        transform="rotate(-4 195 108)"
+                      >
+                        TX→RXD (cross!)
+                      </text>
+                      <text
+                        x="10"
+                        y="300"
+                        fill="#64748b"
+                        font-size="9"
+                        font-family="Inter"
+                      >
+                        👆 Click any table row to highlight that wire
+                      </text>
+                    </svg>
+                  </div>
+                  <div class="kp amber" style="margin-bottom: 14px">
+                    <div class="kp-icon">⚠️</div>
+                    <div class="kp-text">
+                      UART Cross: Arduino TX → HC-05 RXD, Arduino RX → HC-05
+                      TXD. TX and RX always cross!<span
+                        >Use a voltage divider on RXD pin: HC-05 is 3.3V logic,
+                        Arduino outputs 5V. Use 1kΩ + 2kΩ resistors.</span
+                      >
+                    </div>
+                  </div>
+                  <table class="wtbl">
+                    <thead>
+                      <tr>
+                        <th>From Arduino</th>
+                        <th>To HC-05 / L298N</th>
+                        <th>Colour</th>
+                        <th>Purpose</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr onclick="hlWire('bt-tx')" style="cursor: pointer">
+                        <td><strong>TX (Pin 1)</strong></td>
+                        <td>HC-05 RXD</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #f472b6;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Send to BT</td>
+                      </tr>
+                      <tr onclick="hlWire('bt-rx')" style="cursor: pointer">
+                        <td><strong>RX (Pin 0)</strong></td>
+                        <td>HC-05 TXD</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #4ade80;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Receive from BT</td>
+                      </tr>
+                      <tr onclick="hlWire('bt-ena')" style="cursor: pointer">
+                        <td><strong>Pin 5 (PWM)</strong></td>
+                        <td>L298N ENA</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #f59e0b;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Left speed</td>
+                      </tr>
+                      <tr onclick="hlWire('bt-enb')" style="cursor: pointer">
+                        <td><strong>Pin 6 (PWM)</strong></td>
+                        <td>L298N ENB</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #fcd34d;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Right speed</td>
+                      </tr>
+                      <tr onclick="hlWire('bt-in1')" style="cursor: pointer">
+                        <td><strong>Pin 7</strong></td>
+                        <td>L298N IN1</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #10b981;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Left dir A</td>
+                      </tr>
+                      <tr onclick="hlWire('bt-in2')" style="cursor: pointer">
+                        <td><strong>Pin 8</strong></td>
+                        <td>L298N IN2</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #34d399;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Left dir B</td>
+                      </tr>
+                      <tr onclick="hlWire('bt-in3')" style="cursor: pointer">
+                        <td><strong>Pin 3</strong></td>
+                        <td>L298N IN3</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #8b5cf6;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Right dir A</td>
+                      </tr>
+                      <tr onclick="hlWire('bt-in4')" style="cursor: pointer">
+                        <td><strong>Pin 4</strong></td>
+                        <td>L298N IN4</td>
+                        <td>
+                          <span
+                            style="
+                              display: inline-block;
+                              width: 36px;
+                              height: 4px;
+                              background: #a78bfa;
+                              border-radius: 2px;
+                              vertical-align: middle;
+                            "
+                          ></span>
+                        </td>
+                        <td>Right dir B</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- ASSEMBLY -->
+              <div
+                id="rbp-assemble"
+                class="card-big"
+                style="display: none; animation: fadeSlide 0.3s ease"
+              >
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 4px;
+                  "
+                >
+                  🔧 Assembly Steps
+                </div>
+                <p
+                  style="
+                    font-size: 13.5px;
+                    color: var(--t3);
+                    margin-bottom: 16px;
+                  "
+                >
+                  Click each step to check it off. Complete all 7 steps before
+                  uploading code.
+                </p>
+                <div id="rb-assemble-obs">
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">1</div>
+                    <div>
+                      <div class="pstep-title">Assemble the chassis</div>
+                      <div class="pstep-desc">
+                        Attach all 4 DC motors to the chassis frame using
+                        screws. Fit wheels onto motor shafts. The chassis should
+                        roll freely on all 4 wheels.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">2</div>
+                    <div>
+                      <div class="pstep-title">Mount Arduino &amp; L298N</div>
+                      <div class="pstep-desc">
+                        Stick Arduino Uno and L298N motor driver onto the
+                        chassis top plate using double-sided tape or M3 screws.
+                        Keep them close to reduce wire length.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">3</div>
+                    <div>
+                      <div class="pstep-title">Connect motors to L298N</div>
+                      <div class="pstep-desc">
+                        Left motors (both) → Motor A terminals. Right motors
+                        (both) → Motor B terminals. Twist motor wire pairs
+                        together to reduce interference.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">4</div>
+                    <div>
+                      <div class="pstep-title">Mount &amp; wire HC-SR04</div>
+                      <div class="pstep-desc">
+                        Mount the ultrasonic sensor at the front, facing
+                        forward. Wire: VCC→5V, GND→GND, TRIG→Pin 9, ECHO→Pin 10.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">5</div>
+                    <div>
+                      <div class="pstep-title">Wire Arduino → L298N</div>
+                      <div class="pstep-desc">
+                        Pin 5→ENA, Pin 6→ENB, Pin 7→IN1, Pin 8→IN2, Pin 3→IN3,
+                        Pin 4→IN4. Double-check each wire against the table
+                        before continuing.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">6</div>
+                    <div>
+                      <div class="pstep-title">Connect 9V battery</div>
+                      <div class="pstep-desc">
+                        Connect battery holder to L298N power input (+9V and
+                        GND). The L298N's 5V output can power the Arduino via
+                        the 5V pin.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum g">7</div>
+                    <div>
+                      <div class="pstep-title">Final check before power-on</div>
+                      <div class="pstep-desc">
+                        Confirm all connections match the wiring table. No bare
+                        wires touching. Battery disconnected during wiring —
+                        connect only when ready to test.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="rb-assemble-bt" style="display: none">
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">1</div>
+                    <div>
+                      <div class="pstep-title">Assemble the chassis</div>
+                      <div class="pstep-desc">
+                        Attach all 4 motors and wheels. All wheels should spin
+                        freely and motors firmly fastened.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">2</div>
+                    <div>
+                      <div class="pstep-title">
+                        Mount Arduino, L298N &amp; HC-05
+                      </div>
+                      <div class="pstep-desc">
+                        Secure all three boards. Mount HC-05 where its antenna
+                        has clear line-of-sight — not buried in metal or near
+                        motor coils.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">3</div>
+                    <div>
+                      <div class="pstep-title">Wire motors to L298N</div>
+                      <div class="pstep-desc">
+                        Left motor pair → Motor A on L298N. Right motor pair →
+                        Motor B on L298N.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">4</div>
+                    <div>
+                      <div class="pstep-title">Wire HC-05 to Arduino</div>
+                      <div class="pstep-desc">
+                        VCC→5V, GND→GND. HC-05 TXD → Arduino RX (Pin 0). HC-05
+                        RXD → Arduino TX (Pin 1) via voltage divider (1kΩ +
+                        2kΩ). TX and RX always cross!
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">5</div>
+                    <div>
+                      <div class="pstep-title">Wire Arduino → L298N</div>
+                      <div class="pstep-desc">
+                        Pin 5→ENA, Pin 6→ENB, Pin 7→IN1, Pin 8→IN2, Pin 3→IN3,
+                        Pin 4→IN4.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum">6</div>
+                    <div>
+                      <div class="pstep-title">Pair HC-05 with your phone</div>
+                      <div class="pstep-desc">
+                        Power on. Go to phone Bluetooth settings → select HC-05
+                        → enter 1234 or 0000. Open BT serial app and connect.
+                        HC-05 LED slows down when connected.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="pstep"
+                    onclick="toggleStep(this)"
+                    style="cursor: pointer"
+                  >
+                    <div class="pnum g">7</div>
+                    <div>
+                      <div class="pstep-title">Final check</div>
+                      <div class="pstep-desc">
+                        Disconnect RX wire from Pin 0 before uploading code.
+                        Reconnect after upload. Then connect battery and test
+                        commands from phone.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    margin-top: 16px;
+                    padding: 14px 18px;
+                    background: var(--bg);
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                  "
+                >
+                  <div style="flex: 1">
+                    <div
+                      style="
+                        font-size: 11px;
+                        font-weight: 700;
+                        color: var(--t3);
+                        margin-bottom: 5px;
+                      "
+                    >
+                      ASSEMBLY PROGRESS
+                    </div>
+                    <div
+                      style="
+                        height: 7px;
+                        background: var(--border);
+                        border-radius: 4px;
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        id="rb-progress-bar"
+                        style="
+                          height: 100%;
+                          width: 0%;
+                          background: linear-gradient(
+                            90deg,
+                            var(--blue),
+                            var(--green)
+                          );
+                          border-radius: 4px;
+                          transition: width 0.4s;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                  <div
+                    id="rb-progress-txt"
+                    style="
+                      font-size: 22px;
+                      font-weight: 800;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      color: var(--blue);
+                    "
+                  >
+                    0/7
+                  </div>
+                </div>
+              </div>
+
+              <!-- CODE -->
+              <div
+                id="rbp-code"
+                class="card-big"
+                style="display: none; animation: fadeSlide 0.3s ease"
+              >
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 4px;
+                  "
+                >
+                  💻 Arduino Code
+                </div>
+                <p
+                  style="
+                    font-size: 13.5px;
+                    color: var(--t3);
+                    margin-bottom: 16px;
+                  "
+                >
+                  Copy into Arduino IDE and upload via USB. Read the comments —
+                  they explain every line.
+                </p>
+                <div id="rb-code-obs">
+                  <div
+                    style="
+                      background: #0f172a;
+                      border-radius: 14px;
+                      padding: 18px;
+                      font-family: monospace;
+                      font-size: 12.5px;
+                      line-height: 1.9;
+                      color: #e2e8f0;
+                      position: relative;
+                      overflow-x: auto;
+                    "
+                  >
+                    <button
+                      onclick="copyCode('obs')"
+                      style="
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border: 1px solid rgba(255, 255, 255, 0.15);
+                        color: white;
+                        padding: 4px 12px;
+                        border-radius: 7px;
+                        font-size: 11px;
+                        cursor: pointer;
+                        font-family: &quot;Inter&quot;, sans-serif;
+                      "
+                    >
+                      📋 Copy
+                    </button>
+                    <pre
+                      id="code-obs"
+                      style="margin: 0; white-space: pre-wrap"
+                    ><span style="color:#64748b;">// ══ OBSTACLE AVOIDANCE CAR ══</span>
+
+<span style="color:#7dd3fc;">// Pin Definitions</span>
+<span style="color:#f472b6;">const int</span> trigPin = <span style="color:#fcd34d;">9</span>;   <span style="color:#64748b;">// HC-SR04 trigger</span>
+<span style="color:#f472b6;">const int</span> echoPin = <span style="color:#fcd34d;">10</span>;  <span style="color:#64748b;">// HC-SR04 echo</span>
+<span style="color:#f472b6;">const int</span> ENA=<span style="color:#fcd34d;">5</span>, ENB=<span style="color:#fcd34d;">6</span>;  <span style="color:#64748b;">// Motor speed (PWM)</span>
+<span style="color:#f472b6;">const int</span> IN1=<span style="color:#fcd34d;">7</span>, IN2=<span style="color:#fcd34d;">8</span>, IN3=<span style="color:#fcd34d;">3</span>, IN4=<span style="color:#fcd34d;">4</span>;
+<span style="color:#f472b6;">long</span> duration; <span style="color:#f472b6;">int</span> distance;
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">setup</span>() {
+  pinMode(trigPin,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(echoPin,<span style="color:#fcd34d;">INPUT</span>);
+  pinMode(ENA,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(ENB,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN1,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN2,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN3,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN4,<span style="color:#fcd34d;">OUTPUT</span>);
+  Serial.begin(<span style="color:#fcd34d;">9600</span>);
+}
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">loop</span>() {
+  distance = <span style="color:#a78bfa;">getDistance</span>();
+  Serial.println(distance);
+  <span style="color:#f472b6;">if</span> (distance &lt; <span style="color:#fcd34d;">20</span>) {   <span style="color:#64748b;">// Obstacle!</span>
+    <span style="color:#a78bfa;">stopMotors</span>(); delay(<span style="color:#fcd34d;">300</span>);
+    <span style="color:#a78bfa;">turnLeft</span>();   delay(<span style="color:#fcd34d;">500</span>);
+  } <span style="color:#f472b6;">else</span> {
+    <span style="color:#a78bfa;">moveForward</span>();           <span style="color:#64748b;">// Clear path</span>
+  }
+}
+
+<span style="color:#f472b6;">int</span> <span style="color:#a78bfa;">getDistance</span>() {
+  digitalWrite(trigPin,<span style="color:#fcd34d;">LOW</span>); delayMicroseconds(<span style="color:#fcd34d;">2</span>);
+  digitalWrite(trigPin,<span style="color:#fcd34d;">HIGH</span>); delayMicroseconds(<span style="color:#fcd34d;">10</span>);
+  digitalWrite(trigPin,<span style="color:#fcd34d;">LOW</span>);
+  duration = pulseIn(echoPin,<span style="color:#fcd34d;">HIGH</span>);
+  <span style="color:#f472b6;">return</span> duration * <span style="color:#fcd34d;">0.034</span> / <span style="color:#fcd34d;">2</span>;
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">moveForward</span>() {
+  analogWrite(ENA,<span style="color:#fcd34d;">180</span>); analogWrite(ENB,<span style="color:#fcd34d;">180</span>);
+  digitalWrite(IN1,<span style="color:#fcd34d;">HIGH</span>); digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);
+  digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>); digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>);
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">turnLeft</span>() {
+  analogWrite(ENA,<span style="color:#fcd34d;">160</span>); analogWrite(ENB,<span style="color:#fcd34d;">160</span>);
+  digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>); digitalWrite(IN2,<span style="color:#fcd34d;">HIGH</span>);
+  digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>); digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>);
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">stopMotors</span>() {
+  digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>); digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);
+  digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>); digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>);
+}</pre>
+                  </div>
+                  <!-- Distance simulator -->
+                  <div
+                    style="
+                      margin-top: 18px;
+                      background: var(--bg);
+                      border-radius: 14px;
+                      padding: 18px;
+                    "
+                  >
+                    <div
+                      style="
+                        font-size: 15px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        margin-bottom: 10px;
+                      "
+                    >
+                      🎮 Live Code Simulator
+                    </div>
+                    <div
+                      style="
+                        font-size: 13px;
+                        font-weight: 600;
+                        margin-bottom: 8px;
+                      "
+                    >
+                      Drag slider to change distance reading:
+                    </div>
+                    <input
+                      type="range"
+                      min="2"
+                      max="100"
+                      value="40"
+                      id="sim11-dist"
+                      oninput="sim11Update(this.value)"
+                    />
+                    <div
+                      style="
+                        display: flex;
+                        gap: 12px;
+                        align-items: center;
+                        margin-top: 10px;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <div
+                        id="sim11-badge"
+                        style="
+                          padding: 7px 16px;
+                          border-radius: 20px;
+                          font-weight: 800;
+                          font-size: 17px;
+                          font-family: &quot;Space Grotesk&quot;, sans-serif;
+                          background: var(--blue);
+                          color: white;
+                          transition: all 0.3s;
+                        "
+                      >
+                        40 cm
+                      </div>
+                      <div id="sim11-emoji" style="font-size: 34px">🤖➡️</div>
+                      <div
+                        id="sim11-action"
+                        style="
+                          font-size: 13.5px;
+                          font-weight: 700;
+                          color: var(--green);
+                        "
+                      >
+                        Moving Forward — path clear
+                      </div>
+                    </div>
+                    <div
+                      id="sim11-code-highlight"
+                      style="
+                        margin-top: 12px;
+                        background: #0f172a;
+                        border-radius: 10px;
+                        padding: 10px 14px;
+                        font-family: monospace;
+                        font-size: 12.5px;
+                        line-height: 1.8;
+                        color: #e2e8f0;
+                      "
+                    >
+                      <span style="color: #10b981">→ moveForward();</span>
+                      <span style="color: #64748b"
+                        >// Both motors forward at 180</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div id="rb-code-bt" style="display: none">
+                  <div class="kp amber" style="margin-bottom: 12px">
+                    <div class="kp-icon">📱</div>
+                    <div class="kp-text">
+                      Phone sends single chars: F=Forward, B=Back, L=Left,
+                      R=Right, S=Stop.<span
+                        >Disconnect HC-05 RX wire from Pin 0 BEFORE uploading.
+                        Reattach after upload.</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      background: #0f172a;
+                      border-radius: 14px;
+                      padding: 18px;
+                      font-family: monospace;
+                      font-size: 12.5px;
+                      line-height: 1.9;
+                      color: #e2e8f0;
+                      position: relative;
+                      overflow-x: auto;
+                    "
+                  >
+                    <button
+                      onclick="copyCode('bt')"
+                      style="
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border: 1px solid rgba(255, 255, 255, 0.15);
+                        color: white;
+                        padding: 4px 12px;
+                        border-radius: 7px;
+                        font-size: 11px;
+                        cursor: pointer;
+                        font-family: &quot;Inter&quot;, sans-serif;
+                      "
+                    >
+                      📋 Copy
+                    </button>
+                    <pre
+                      id="code-bt"
+                      style="margin: 0; white-space: pre-wrap"
+                    ><span style="color:#64748b;">// ══ BLUETOOTH CONTROLLED CAR ══</span>
+
+<span style="color:#f472b6;">const int</span> ENA=<span style="color:#fcd34d;">5</span>,ENB=<span style="color:#fcd34d;">6</span>,IN1=<span style="color:#fcd34d;">7</span>,IN2=<span style="color:#fcd34d;">8</span>,IN3=<span style="color:#fcd34d;">3</span>,IN4=<span style="color:#fcd34d;">4</span>;
+<span style="color:#f472b6;">char</span> cmd;
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">setup</span>() {
+  Serial.begin(<span style="color:#fcd34d;">9600</span>);
+  pinMode(ENA,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(ENB,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN1,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN2,<span style="color:#fcd34d;">OUTPUT</span>);
+  pinMode(IN3,<span style="color:#fcd34d;">OUTPUT</span>); pinMode(IN4,<span style="color:#fcd34d;">OUTPUT</span>);
+  analogWrite(ENA,<span style="color:#fcd34d;">200</span>); analogWrite(ENB,<span style="color:#fcd34d;">200</span>);
+}
+
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">loop</span>() {
+  <span style="color:#f472b6;">if</span> (Serial.available() > <span style="color:#fcd34d;">0</span>) {
+    cmd = Serial.read();
+    <span style="color:#f472b6;">switch</span>(cmd) {
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'F'</span>: <span style="color:#a78bfa;">moveForward</span>(); <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'B'</span>: <span style="color:#a78bfa;">moveBack</span>();    <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'L'</span>: <span style="color:#a78bfa;">turnLeft</span>();   <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'R'</span>: <span style="color:#a78bfa;">turnRight</span>();  <span style="color:#f472b6;">break</span>;
+      <span style="color:#f472b6;">case</span> <span style="color:#86efac;">'S'</span>: <span style="color:#a78bfa;">stopMotors</span>(); <span style="color:#f472b6;">break</span>;
+    }
+  }
+}
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">moveForward</span>() { digitalWrite(IN1,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">moveBack</span>()    { digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN2,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN4,<span style="color:#fcd34d;">HIGH</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">turnLeft</span>()    { digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN2,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN3,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">turnRight</span>()   { digitalWrite(IN1,<span style="color:#fcd34d;">HIGH</span>);digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN4,<span style="color:#fcd34d;">HIGH</span>); }
+<span style="color:#7dd3fc;">void</span> <span style="color:#a78bfa;">stopMotors</span>()  { digitalWrite(IN1,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN2,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN3,<span style="color:#fcd34d;">LOW</span>);digitalWrite(IN4,<span style="color:#fcd34d;">LOW</span>); }</pre>
+                  </div>
+                  <!-- BT simulator -->
+                  <div
+                    style="
+                      margin-top: 18px;
+                      background: var(--bg);
+                      border-radius: 14px;
+                      padding: 18px;
+                    "
+                  >
+                    <div
+                      style="
+                        font-size: 15px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        margin-bottom: 10px;
+                      "
+                    >
+                      🎮 Command Simulator
+                    </div>
+                    <div style="font-size: 13px; margin-bottom: 10px">
+                      Tap a button to simulate sending from your phone:
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 8px;
+                        flex-wrap: wrap;
+                        margin-bottom: 14px;
+                      "
+                    >
+                      <button
+                        onclick="simBT('F')"
+                        style="
+                          padding: 10px 20px;
+                          background: var(--blue);
+                          color: white;
+                          border: none;
+                          border-radius: 10px;
+                          font-size: 15px;
+                          font-weight: 800;
+                          cursor: pointer;
+                        "
+                      >
+                        ▲ F
+                      </button>
+                      <button
+                        onclick="simBT('B')"
+                        style="
+                          padding: 10px 20px;
+                          background: var(--coral);
+                          color: white;
+                          border: none;
+                          border-radius: 10px;
+                          font-size: 15px;
+                          font-weight: 800;
+                          cursor: pointer;
+                        "
+                      >
+                        ▼ B
+                      </button>
+                      <button
+                        onclick="simBT('L')"
+                        style="
+                          padding: 10px 20px;
+                          background: var(--amber);
+                          color: white;
+                          border: none;
+                          border-radius: 10px;
+                          font-size: 15px;
+                          font-weight: 800;
+                          cursor: pointer;
+                        "
+                      >
+                        ◀ L
+                      </button>
+                      <button
+                        onclick="simBT('R')"
+                        style="
+                          padding: 10px 20px;
+                          background: var(--green);
+                          color: white;
+                          border: none;
+                          border-radius: 10px;
+                          font-size: 15px;
+                          font-weight: 800;
+                          cursor: pointer;
+                        "
+                      >
+                        ▶ R
+                      </button>
+                      <button
+                        onclick="simBT('S')"
+                        style="
+                          padding: 10px 20px;
+                          background: var(--slate);
+                          color: white;
+                          border: none;
+                          border-radius: 10px;
+                          font-size: 15px;
+                          font-weight: 800;
+                          cursor: pointer;
+                        "
+                      >
+                        ⬛ S
+                      </button>
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 12px;
+                        align-items: center;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <div id="bt-sim-emoji" style="font-size: 38px">🤖</div>
+                      <div>
+                        <div
+                          id="bt-sim-action"
+                          style="
+                            font-size: 15px;
+                            font-weight: 800;
+                            font-family: &quot;Space Grotesk&quot;, sans-serif;
+                            color: var(--t3);
+                          "
+                        >
+                          Waiting for command…
+                        </div>
+                        <div
+                          id="bt-sim-code"
+                          style="
+                            font-family: monospace;
+                            font-size: 12px;
+                            color: var(--t2);
+                            margin-top: 3px;
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TEST & DEBUG -->
+              <div
+                id="rbp-test"
+                class="card-big"
+                style="display: none; animation: fadeSlide 0.3s ease"
+              >
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 4px;
+                  "
+                >
+                  ✅ Test &amp; Debug
+                </div>
+                <p
+                  style="
+                    font-size: 13.5px;
+                    color: var(--t3);
+                    margin-bottom: 16px;
+                  "
+                >
+                  Something not working? Diagnose it with this checklist.
+                </p>
+                <div id="rb-test-obs">
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      margin-bottom: 12px;
+                      color: var(--blue);
+                    "
+                  >
+                    🚗 Obstacle Car
+                  </div>
+                  <div class="g2" style="margin-bottom: 14px">
+                    <div
+                      style="
+                        background: var(--green-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--green-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--green);
+                        "
+                      >
+                        ✅ First: Serial Monitor
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Tools → Serial Monitor (9600 baud). Should show distance
+                        numbers. Seeing 0 or garbage? → Check TRIG/ECHO wiring.
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--amber-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--amber-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--amber);
+                        "
+                      >
+                        ⚙️ Motors not spinning?
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Check: (1) Battery on L298N? (2) ENA/ENB wired? (3)
+                        Motor wires tight in terminals? (4) IN1–IN4 all
+                        connected?
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--coral-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--coral-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--coral);
+                        "
+                      >
+                        🔄 Doesn't avoid obstacles?
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Distance always 0 → TRIG/ECHO swapped. Always &gt;20 →
+                        sensor not facing forward. Try threshold 30 cm instead
+                        of 20.
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--blue-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--blue-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--blue);
+                        "
+                      >
+                        🔧 Motor goes wrong way?
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Swap the two wires in that motor's terminal (Motor A+ ↔
+                        Motor A−). No code change needed — this is mechanical.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="rb-test-bt" style="display: none">
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      margin-bottom: 12px;
+                      color: var(--green);
+                    "
+                  >
+                    📱 Bluetooth Car
+                  </div>
+                  <div class="g2" style="margin-bottom: 14px">
+                    <div
+                      style="
+                        background: var(--green-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--green-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--green);
+                        "
+                      >
+                        ✅ Can't pair HC-05?
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Power robot first (HC-05 LED blinks fast). Go to phone
+                        BT settings, select HC-05, enter 1234 or 0000. Pair from
+                        settings, not from app.
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--amber-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--amber-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--amber);
+                        "
+                      >
+                        ⚙️ Paired but no response?
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Check: (1) RX disconnected before upload? (2) App
+                        sending uppercase F/B/L/R/S? (3) Baud = 9600? HC-05 slow
+                        blink = connected ✅
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--coral-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--coral-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--coral);
+                        "
+                      >
+                        🔄 Wrong direction?
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Swap the two wires in that motor's terminal. If
+                        left/right swapped, swap IN1&amp;IN2 with IN3&amp;IN4.
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        background: var(--purple-l);
+                        border-radius: 12px;
+                        padding: 16px;
+                        border: 1.5px solid var(--purple-m);
+                      "
+                    >
+                      <div
+                        style="
+                          font-size: 13px;
+                          font-weight: 800;
+                          margin-bottom: 8px;
+                          color: var(--purple);
+                        "
+                      >
+                        📡 Signal drops?
+                      </div>
+                      <div
+                        style="
+                          font-size: 12.5px;
+                          color: var(--t2);
+                          line-height: 1.7;
+                        "
+                      >
+                        Stay within 5–8 m. Keep HC-05 antenna exposed. Add 100nF
+                        capacitors across motor terminals to reduce noise.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+                    border-radius: 14px;
+                    padding: 22px;
+                    color: white;
+                    text-align: center;
+                    margin-top: 6px;
+                  "
+                >
+                  <div style="font-size: 44px; margin-bottom: 8px">🏆</div>
+                  <div
+                    style="
+                      font-size: 20px;
+                      font-weight: 800;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Robot Complete!
+                  </div>
+                  <div
+                    style="
+                      font-size: 13.5px;
+                      opacity: 0.85;
+                      line-height: 1.7;
+                      max-width: 480px;
+                      margin: 0 auto;
+                    "
+                  >
+                    You built a real robot from scratch — wired it, coded it,
+                    debugged it. That's the full engineering loop. 🎉
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 10px;
+                      justify-content: center;
+                      margin-top: 14px;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <span
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        padding: 6px 14px;
+                        border-radius: 20px;
+                        font-size: 12px;
+                        font-weight: 700;
+                      "
+                      >⚡ Electronics</span
+                    >
+                    <span
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        padding: 6px 14px;
+                        border-radius: 20px;
+                        font-size: 12px;
+                        font-weight: 700;
+                      "
+                      >🔌 Wiring</span
+                    >
+                    <span
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        padding: 6px 14px;
+                        border-radius: 20px;
+                        font-size: 12px;
+                        font-weight: 700;
+                      "
+                      >💻 Code</span
+                    >
+                    <span
+                      style="
+                        background: rgba(255, 255, 255, 0.15);
+                        padding: 6px 14px;
+                        border-radius: 20px;
+                        font-size: 12px;
+                        font-weight: 700;
+                      "
+                      >🐛 Debugging</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /rb-guide -->
+          </div>
+          <!-- /lbody -->
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s10')">
+              ← Programming
+            </button>
+            <span class="lesson-info">Lesson 11 of 11 · Build a Robot</span>
+            <button class="navbtn pri" onclick="goSection('s1')">
+              ↩ Start Over
+            </button>
+          </div>
+        </section>

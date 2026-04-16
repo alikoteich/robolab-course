@@ -1,0 +1,197 @@
+        <section class="section" id="s8">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: #0f172a">8</div>
+              <div>
+                <div class="ltitle">How Robots Think</div>
+                <div class="lsub">
+                  The Sense → Decide → Act loop runs thousands of times per
+                  second — click each step
+                </div>
+                <div class="lmeta">
+                  <span class="ltag blue">🧠 Logic</span
+                  ><span class="ltag green">Core Loop</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <!-- Giant 4-step flow -->
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                margin: 0 0 28px;
+                flex-wrap: wrap;
+              "
+            >
+              <div class="fnode sense" onclick="showThink('sense')">
+                <div class="fn-icon">📡</div>
+                <div class="fn-title">1. Sense</div>
+                <div class="fn-sub">Read environment</div>
+              </div>
+              <div style="font-size: 36px; color: var(--t4)">→</div>
+              <div class="fnode decide" onclick="showThink('decide')">
+                <div class="fn-icon">🧠</div>
+                <div class="fn-title">2. Decide</div>
+                <div class="fn-sub">IF condition</div>
+              </div>
+              <div style="font-size: 36px; color: var(--t4)">→</div>
+              <div class="fnode act" onclick="showThink('act')">
+                <div class="fn-icon">⚡</div>
+                <div class="fn-title">3. Act</div>
+                <div class="fn-sub">Control output</div>
+              </div>
+              <div style="font-size: 36px; color: var(--t4)">→</div>
+              <div class="fnode lp" onclick="showThink('loop')">
+                <div class="fn-icon">🔁</div>
+                <div class="fn-title">4. Loop</div>
+                <div class="fn-sub">Repeat forever</div>
+              </div>
+            </div>
+
+            <div
+              id="think-panel"
+              class="card-big"
+              style="
+                display: none;
+                margin-bottom: 24px;
+                animation: slideUp 0.22s ease;
+              "
+            ></div>
+
+            <div class="slbl" style="margin-bottom: 14px">
+              Examples — click to animate
+            </div>
+            <div class="g3">
+              <div
+                class="card-big"
+                style="cursor: pointer; transition: all 0.22s"
+                onmouseover="
+                  this.style.borderColor = 'var(--blue)';
+                  this.style.transform = 'translateY(-3px)';
+                "
+                onmouseout="
+                  this.style.borderColor = '';
+                  this.style.transform = '';
+                "
+                onclick="showScenario(0)"
+              >
+                <div style="font-size: 48px; margin-bottom: 12px">🚗</div>
+                <div
+                  style="
+                    font-size: 20px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Obstacle Avoidance
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <span class="tag tag-green">Ultrasonic senses</span
+                  ><span style="color: var(--t4)">→</span
+                  ><span class="tag tag-amber">If &lt; 20cm</span
+                  ><span style="color: var(--t4)">→</span
+                  ><span class="tag tag-coral">Motors turn</span>
+                </div>
+              </div>
+              <div
+                class="card-big"
+                style="cursor: pointer; transition: all 0.22s"
+                onmouseover="
+                  this.style.borderColor = 'var(--blue)';
+                  this.style.transform = 'translateY(-3px)';
+                "
+                onmouseout="
+                  this.style.borderColor = '';
+                  this.style.transform = '';
+                "
+                onclick="showScenario(1)"
+              >
+                <div style="font-size: 48px; margin-bottom: 12px">🌙</div>
+                <div
+                  style="
+                    font-size: 20px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Auto Night Light
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <span class="tag tag-green">LDR reads dark</span
+                  ><span style="color: var(--t4)">→</span
+                  ><span class="tag tag-amber">If value &lt; 300</span
+                  ><span style="color: var(--t4)">→</span
+                  ><span class="tag tag-amber">LED on</span>
+                </div>
+              </div>
+              <div
+                class="card-big"
+                style="cursor: pointer; transition: all 0.22s"
+                onmouseover="
+                  this.style.borderColor = 'var(--blue)';
+                  this.style.transform = 'translateY(-3px)';
+                "
+                onmouseout="
+                  this.style.borderColor = '';
+                  this.style.transform = '';
+                "
+                onclick="showScenario(2)"
+              >
+                <div style="font-size: 48px; margin-bottom: 12px">🚪</div>
+                <div
+                  style="
+                    font-size: 20px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Automatic Door
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <span class="tag tag-green">Person detected</span
+                  ><span style="color: var(--t4)">→</span
+                  ><span class="tag tag-amber">If dist &lt; 30</span
+                  ><span style="color: var(--t4)">→</span
+                  ><span class="tag tag-coral">Servo opens</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s7')">
+              ← Actuators
+            </button>
+            <span class="lesson-info">Lesson 8 of 10 · Robot Thinking</span>
+            <button class="navbtn pri" onclick="goSection('s9')">
+              Next: Robot Systems →
+            </button>
+          </div>
+        </section>
