@@ -1,0 +1,1056 @@
+// ══ LIGHTBOX ══
+      function openLB(title, file, desc, tags) {
+        document.getElementById("lb-title").textContent = title;
+        document.getElementById("lb-filename").textContent = file;
+        document.getElementById("lb-desc").textContent = desc;
+        document.getElementById("lb-tags").innerHTML = (tags || [])
+          .map((t) => '<span class="tag tag-blue">' + t + "</span>")
+          .join("");
+        document.getElementById("lightbox").classList.add("open");
+      }
+      function closeLB() {
+        document.getElementById("lightbox").classList.remove("open");
+      }
+      document
+        .getElementById("lightbox")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeLB();
+        });
+
+      // ── NAVIGATION ──
+      const SECTIONS = [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+      ];
+      let currentIdx = 0;
+
+      function goSection(id) {
+        document
+          .querySelectorAll(".section")
+          .forEach((s) => s.classList.remove("active"));
+        document
+          .querySelectorAll(".tnav")
+          .forEach((n) => n.classList.remove("active"));
+        document
+          .querySelectorAll(".sicon")
+          .forEach((n) => n.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        document
+          .querySelector(`.tnav[data-section="${id}"]`)
+          .classList.add("active");
+        document
+          .querySelector(`.sicon[data-section="${id}"]`)
+          .classList.add("active");
+        currentIdx = SECTIONS.indexOf(id);
+        const pct = (((currentIdx + 1) / SECTIONS.length) * 100).toFixed(0);
+        document.getElementById("prog-fill").style.width = pct + "%";
+        document.getElementById("prog-label").textContent =
+          currentIdx + 1 + " / " + SECTIONS.length;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document.querySelectorAll(".tnav").forEach((item) => {
+        item.addEventListener("click", () => goSection(item.dataset.section));
+      });
+      document.querySelectorAll(".sicon").forEach((item) => {
+        item.addEventListener("click", () => goSection(item.dataset.section));
+      });
+
+      // ── LIGHTBOX ──
+      function openLB(title, file, desc, tags) {
+        document.getElementById("lb-title").textContent = title;
+        document.getElementById("lb-filename").textContent = file;
+        document.getElementById("lb-desc").textContent = desc;
+        document.getElementById("lb-tags").innerHTML = (tags || [])
+          .map((t) => `<span class="tag tag-blue">${t}</span>`)
+          .join("");
+        // Load actual image
+        const img = document.getElementById("lb-img-tag");
+        const ph = document.getElementById("lb-placeholder");
+        img.style.display = "none";
+        ph.style.display = "flex";
+        img.src = ""; // reset first to force reload
+        img.src = file;
+        document.getElementById("lightbox").classList.add("open");
+      }
+      function closeLB() {
+        document.getElementById("lightbox").classList.remove("open");
+      }
+      document
+        .getElementById("lightbox")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeLB();
+        });
+
+      // ── ARDUINO BOARD ──
+      const ardParts = {
+        usb: {
+          icon: "🔌",
+          title: "USB-B Port",
+          desc: "Connects the Arduino to your computer via USB cable. Used to upload programs and provides 5V power for testing. The ATmega16U2 chip converts USB signals to serial for the main chip.",
+          tag: "tag-blue",
+          tagText: "Upload + Power",
+        },
+        pwr: {
+          icon: "🔋",
+          title: "DC Barrel Jack",
+          desc: "Accepts 7–12V DC from a wall adapter or 9V battery for standalone use. The onboard 7805 voltage regulator steps this down to a stable 5V used by all components.",
+          tag: "tag-amber",
+          tagText: "7–12V DC Input",
+        },
+        chip: {
+          icon: "🧠",
+          title: "ATmega328P Microcontroller",
+          desc: "The main processor. Runs at 16 MHz, executes your program instructions, reads all sensor inputs, and controls all pin outputs. Has 32KB flash memory (program storage) and 2KB RAM.",
+          tag: "tag-coral",
+          tagText: "16 MHz · 32KB Flash",
+        },
+        reset: {
+          icon: "🔄",
+          title: "Reset Button",
+          desc: "Pressing this restarts the program from the very beginning — exactly like cutting and restoring power. Useful if your program freezes or you want to restart a timed sequence.",
+          tag: "tag-green",
+          tagText: "Restart Program",
+        },
+        digital: {
+          icon: "💛",
+          title: "Digital Pins 0–13",
+          desc: "These 14 pins each work as INPUT or OUTPUT. They read or write exactly two states: HIGH (5V) or LOW (0V). Pins marked ~ (3,5,6,9,10,11) also support PWM output — simulating analog levels by rapidly switching.",
+          tag: "tag-amber",
+          tagText: "14 pins · PWM on 6 pins",
+        },
+        analog: {
+          icon: "💙",
+          title: "Analog Pins A0–A5",
+          desc: "These 6 pins read continuously varying voltages (0–5V) and convert them to a 10-bit number (0–1023) using the built-in ADC. Essential for sensors like LDRs, potentiometers, and temperature sensors.",
+          tag: "tag-blue",
+          tagText: "0 to 1023 · 10-bit ADC",
+        },
+        power: {
+          icon: "⚡",
+          title: "Power Pins",
+          desc: "These pins distribute power to your circuit. 5V and 3.3V supply stable regulated voltages. GND is the common reference. VIN passes through the barrel jack voltage directly (7–12V unregulated).",
+          tag: "tag-coral",
+          tagText: "5V · 3.3V · GND · VIN",
+        },
+      };
+      function ardClick(id) {
+        const p = ardParts[id];
+        if (!p) return;
+        document.getElementById("ard-info-icon").textContent = p.icon;
+        document.getElementById("ard-info-title").textContent = p.title;
+        document.getElementById("ard-info-desc").textContent = p.desc;
+        document.getElementById("ard-info-extra").innerHTML =
+          `<span class="tag ${p.tag}" style="font-size:12px;">${p.tagText}</span>`;
+        if (id === "power") {
+          document.getElementById("pwr-flow").style.opacity = "1";
+          setTimeout(
+            () => (document.getElementById("pwr-flow").style.opacity = "0"),
+            3000,
+          );
+        }
+      }
+      const ardTipEl = document.getElementById("ard-tip");
+      function ardTip(e, text) {
+        ardTipEl.textContent = text;
+        ardTipEl.style.display = "block";
+        ardTipEl.style.left = e.clientX + 14 + "px";
+        ardTipEl.style.top = e.clientY - 36 + "px";
+      }
+      function ardHide() {
+        ardTipEl.style.display = "none";
+      }
+      document.addEventListener("mousemove", (e) => {
+        if (ardTipEl.style.display === "block") {
+          ardTipEl.style.left = e.clientX + 14 + "px";
+          ardTipEl.style.top = e.clientY - 36 + "px";
+        }
+      });
+
+      // ── S2 ELECTRICITY ──
+      function ohmUpdate() {
+        const V = parseFloat(document.getElementById("ohm-slider-V").value);
+        const R = parseInt(document.getElementById("ohm-slider-R").value);
+        const I = (V / R) * 1000;
+        const P = V * (V / R);
+        document.getElementById("ohm-V-val").innerHTML =
+          V.toFixed(1) + '<span style="font-size:15px">V</span>';
+        document.getElementById("ohm-I-val").innerHTML =
+          I.toFixed(1) + '<span style="font-size:15px">mA</span>';
+        document.getElementById("ohm-R-val").innerHTML =
+          R + '<span style="font-size:15px">Ω</span>';
+        document.getElementById("ohm-P-val").innerHTML =
+          P.toFixed(3) + '<span style="font-size:15px">W</span>';
+        document.getElementById("ohm-slider-V-lbl").textContent =
+          V.toFixed(1) + "V";
+        document.getElementById("ohm-slider-R-lbl").textContent = R + "Ω";
+        const status =
+          I > 40
+            ? "⚠️ Exceeds Arduino pin limit of 40mA! Add more resistance."
+            : I < 1
+              ? "💡 Very low current — LED barely visible."
+              : "✅ Safe current level for an LED.";
+        document.getElementById("ohm-explain").innerHTML =
+          `With <strong>${V}V</strong> and <strong>${R}Ω</strong>: Current = ${V}÷${R} = <strong>${I.toFixed(1)}mA</strong>. Power = <strong>${P.toFixed(3)}W</strong>. ${status}`;
+      }
+      function ohmSelect(q) {
+        ["V", "I", "R", "P"].forEach((x) =>
+          document.getElementById("ohm-" + x).classList.remove("active"),
+        );
+        document.getElementById("ohm-" + q).classList.add("active");
+      }
+      ohmUpdate();
+
+      function updateResist(v) {
+        const vals = [
+          "22Ω — Dangerous! LED will burn!",
+          "47Ω — Too low",
+          "100Ω — Risky",
+          "150Ω — Borderline",
+          "220Ω — Safe for LED",
+          "330Ω — Good",
+          "470Ω — Dimmer",
+          "680Ω — Dim",
+          "1kΩ — Very dim",
+          "2.2kΩ — Barely visible",
+        ];
+        const b = Math.max(0, 1 - (v - 1) / 12);
+        document.getElementById("resist-val").textContent =
+          vals[parseInt(v) - 1] || "220Ω";
+        const led = document.getElementById("resist-led");
+        led.style.opacity = 0.15 + b * 0.85;
+        led.style.boxShadow = `0 0 ${b * 18}px rgba(255,215,0,${b * 0.9})`;
+      }
+      updateResist(5);
+
+      // ── S3 BREADBOARD ──
+      const bbMessages = {
+        "rail-pos":
+          "🔴 Power Rail (+): This entire red row is internally connected HORIZONTALLY by a long metal strip. Every hole in this row is at the same voltage. Connect your Arduino 5V pin here to distribute power across the breadboard.",
+        "rail-neg":
+          "🔵 Ground Rail (–): Connected horizontally just like the red rail — all holes share the same GND connection. Connect Arduino GND here. All component ground wires run back to this rail.",
+        col: "⬜ Middle Column (5-hole vertical group): These 5 holes in each column are connected VERTICALLY by a short metal clip underneath. Insert component legs into the same column to connect them. The centre divider breaks all connections — left and right halves are completely separate.",
+      };
+      function bbClick(type) {
+        const el = document.getElementById("bb-info");
+        el.textContent = bbMessages[type] || "";
+        el.style.borderColor =
+          type === "rail-pos"
+            ? "var(--coral)"
+            : type === "rail-neg"
+              ? "var(--blue)"
+              : "var(--amber)";
+        if (type === "col") {
+          const hl = document.getElementById("col-hl-box");
+          hl.setAttribute("fill", "rgba(37,99,235,0.12)");
+          setTimeout(() => hl.setAttribute("fill", "rgba(37,99,235,0)"), 2000);
+        }
+      }
+
+      // ── S4 DIGITAL vs ANALOG ──
+      let digState = false,
+        digHistory = [];
+      function toggleDigital() {
+        digState = !digState;
+        const led = document.getElementById("dig-led");
+        led.style.background = digState ? "#FFD700" : "#ddd";
+        led.style.boxShadow = digState ? "0 0 12px rgba(255,215,0,.9)" : "none";
+        document.getElementById("dig-state").textContent = digState
+          ? "HIGH"
+          : "LOW";
+        document.getElementById("dig-state").style.color = digState
+          ? "var(--green)"
+          : "var(--t3)";
+        digHistory.push(digState ? 1 : 0);
+        if (digHistory.length > 20) digHistory.shift();
+        drawDigital();
+      }
+      function drawDigital() {
+        const c = document.getElementById("dig-canvas");
+        if (!c) return;
+        const ctx = c.getContext("2d"),
+          w = c.width,
+          h = c.height;
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = "#f8fafc";
+        ctx.fillRect(0, 0, w, h);
+        if (digHistory.length < 2) return;
+        ctx.strokeStyle = "#D97706";
+        ctx.lineWidth = 2.5;
+        ctx.lineJoin = "round";
+        const step = w / 20;
+        ctx.beginPath();
+        digHistory.forEach((v, i) => {
+          const x = i * step,
+            y = v === 1 ? 8 : h - 8;
+          i === 0
+            ? ctx.moveTo(x, y)
+            : (ctx.lineTo(x, v === 1 ? x : x), ctx.lineTo(x, y));
+        });
+        ctx.stroke();
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "8px Figtree";
+        ctx.fillText("5V", 2, 12);
+        ctx.fillText("0V", 2, h - 4);
+      }
+      function updateAnalogDemo(v) {
+        document.getElementById("analog-demo-val").textContent = v;
+        document.getElementById("analog-volt-val").textContent = (
+          (v / 1023) *
+          5
+        ).toFixed(2);
+        drawAnalogWave(parseInt(v));
+      }
+      function drawAnalogWave(val) {
+        const c = document.getElementById("analog-canvas");
+        if (!c) return;
+        const ctx = c.getContext("2d"),
+          w = c.width,
+          h = c.height;
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = "#f8fafc";
+        ctx.fillRect(0, 0, w, h);
+        ctx.strokeStyle = "#2563EB";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let x = 0; x <= w; x++) {
+          const phase = (x / w) * Math.PI * 4,
+            amp = (val / 1023) * (h / 2 - 4),
+            y = h / 2 - Math.sin(phase) * amp;
+          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "8px Figtree";
+        ctx.fillText("5V", 2, 10);
+        ctx.fillText("0V", 2, h - 4);
+      }
+      document
+        .getElementById("analog-slider")
+        .addEventListener("input", function () {
+          updateAnalogDemo(this.value);
+        });
+      updateAnalogDemo(512);
+      drawDigital();
+
+      const wireInfo = {
+        vcc: "⚡ VCC (Red wire) supplies electrical energy to the sensor. Without VCC, the sensor receives no power and produces no output. Connect to Arduino 5V. Some sensors (e.g. ESP-based) require 3.3V — always check the datasheet.",
+        gnd: "⬛ GND (Black wire) provides the reference ground that completes the electrical circuit. Electrons must return through GND. Without a ground connection, no current flows and nothing works. Every component needs a GND connection.",
+        sig: "🔵 Signal (Blue/Yellow wire) carries the sensor measurement to Arduino. Digital sensors (button, IR sensor) connect to Digital pins — they read HIGH or LOW. Analog sensors (LDR, potentiometer) connect to Analog pins (A0–A5) — they read 0 to 1023.",
+      };
+      function showWireInfo(w) {
+        const p = document.getElementById("wire-info-panel");
+        p.style.display = "block";
+        p.textContent = wireInfo[w];
+        p.style.borderColor =
+          w === "vcc"
+            ? "var(--coral)"
+            : w === "gnd"
+              ? "#475569"
+              : "var(--blue)";
+      }
+
+      // ── S5 DND ──
+      let score = 0;
+      const placed = {};
+      const correctTypes = {
+        button: "input",
+        light: "input",
+        ultra: "input",
+        pot: "input",
+        led2: "output",
+        buzzer: "output",
+        servo: "output",
+      };
+      function drag(e) {
+        e.dataTransfer.setData("id", e.target.dataset.id);
+        e.dataTransfer.setData("type", e.target.dataset.type);
+      }
+      function allowDrop(e) {
+        e.preventDefault();
+      }
+      function dropItem(e, zone) {
+        e.preventDefault();
+        e.currentTarget.classList.remove("drag-over");
+        const id = e.dataTransfer.getData("id"),
+          type = e.dataTransfer.getData("type");
+        if (!id || placed[id]) return;
+        const el = document
+          .getElementById("dnd-pool")
+          .querySelector(`[data-id="${id}"]`);
+        if (!el) return;
+        const correct = correctTypes[id] === zone;
+        el.classList.add(zone === "input" ? "placed-input" : "placed-output");
+        document.getElementById("zone-" + zone).appendChild(el);
+        el.setAttribute("draggable", "false");
+        el.style.cursor = "default";
+        placed[id] = zone;
+        if (correct) score++;
+        const fb = document.getElementById("dnd-feedback");
+        fb.style.background = correct ? "var(--green-l)" : "var(--coral-l)";
+        fb.style.color = correct ? "var(--green)" : "var(--coral)";
+        fb.style.borderColor = correct ? "var(--green)" : "var(--coral)";
+        fb.textContent =
+          (correct ? "✅ Correct! " : "❌ Not quite — ") +
+          el.textContent.trim() +
+          (correct ? " is indeed an " : " belongs in ") +
+          (correct ? zone : correctTypes[id]) +
+          "s.";
+        fb.style.display = "block";
+        document.getElementById("score-display").textContent = score + " / 7";
+      }
+      function resetDnD() {
+        score = 0;
+        Object.keys(placed).forEach((k) => delete placed[k]);
+        document.getElementById("score-display").textContent = "0 / 7";
+        document.getElementById("dnd-feedback").style.display = "none";
+        const pool = document.getElementById("dnd-pool");
+        document.querySelectorAll(".dnd-component").forEach((el) => {
+          el.className = "dnd-component";
+          el.setAttribute("draggable", "true");
+          el.style.cursor = "grab";
+          pool.appendChild(el);
+        });
+      }
+
+      // ── S6 SENSORS ──
+      function btnDown() {
+        document.getElementById("btn-led").style.cssText =
+          "width:20px;height:20px;border-radius:50%;background:#FFD700;box-shadow:0 0 12px rgba(255,215,0,.9);transition:all .15s;";
+        document.getElementById("btn-status").textContent =
+          "HIGH — Circuit closed";
+        document.getElementById("btn-sim").style.transform = "translateY(3px)";
+        document.getElementById("btn-sim").style.boxShadow = "0 0 0 #1a4faf";
+      }
+      function btnUp() {
+        document.getElementById("btn-led").style.cssText =
+          "width:20px;height:20px;border-radius:50%;background:#ddd;transition:all .15s;";
+        document.getElementById("btn-status").textContent =
+          "LOW — Circuit open";
+        document.getElementById("btn-sim").style.transform = "";
+        document.getElementById("btn-sim").style.boxShadow = "0 4px 0 #1a4faf";
+      }
+      function updateLight(v) {
+        document.getElementById("light-sun").style.filter =
+          `brightness(${0.3 + (v / 100) * 0.9})`;
+        const r = Math.round((v / 100) * 1023);
+        const d = [
+          "Total dark—0",
+          "Very dark—~100",
+          "Dark—~200",
+          "Dim—~300",
+          "Moderate—~400",
+          "Medium—~512",
+          "Bright—~600",
+          "Very bright—~750",
+          "Sunlight—~900",
+          "Full sun—1023",
+        ];
+        document.getElementById("light-val").textContent =
+          d[Math.round(v / 10)];
+      }
+      function updateDist(v) {
+        document.getElementById("dist-val").textContent = v + " cm";
+        const waves = document.getElementById("dist-waves");
+        const count = Math.max(1, Math.round((200 - v) / 45) + 1);
+        waves.innerHTML = "";
+        for (let i = 0; i < count; i++) {
+          const d = document.createElement("div");
+          d.style.cssText = `position:absolute;left:${10 + (i / count) * 70}%;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--blue);opacity:${1 - i * 0.15};animation:pulse .5s ${i * 0.12}s infinite`;
+          waves.appendChild(d);
+        }
+      }
+      function updatePot(v) {
+        const a = parseInt(v) - 135,
+          r = Math.round((v / 270) * 1023);
+        document
+          .getElementById("pot-needle")
+          .setAttribute("transform", `rotate(${a},32,32)`);
+        document.getElementById("pot-val").textContent = r + " / 1023";
+      }
+      updateDist(80);
+      updatePot(135);
+
+      // ── S7 ACTUATORS ──
+      function updateLedBrightness(v) {
+        const pct = v / 100;
+        const led = document.getElementById("act-led");
+        led.style.opacity = 0.15 + pct * 0.85;
+        led.style.boxShadow = `0 0 ${pct * 26}px rgba(255,215,0,${pct * 0.9})`;
+        document.getElementById("led-bright-pct").textContent =
+          v + "% duty cycle";
+        const viz = document.getElementById("pwm-viz");
+        viz.innerHTML = "";
+        for (let i = 0; i < 20; i++) {
+          const on = i < Math.round(v / 5);
+          const bar = document.createElement("div");
+          bar.style.cssText = `flex:1;border-radius:2px;background:${on ? "var(--blue)" : "#e2e8f0"};height:${on ? "100%" : "28%"};transition:all .1s;`;
+          viz.appendChild(bar);
+        }
+      }
+      let buzzerOn = false;
+      function toggleBuzzer() {
+        buzzerOn = !buzzerOn;
+        document
+          .querySelectorAll("#buzzer-waves div")
+          .forEach(
+            (b) =>
+              (b.style.animationPlayState = buzzerOn ? "running" : "paused"),
+          );
+        document.getElementById("buzz-btn").textContent = buzzerOn
+          ? "■ Stop"
+          : "▶ Play";
+      }
+      function updateServo(v) {
+        document
+          .getElementById("servo-arm")
+          .setAttribute("transform", `rotate(${v - 90},42,42)`);
+        document.getElementById("servo-angle").textContent = v + "°";
+      }
+      function setMotorSpeed(s) {
+        const m = document.getElementById("motor-circle");
+        m.style.animationPlayState = s === 0 ? "paused" : "running";
+        if (s > 0) m.style.animationDuration = 1.4 / s + "s";
+      }
+      document
+        .querySelectorAll("#buzzer-waves div")
+        .forEach((b) => (b.style.animationPlayState = "paused"));
+      updateLedBrightness(80);
+
+      // ── S8 ROBOT THINKING ──
+      const thinkInfo = {
+        sense: {
+          title: "📡 Step 1: Sense",
+          text: "The robot uses sensors to gather data from its environment. This could be distance, light level, temperature, or whether a button is pressed. The sensor converts a physical quantity into an electrical signal. Without sensing, the robot is completely blind to the world.",
+          note: "Example: Ultrasonic sensor sends a 40kHz sound pulse and measures how long the echo takes to return — giving distance in cm.",
+        },
+        decide: {
+          title: "🧠 Step 2: Decide",
+          text: 'The Arduino compares sensor data against rules programmed by you. These rules are IF/ELSE conditions: "IF distance < 20cm, THEN the robot is close to an obstacle." The processor evaluates these conditions thousands of times per second with perfect consistency.',
+          note: "Example: IF distance < 20cm → activate turn flag → prepare to steer away from obstacle.",
+        },
+        act: {
+          title: "⚡ Step 3: Act",
+          text: "Based on the decision, Arduino sends precise electrical signals to actuators. A digital pin goes HIGH to turn on an LED. A PWM signal rotates a servo to a specific angle. Motor driver inputs are adjusted for speed and direction. Digital logic becomes physical movement.",
+          note: "Example: Left motor PWM at 80%, right motor at 0% → robot turns left.",
+        },
+        loop: {
+          title: "🔁 Step 4: Loop Forever",
+          text: "The entire sense–decide–act sequence runs in an infinite loop — typically hundreds or thousands of times per second. The program never truly ends — it keeps reading, evaluating, and responding for as long as power is connected. This loop is what makes robots feel responsive and alive.",
+          note: "Remove the loop and the robot reads one sensor value, performs one action, then stops forever. The loop is the heartbeat.",
+        },
+      };
+      function showThink(type) {
+        const p = thinkInfo[type];
+        const panel = document.getElementById("think-panel");
+        panel.style.display = "block";
+        panel.innerHTML = `<div style="font-size:17px;font-weight:700;margin-bottom:10px;">${p.title}</div><p style="font-size:14.5px;color:var(--t2);line-height:1.8;margin-bottom:12px;">${p.text}</p><div class="concept-box"><div style="font-size:13.5px;color:var(--t2);">${p.note}</div></div>`;
+      }
+      function showScenario(idx) {
+        const s = [
+          {
+            icon: "🚗",
+            name: "Obstacle Avoidance Robot",
+            steps: [
+              { i: "📡", l: "Ultrasonic pulses sound" },
+              { i: "📏", l: "Measures echo time" },
+              { i: "🧠", l: "If distance < 20cm" },
+              { i: "↩️", l: "Turn motors left" },
+              { i: "▶️", l: "Resume forward" },
+            ],
+          },
+          {
+            icon: "🌙",
+            name: "Auto Night Light",
+            steps: [
+              { i: "☀️", l: "LDR reads light level" },
+              { i: "📊", l: "Analog: 0–1023" },
+              { i: "🧠", l: "If value < 300 (dark)" },
+              { i: "💡", l: "Set LED HIGH → ON" },
+              { i: "🔄", l: "Check every loop" },
+            ],
+          },
+          {
+            icon: "🚪",
+            name: "Automatic Door",
+            steps: [
+              { i: "📡", l: "Ultrasonic reads distance" },
+              { i: "📏", l: "Value in cm" },
+              { i: "🧠", l: "If dist. < 30cm" },
+              { i: "⚙️", l: "Servo rotates 90°" },
+              { i: "⏱️", l: "Wait 3s → return 0°" },
+            ],
+          },
+        ][idx];
+        const panel = document.getElementById("think-panel");
+        panel.style.display = "block";
+        const h = s.steps
+          .map(
+            (st, i) =>
+              `<div style="text-align:center;flex:1;min-width:70px;"><div style="font-size:22px;margin-bottom:4px;">${st.i}</div><div style="font-size:11.5px;font-weight:600;color:var(--t2);line-height:1.4;">${st.l}</div></div>` +
+              (i < s.steps.length - 1
+                ? '<div style="font-size:16px;color:var(--t3);align-self:center;">→</div>'
+                : ""),
+          )
+          .join("");
+        panel.innerHTML = `<div style="font-size:17px;font-weight:700;margin-bottom:12px;">${s.icon} ${s.name}</div><div style="display:flex;align-items:flex-start;gap:6px;background:var(--bg);padding:14px;border-radius:9px;flex-wrap:wrap;">${h}</div>`;
+      }
+
+      // ── S9 SYSTEMS ──
+      const systems = {
+        trash: {
+          icon: "🗑️",
+          name: "Smart Trash Can",
+          desc: "When a hand approaches within 15cm, the ultrasonic sensor detects it. Arduino triggers the SG90 servo motor to rotate the lid open 90°. After 3 seconds, the servo returns to 0° and the lid closes. The loop checks distance continuously.",
+          sensors: ["📡 Ultrasonic HC-SR04"],
+          actuators: ["⚙️ Servo Motor SG90"],
+          flow: [
+            "Hand approaches",
+            "Distance < 15cm?",
+            "Servo opens 90°",
+            "Wait 3 seconds",
+            "Lid closes → loop",
+          ],
+        },
+        parking: {
+          icon: "🅿️",
+          name: "Parking Sensor System",
+          desc: "The ultrasonic sensor continuously measures distance to the vehicle behind. As distance decreases, Arduino increases buzzer beep frequency and changes LED colour from green to red — giving a real-time proximity warning.",
+          sensors: ["📡 Ultrasonic Sensor"],
+          actuators: ["🔊 Buzzer (PWM)", "💡 LED (Red/Green)"],
+          flow: [
+            "Car moves back",
+            "Read distance",
+            "Map → beep speed",
+            "LED changes colour",
+            "⚠️ Alarm at <10cm",
+          ],
+        },
+        line: {
+          icon: "📏",
+          name: "Line Following Robot",
+          desc: "Two IR sensors sit underneath the robot facing the ground. Each detects whether it is over black tape (absorbs IR light, returns LOW) or white surface (reflects IR, returns HIGH). Arduino adjusts left and right motor speeds every millisecond to keep the robot centred on the line.",
+          sensors: ["⬛ IR Sensor Left", "⬛ IR Sensor Right"],
+          actuators: ["🔄 Left DC Motor", "🔄 Right DC Motor"],
+          flow: [
+            "Read both IR sensors",
+            "Both white: forward",
+            "Right black: turn right",
+            "Left black: turn left",
+            "Adjust every ms",
+          ],
+        },
+        light: {
+          icon: "💡",
+          name: "Automatic Room Lighting",
+          desc: "An LDR connected to analog pin A0 continuously measures ambient light. When the reading falls below a set threshold (room becomes dark), Arduino activates the LED strip via a transistor switch. When light returns, the strip turns off automatically.",
+          sensors: ["☀️ LDR — Analog A0"],
+          actuators: ["💡 LED Strip (transistor)"],
+          flow: [
+            "LDR reads light",
+            "Value < 300 = dark?",
+            "Activate LED strip",
+            "Check every second",
+            "Off when light returns",
+          ],
+        },
+      };
+      function showSystem(id) {
+        const s = systems[id];
+        const panel = document.getElementById("system-panel");
+        panel.style.display = "block";
+        const flowHtml = s.flow
+          .map(
+            (f, i) =>
+              `<span class="tag ${["tag-blue", "tag-amber", "tag-coral", "tag-green", "tag-purple"][i]}">${f}</span>` +
+              (i < s.flow.length - 1
+                ? '<span style="color:var(--t3);font-size:12px;margin:0 3px;">→</span>'
+                : ""),
+          )
+          .join("");
+        panel.innerHTML = `<div style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;">
+    <div style="flex:1;min-width:200px;">
+      <div style="font-size:18px;font-weight:700;margin-bottom:8px;">${s.icon} ${s.name}</div>
+      <p style="font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:14px;">${s.desc}</p>
+      <div style="margin-bottom:10px;"><div class="section-label" style="margin-bottom:6px;">Sensors</div>${s.sensors.map((x) => `<span class="tag tag-blue" style="margin:2px;font-size:11.5px;">${x}</span>`).join("")}</div>
+      <div><div class="section-label" style="margin-bottom:6px;">Outputs</div>${s.actuators.map((x) => `<span class="tag tag-coral" style="margin:2px;font-size:11.5px;">${x}</span>`).join("")}</div>
+    </div>
+    <div style="flex:1;min-width:200px;background:var(--bg);border-radius:12px;padding:16px;">
+      <div class="section-label" style="margin-bottom:10px;">Logic Flow</div>
+      <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;line-height:2.4;">${flowHtml}</div>
+    </div>
+  </div>`;
+      }
+
+      // ── S10 PROGRAMMING ──
+      const pillars = {
+        seq: {
+          title: "📋 Sequence — Do Things in Order",
+          text: `<strong>Imagine making a sandwich 🥪</strong> — you can't put the lid on before the filling! A program works the same way: it reads your instructions from top to bottom, <em>one at a time</em>, and never skips ahead.<br><br>
+<div style="background:var(--blue-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2;">
+  <span style="color:#888;">// Blink an LED — order matters!</span><br>
+  <span style="color:var(--blue);font-weight:700;">Set Pin 13 HIGH</span>  <span style="color:#888;">← LED turns ON ✅</span><br>
+  <span style="color:var(--purple);font-weight:700;">Wait 1 second</span><br>
+  <span style="color:var(--blue);font-weight:700;">Set Pin 13 LOW</span>   <span style="color:#888;">← LED turns OFF ✅</span><br>
+  <span style="color:var(--purple);font-weight:700;">Wait 1 second</span>
+</div>
+<strong>🔄 Swap the first two lines?</strong> The LED turns on with zero time to stay on — you'd never see it! Order is everything.`,
+          color: "var(--blue)",
+        },
+        cond: {
+          title: "🔀 Condition — Ask a Yes/No Question",
+          text: `<strong>Think of a condition like a security guard 🚪</strong> — it checks something and decides what to do based on the answer.<br><br>
+<div style="background:var(--amber-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2.2;">
+  <span style="color:var(--amber);font-weight:700;">IF</span> <span style="color:var(--blue);">distance &lt; 20cm</span> <span style="color:var(--t3);">(is something close?)</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--coral);font-weight:700;">→ turn the robot away 🔄</span><br>
+  <span style="color:var(--amber);font-weight:700;">ELSE</span> <span style="color:var(--t3);">(no obstacle nearby)</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--green);font-weight:700;">→ keep moving forward ➡️</span>
+</div>
+<strong>Without IF/ELSE</strong>, your robot would just keep driving forward — straight into a wall! 🧱 Conditions are what make robots <em>smart</em> and able to react to the world around them.`,
+          color: "var(--amber)",
+        },
+        loop: {
+          title: "🔁 Loop — Never Stop Checking",
+          text: `<strong>Imagine a security camera 📷</strong> — it doesn't record one photo and stop. It keeps watching, every second, all day long. That's what a loop does for your robot.<br><br>
+<div style="background:var(--green-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2.2;">
+  <span style="color:var(--green);font-weight:700;">Repeat Forever:</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--blue);">📡 Read distance sensor</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--amber);">🧠 IF obstacle → turn away</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--coral);">⚡ ELSE → move forward</span><br>
+  &nbsp;&nbsp;&nbsp;<span style="color:var(--t3);font-style:italic;">↩ back to top... forever</span>
+</div>
+This loop runs <strong>hundreds of times per second</strong> ⚡ — that's why robots feel smooth and reactive. <strong>No loop = robot reads once, acts once, then freezes forever.</strong> The loop is the heartbeat of every robot! 💓`,
+          color: "var(--green)",
+        },
+        var: {
+          title: "📦 Variable — A Labelled Box for Data",
+          text: `<strong>A variable is like a labelled box 📦</strong> — you can put a number in it, check what's inside, and replace it with a new number any time you want.<br><br>
+<div style="background:var(--purple-l);border-radius:10px;padding:12px 16px;margin:8px 0;font-family:monospace;font-size:13.5px;line-height:2.2;">
+  <span style="color:var(--purple);font-weight:700;">distance</span> = <span style="color:var(--blue);">45</span> &nbsp;<span style="color:var(--t3);">← box labelled "distance", holding 45</span><br>
+  <span style="color:var(--purple);font-weight:700;">distance</span> = <span style="color:var(--coral);">12</span> &nbsp;<span style="color:var(--t3);">← same box, new value from sensor</span><br>
+  <span style="color:var(--amber);font-weight:700;">IF</span> <span style="color:var(--purple);">distance</span> &lt; <span style="color:var(--blue);">20</span> → <span style="color:var(--coral);">turn away!</span>
+</div>
+Every time the loop runs, the Arduino <strong>reads the sensor and puts the fresh number into the variable</strong>. The condition then checks <em>that</em> number. Without variables, the robot can't remember anything — it wouldn't even know what the sensor just said! 🤖`,
+          color: "var(--purple)",
+        },
+      };
+      function showPillar(key) {
+        const p = pillars[key];
+        const el = document.getElementById("pillar-panel");
+        el.style.display = "block";
+        el.style.borderColor = p.color;
+        el.innerHTML = `<div style="font-size:15px;font-weight:800;margin-bottom:10px;color:${p.color};font-family:'Space Grotesk',sans-serif;">${p.title}</div><div style="font-size:13.5px;color:var(--t2);line-height:1.85;">${p.text}</div>`;
+        el.style.animation = "none";
+        void el.offsetWidth;
+        el.style.animation = "slideUp .22s ease";
+      }
+
+      // ── S10 MINI SIMULATOR ──
+      function updateSim(val) {
+        val = parseInt(val);
+        const isClose = val < 20;
+
+        // Distance badge
+        const badge = document.getElementById("sim-dist-badge");
+        badge.textContent = val + " cm";
+        badge.style.background = isClose ? "var(--coral)" : "var(--blue)";
+
+        // Zone badge
+        const zone = document.getElementById("sim-zone-badge");
+        if (isClose) {
+          zone.textContent = "⚠️ Danger Zone";
+          zone.style.background = "var(--coral-l)";
+          zone.style.color = "var(--coral)";
+          zone.style.borderColor = "var(--coral-m)";
+        } else {
+          zone.textContent = "✅ Safe Zone";
+          zone.style.background = "var(--green-l)";
+          zone.style.color = "var(--green)";
+          zone.style.borderColor = "var(--green-m)";
+        }
+
+        // Variable
+        document.getElementById("sim-var-val").textContent = val;
+
+        // IF result
+        const ifRes = document.getElementById("sim-if-result");
+        if (isClose) {
+          ifRes.textContent =
+            "TRUE ✔ — " + val + " IS less than 20 → TURN AWAY!";
+          ifRes.style.color = "var(--green)";
+        } else {
+          ifRes.textContent = "FALSE ✘ — " + val + " is NOT less than 20";
+          ifRes.style.color = "var(--coral)";
+        }
+
+        // Action box
+        const box = document.getElementById("sim-action-box");
+        const emoji = document.getElementById("sim-robot-emoji");
+        const title = document.getElementById("sim-action-title");
+        const desc = document.getElementById("sim-action-desc");
+        if (isClose) {
+          box.style.background = "var(--coral-l)";
+          box.style.borderColor = "var(--coral-m)";
+          emoji.textContent = "🤖🔄";
+          title.textContent = "TURNING LEFT — Obstacle detected!";
+          desc.textContent =
+            "IF branch runs: obstacle is " +
+            val +
+            " cm away — too close! Left motor stops, right motor goes → robot turns left to avoid it.";
+        } else {
+          box.style.background = "var(--green-l)";
+          box.style.borderColor = "var(--green-m)";
+          emoji.textContent = "🤖➡️";
+          title.textContent = "Going FORWARD";
+          desc.textContent =
+            "Path is clear at " +
+            val +
+            " cm — the ELSE branch runs. Both motors spin forward at full speed!";
+        }
+      }
+
+      // Init
+      drawDigital();
+      updateAnalogDemo(512);
+      // ── S11 BUILD A ROBOT ──
+      let currentRobot = "obs";
+      let currentTab = "parts";
+      let stepsCompleted = 0;
+
+      function selectRobot(type) {
+        currentRobot = type;
+        // Highlight selected card
+        document.getElementById("rb-card-obs").style.borderColor =
+          type === "obs" ? "var(--blue)" : "var(--border-l)";
+        document.getElementById("rb-card-obs").style.boxShadow =
+          type === "obs"
+            ? "0 0 0 3px rgba(29,78,216,0.18), var(--sh-lg)"
+            : "var(--sh)";
+        document.getElementById("rb-card-bt").style.borderColor =
+          type === "bt" ? "var(--green)" : "var(--border-l)";
+        document.getElementById("rb-card-bt").style.boxShadow =
+          type === "bt"
+            ? "0 0 0 3px rgba(4,120,87,0.18), var(--sh-lg)"
+            : "var(--sh)";
+        // Show guide
+        document.getElementById("rb-guide").style.display = "block";
+        document.getElementById("rb-guide").style.animation =
+          "fadeSlide 0.3s ease";
+        // Reset tabs
+        stepsCompleted = 0;
+        updateProgress();
+        // Uncheck steps
+        document.querySelectorAll(".pstep").forEach((s) => {
+          s.style.background = "";
+          s.style.borderColor = "";
+          s.querySelector(".pnum").style.background = "";
+        });
+        showRobotContent(type);
+        rbTab("parts");
+      }
+
+      function showRobotContent(type) {
+        ["obs", "bt"].forEach((r) => {
+          ["parts", "wiring", "assemble", "code", "test"].forEach((t) => {
+            const el = document.getElementById("rb-" + t + "-" + r);
+            if (el) el.style.display = r === type ? "" : "none";
+          });
+        });
+        // Simulators
+        const simObs = document.getElementById("sim11-dist");
+        const simBtPanel = document.getElementById("bt-sim-emoji");
+      }
+
+      function rbTab(tab) {
+        currentTab = tab;
+        const tabs = ["parts", "wiring", "assemble", "code", "test"];
+        const accentCol =
+          currentRobot === "obs" ? "var(--blue)" : "var(--green)";
+        tabs.forEach((t) => {
+          const btn = document.getElementById("rbt-" + t);
+          const panel = document.getElementById("rbp-" + t);
+          if (btn) {
+            btn.style.background =
+              t === tab
+                ? currentRobot === "obs"
+                  ? "var(--blue)"
+                  : "var(--green)"
+                : "transparent";
+            btn.style.color = t === tab ? "white" : "var(--t3)";
+          }
+          if (panel) panel.style.display = t === tab ? "" : "none";
+        });
+      }
+
+      function hlWire(id) {
+        // Reset all wires
+        document
+          .querySelectorAll('path[id^="obs-"], path[id^="bt-"]')
+          .forEach((p) => {
+            p.style.opacity = "0.75";
+            p.style.strokeWidth = p.getAttribute("stroke-width") || "2";
+          });
+        const wire = document.getElementById(id);
+        if (wire) {
+          wire.style.opacity = "1";
+          wire.style.strokeWidth = "4";
+          setTimeout(() => {
+            if (wire) {
+              wire.style.strokeWidth = "2";
+              wire.style.opacity = "0.75";
+            }
+          }, 2500);
+        }
+      }
+
+      function toggleStep(el) {
+        const done = el.dataset.done === "1";
+        if (!done) {
+          el.dataset.done = "1";
+          el.style.background = "var(--green-l)";
+          el.style.borderColor = "var(--green)";
+          el.querySelector(".pnum").style.background = "var(--green)";
+          stepsCompleted++;
+        } else {
+          el.dataset.done = "0";
+          el.style.background = "";
+          el.style.borderColor = "";
+          el.querySelector(".pnum").style.background = "";
+          stepsCompleted = Math.max(0, stepsCompleted - 1);
+        }
+        updateProgress();
+      }
+
+      function updateProgress() {
+        const bar = document.getElementById("rb-progress-bar");
+        const txt = document.getElementById("rb-progress-txt");
+        if (bar) bar.style.width = (stepsCompleted / 7) * 100 + "%";
+        if (txt) txt.textContent = stepsCompleted + "/7";
+        if (txt)
+          txt.style.color =
+            stepsCompleted >= 7 ? "var(--green)" : "var(--blue)";
+      }
+
+      function copyCode(type) {
+        const pre = document.getElementById("code-" + type);
+        if (!pre) return;
+        const text = pre.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = pre.parentElement.querySelector("button");
+          if (btn) {
+            const orig = btn.textContent;
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => (btn.textContent = orig), 2000);
+          }
+        });
+      }
+
+      function sim11Update(val) {
+        val = parseInt(val);
+        const isClose = val < 20;
+        const badge = document.getElementById("sim11-badge");
+        const emoji = document.getElementById("sim11-emoji");
+        const action = document.getElementById("sim11-action");
+        const codeH = document.getElementById("sim11-code-highlight");
+        if (badge) {
+          badge.textContent = val + " cm";
+          badge.style.background = isClose ? "var(--coral)" : "var(--blue)";
+        }
+        if (emoji) emoji.textContent = isClose ? "🤖🔄" : "🤖➡️";
+        if (action) {
+          action.textContent = isClose
+            ? "⚠️ Obstacle! Stopping & turning left…"
+            : "✅ Moving Forward — path clear";
+          action.style.color = isClose ? "var(--coral)" : "var(--green)";
+        }
+        if (codeH)
+          codeH.innerHTML = isClose
+            ? '<span style="color:#ef4444;">→ stopMotors(); delay(300);</span> <span style="color:#64748b;">// Halt first</span><br><span style="color:#f59e0b;">→ turnLeft(); delay(500);</span> <span style="color:#64748b;">// Steer away</span>'
+            : '<span style="color:#10b981;">→ moveForward();</span> <span style="color:#64748b;">// Both motors forward at 180</span>';
+      }
+
+      function simBT(cmd) {
+        const emoji = document.getElementById("bt-sim-emoji");
+        const action = document.getElementById("bt-sim-action");
+        const code = document.getElementById("bt-sim-code");
+        const map = {
+          F: {
+            e: "🤖⬆️",
+            a: "Moving FORWARD",
+            c: "case 'F': moveForward(); break;",
+          },
+          B: {
+            e: "🤖⬇️",
+            a: "Moving BACKWARD",
+            c: "case 'B': moveBack(); break;",
+          },
+          L: { e: "🤖↰", a: "Turning LEFT", c: "case 'L': turnLeft(); break;" },
+          R: {
+            e: "🤖↱",
+            a: "Turning RIGHT",
+            c: "case 'R': turnRight(); break;",
+          },
+          S: { e: "🤖⬛", a: "STOPPED", c: "case 'S': stopMotors(); break;" },
+        };
+        const m = map[cmd];
+        if (emoji) emoji.textContent = m.e;
+        if (action) {
+          action.textContent = m.a;
+          action.style.color = cmd === "S" ? "var(--t3)" : "var(--blue)";
+        }
+        if (code) code.textContent = m.c;
+      }
+
+Object.assign(window, {
+  openLB,
+  closeLB,
+  goSection,
+  ardClick,
+  ardTip,
+  ardHide,
+  ohmUpdate,
+  ohmSelect,
+  updateResist,
+  bbClick,
+  toggleDigital,
+  drawDigital,
+  updateAnalogDemo,
+  drawAnalogWave,
+  showWireInfo,
+  drag,
+  allowDrop,
+  dropItem,
+  resetDnD,
+  btnDown,
+  btnUp,
+  updateLight,
+  updateDist,
+  updatePot,
+  updateLedBrightness,
+  toggleBuzzer,
+  updateServo,
+  setMotorSpeed,
+  showThink,
+  showScenario,
+  showSystem,
+  showPillar,
+  updateSim,
+  selectRobot,
+  showRobotContent,
+  rbTab,
+  hlWire,
+  toggleStep,
+  updateProgress,
+  copyCode,
+  sim11Update,
+  simBT
+});

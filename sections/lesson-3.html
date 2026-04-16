@@ -1,0 +1,667 @@
+        <section class="section" id="s3">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: var(--green)">3</div>
+              <div>
+                <div class="ltitle">The Breadboard</div>
+                <div class="lsub">
+                  Prototype circuits without soldering — internal metal clips do
+                  the connecting
+                </div>
+                <div class="lmeta">
+                  <span class="ltag green">🔌 Hardware</span
+                  ><span class="ltag blue">Interactive</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <div
+              class="kc"
+              style="
+                background: linear-gradient(135deg, var(--green-l), #f0fdf4);
+                border-color: var(--green-m);
+              "
+            >
+              <div class="kc-icon">🔗</div>
+              <div>
+                <div class="kc-title" style="color: var(--green)">
+                  Holes share hidden connections
+                </div>
+                <div class="kc-sub">
+                  Click any zone to reveal what's connected internally
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 28px;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+              "
+            >
+              <!-- Big breadboard SVG -->
+              <div
+                class="card-big"
+                style="flex: 1; min-width: 400px; padding: 20px"
+              >
+                <div class="slbl" style="margin-bottom: 14px">
+                  Interactive Breadboard — Click zones to understand connections
+                </div>
+                <svg
+                  viewBox="0 0 420 240"
+                  width="100%"
+                  style="display: block; max-width: 540px"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="4"
+                    y="4"
+                    width="412"
+                    height="232"
+                    rx="6"
+                    fill="#E8E0C8"
+                    stroke="#C8B890"
+                    stroke-width="2"
+                  />
+                  <g
+                    id="bb-rail-pos"
+                    onclick="bbClick('rail-pos')"
+                    style="cursor: pointer"
+                  >
+                    <rect
+                      x="8"
+                      y="8"
+                      width="404"
+                      height="24"
+                      rx="3"
+                      fill="#F8D0D0"
+                      stroke="#DC2626"
+                      stroke-width="1.5"
+                    />
+                    <text
+                      x="20"
+                      y="23"
+                      fill="#DC2626"
+                      font-size="13"
+                      font-family="Space Grotesk"
+                      font-weight="700"
+                    >
+                      +
+                    </text>
+                    <circle cx="44" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="58" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="72" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="86" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="100" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="114" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="128" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="142" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="156" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="170" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="184" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="198" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="212" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="240" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="254" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="268" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="282" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="296" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="310" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="324" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="338" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="352" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="366" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="380" cy="20" r="4.5" fill="#E89898" />
+                    <circle cx="394" cy="20" r="4.5" fill="#E89898" />
+                  </g>
+                  <g
+                    id="bb-rail-neg"
+                    onclick="bbClick('rail-neg')"
+                    style="cursor: pointer"
+                  >
+                    <rect
+                      x="8"
+                      y="34"
+                      width="404"
+                      height="24"
+                      rx="3"
+                      fill="#D0D8F8"
+                      stroke="#2563EB"
+                      stroke-width="1.5"
+                    />
+                    <text
+                      x="20"
+                      y="49"
+                      fill="#2563EB"
+                      font-size="13"
+                      font-family="Space Grotesk"
+                      font-weight="700"
+                    >
+                      –
+                    </text>
+                    <circle cx="44" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="58" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="72" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="86" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="100" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="114" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="128" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="142" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="156" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="170" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="184" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="198" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="212" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="240" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="254" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="268" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="282" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="296" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="310" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="324" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="338" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="352" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="366" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="380" cy="46" r="4.5" fill="#8898CC" />
+                    <circle cx="394" cy="46" r="4.5" fill="#8898CC" />
+                  </g>
+                  <rect
+                    x="8"
+                    y="68"
+                    width="404"
+                    height="164"
+                    rx="4"
+                    fill="#F5F0E0"
+                  />
+                  <rect
+                    x="8"
+                    y="144"
+                    width="404"
+                    height="8"
+                    rx="1"
+                    fill="#D0C8A8"
+                  />
+                  <text
+                    x="210"
+                    y="150"
+                    text-anchor="middle"
+                    fill="#A09878"
+                    font-size="7"
+                    font-family="Figtree"
+                  >
+                    DIVIDER
+                  </text>
+                  <g
+                    id="bb-zone-col"
+                    onclick="bbClick('col')"
+                    style="cursor: pointer"
+                  >
+                    <rect
+                      x="30"
+                      y="72"
+                      width="70"
+                      height="68"
+                      rx="4"
+                      fill="rgba(37,99,235,0)"
+                      id="col-hl-box"
+                      style="transition: fill 0.2s"
+                    />
+                    <circle cx="40" cy="83" r="4.5" fill="#A09878" />
+                    <circle cx="54" cy="83" r="4.5" fill="#A09878" />
+                    <circle cx="68" cy="83" r="4.5" fill="#A09878" />
+                    <circle cx="82" cy="83" r="4.5" fill="#A09878" />
+                    <circle cx="96" cy="83" r="4.5" fill="#A09878" />
+                    <circle cx="40" cy="97" r="4.5" fill="#A09878" />
+                    <circle cx="54" cy="97" r="4.5" fill="#A09878" />
+                    <circle cx="68" cy="97" r="4.5" fill="#A09878" />
+                    <circle cx="82" cy="97" r="4.5" fill="#A09878" />
+                    <circle cx="96" cy="97" r="4.5" fill="#A09878" />
+                    <circle cx="40" cy="111" r="4.5" fill="#A09878" />
+                    <circle cx="54" cy="111" r="4.5" fill="#A09878" />
+                    <circle cx="68" cy="111" r="4.5" fill="#A09878" />
+                    <circle cx="82" cy="111" r="4.5" fill="#A09878" />
+                    <circle cx="96" cy="111" r="4.5" fill="#A09878" />
+                    <circle cx="40" cy="125" r="4.5" fill="#A09878" />
+                    <circle cx="54" cy="125" r="4.5" fill="#A09878" />
+                    <circle cx="68" cy="125" r="4.5" fill="#A09878" />
+                    <circle cx="82" cy="125" r="4.5" fill="#A09878" />
+                    <circle cx="96" cy="125" r="4.5" fill="#A09878" />
+                  </g>
+                  <circle cx="116" cy="83" r="4.5" fill="#A09878" />
+                  <circle cx="130" cy="83" r="4.5" fill="#A09878" />
+                  <circle cx="144" cy="83" r="4.5" fill="#A09878" />
+                  <circle cx="158" cy="83" r="4.5" fill="#A09878" />
+                  <circle cx="172" cy="83" r="4.5" fill="#A09878" />
+                  <circle cx="116" cy="97" r="4.5" fill="#A09878" />
+                  <circle cx="130" cy="97" r="4.5" fill="#A09878" />
+                  <circle cx="144" cy="97" r="4.5" fill="#A09878" />
+                  <circle cx="158" cy="97" r="4.5" fill="#A09878" />
+                  <circle cx="172" cy="97" r="4.5" fill="#A09878" />
+                  <circle cx="116" cy="111" r="4.5" fill="#A09878" />
+                  <circle cx="130" cy="111" r="4.5" fill="#A09878" />
+                  <circle cx="144" cy="111" r="4.5" fill="#A09878" />
+                  <circle cx="158" cy="111" r="4.5" fill="#A09878" />
+                  <circle cx="172" cy="111" r="4.5" fill="#A09878" />
+                  <circle cx="116" cy="125" r="4.5" fill="#A09878" />
+                  <circle cx="130" cy="125" r="4.5" fill="#A09878" />
+                  <circle cx="144" cy="125" r="4.5" fill="#A09878" />
+                  <circle cx="158" cy="125" r="4.5" fill="#A09878" />
+                  <circle cx="172" cy="125" r="4.5" fill="#A09878" />
+                  <line
+                    x1="40"
+                    y1="32"
+                    x2="40"
+                    y2="83"
+                    stroke="#DC2626"
+                    stroke-width="2.5"
+                  />
+                  <rect
+                    x="54"
+                    y="79"
+                    width="20"
+                    height="8"
+                    rx="2"
+                    fill="#C8A830"
+                    stroke="#A08020"
+                    stroke-width="1"
+                  />
+                  <text
+                    x="64"
+                    y="75"
+                    text-anchor="middle"
+                    fill="#7A5800"
+                    font-size="8"
+                    font-family="Figtree"
+                    font-weight="700"
+                  >
+                    220Ω
+                  </text>
+                  <line
+                    x1="74"
+                    y1="83"
+                    x2="82"
+                    y2="83"
+                    stroke="#888"
+                    stroke-width="1.5"
+                  />
+                  <polygon
+                    points="96,80 96,86 104,83"
+                    fill="#FFD700"
+                    stroke="#C8A000"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="104"
+                    y1="80"
+                    x2="104"
+                    y2="86"
+                    stroke="#C8A000"
+                    stroke-width="1.5"
+                  />
+                  <line
+                    x1="82"
+                    y1="83"
+                    x2="96"
+                    y2="83"
+                    stroke="#888"
+                    stroke-width="1.5"
+                  />
+                  <text
+                    x="100"
+                    y="76"
+                    text-anchor="middle"
+                    fill="#A08000"
+                    font-size="8"
+                    font-family="Figtree"
+                    font-weight="700"
+                  >
+                    LED
+                  </text>
+                  <line
+                    x1="116"
+                    y1="83"
+                    x2="130"
+                    y2="83"
+                    stroke="#888"
+                    stroke-width="1.5"
+                  />
+                  <line
+                    x1="130"
+                    y1="83"
+                    x2="130"
+                    y2="46"
+                    stroke="#1e293b"
+                    stroke-width="2.5"
+                  />
+                  <text
+                    x="40"
+                    y="70"
+                    text-anchor="middle"
+                    fill="#DC2626"
+                    font-size="9"
+                    font-family="Figtree"
+                    font-weight="700"
+                  >
+                    5V
+                  </text>
+                  <text
+                    x="130"
+                    y="60"
+                    text-anchor="middle"
+                    fill="#1e293b"
+                    font-size="9"
+                    font-family="Figtree"
+                    font-weight="700"
+                  >
+                    GND
+                  </text>
+                  <circle cx="40" cy="158" r="4.5" fill="#A09878" />
+                  <circle cx="54" cy="158" r="4.5" fill="#A09878" />
+                  <circle cx="68" cy="158" r="4.5" fill="#A09878" />
+                  <circle cx="82" cy="158" r="4.5" fill="#A09878" />
+                  <circle cx="96" cy="158" r="4.5" fill="#A09878" />
+                  <circle cx="40" cy="172" r="4.5" fill="#A09878" />
+                  <circle cx="54" cy="172" r="4.5" fill="#A09878" />
+                  <circle cx="68" cy="172" r="4.5" fill="#A09878" />
+                  <circle cx="82" cy="172" r="4.5" fill="#A09878" />
+                  <circle cx="96" cy="172" r="4.5" fill="#A09878" />
+                  <rect
+                    x="8"
+                    y="196"
+                    width="404"
+                    height="22"
+                    rx="3"
+                    fill="#D0D8F8"
+                    stroke="#2563EB"
+                    stroke-width="1.5"
+                  />
+                  <text
+                    x="20"
+                    y="211"
+                    fill="#2563EB"
+                    font-size="11"
+                    font-family="Space Grotesk"
+                    font-weight="700"
+                  >
+                    –
+                  </text>
+                  <rect
+                    x="8"
+                    y="220"
+                    width="404"
+                    height="16"
+                    rx="3"
+                    fill="#F8D0D0"
+                    stroke="#DC2626"
+                    stroke-width="1.5"
+                  />
+                  <text
+                    x="20"
+                    y="231"
+                    fill="#DC2626"
+                    font-size="11"
+                    font-family="Space Grotesk"
+                    font-weight="700"
+                  >
+                    +
+                  </text>
+                </svg>
+                <div
+                  id="bb-info"
+                  class="kp"
+                  style="margin-top: 14px; font-size: 14px"
+                >
+                  👆 Click <strong>red rail</strong>,
+                  <strong>blue rail</strong>, or <strong>middle columns</strong>
+                </div>
+              </div>
+
+              <!-- Rules panel -->
+              <div style="min-width: 280px; flex: 1; max-width: 360px">
+                <div
+                  style="
+                    font-size: 20px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 16px;
+                  "
+                >
+                  3 Rules
+                </div>
+                <div
+                  class="bb-rule"
+                  onclick="bbClick('rail-pos')"
+                  style="border-color: var(--coral-m)"
+                >
+                  <div class="bb-dot" style="background: var(--coral-l)">
+                    🔴
+                  </div>
+                  <div>
+                    <div class="pstep-title">Red rail = Power (+)</div>
+                    <div class="pstep-desc">
+                      All holes in this row are connected horizontally. Connect
+                      5V here.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bb-rule"
+                  onclick="bbClick('rail-neg')"
+                  style="border-color: var(--blue-m)"
+                >
+                  <div class="bb-dot" style="background: var(--blue-l)">🔵</div>
+                  <div>
+                    <div class="pstep-title">Blue rail = Ground (–)</div>
+                    <div class="pstep-desc">
+                      All holes connected horizontally. Connect GND here.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bb-rule"
+                  onclick="bbClick('col')"
+                  style="border-color: var(--amber-m)"
+                >
+                  <div class="bb-dot" style="background: var(--amber-l)">▦</div>
+                  <div>
+                    <div class="pstep-title">
+                      Middle columns = vertical groups
+                    </div>
+                    <div class="pstep-desc">
+                      5 holes per column — connected vertically. Centre divider
+                      breaks all connections.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Photo refs -->
+                <div style="margin-top: 16px">
+                  <div class="g2" style="gap: 10px; margin-bottom: 0">
+                    <div
+                      style="
+                        height: 100px;
+                        position: relative;
+                        cursor: pointer;
+                        overflow: hidden;
+                        border-radius: 12px;
+                        border: 2px solid var(--border);
+                        background: var(--bg);
+                      "
+                      onclick="
+                        openLB(
+                          'Half-Size Breadboard',
+                          'assets/images/breadboard_400.jpg',
+                          '400-point breadboard showing power rails, middle rows, and divider.',
+                          [
+                            '400 tie points',
+                            'No soldering',
+                            '2 power rails',
+                            '30 column groups',
+                          ],
+                        )
+                      "
+                      title="Click to view photo"
+                    >
+                      <img
+                        src="assets/images/breadboard_400.jpg"
+                        alt="Breadboard"
+                        style="
+                          width: 100%;
+                          height: 100%;
+                          object-fit: cover;
+                          display: block;
+                          transition: transform 0.22s;
+                        "
+                        onmouseover="this.style.transform = 'scale(1.05)'"
+                        onmouseout="this.style.transform = 'scale(1)'"
+                        onerror="
+                          this.style.display = 'none';
+                          this.nextElementSibling.style.display = 'flex';
+                        "
+                      />
+                      <div
+                        style="
+                          display: none;
+                          flex-direction: column;
+                          align-items: center;
+                          justify-content: center;
+                          width: 100%;
+                          height: 100%;
+                          gap: 4px;
+                          position: absolute;
+                          inset: 0;
+                          background: var(--bg);
+                        "
+                      >
+                        <div style="font-size: 22px; opacity: 0.3">📷</div>
+                        <div
+                          style="
+                            font-size: 10px;
+                            color: #64748b;
+                            font-weight: 600;
+                          "
+                        >
+                          breadboard_400.jpg
+                        </div>
+                      </div>
+                      <div
+                        style="
+                          position: absolute;
+                          bottom: 0;
+                          left: 0;
+                          right: 0;
+                          background: rgba(15, 23, 42, 0.75);
+                          color: white;
+                          font-size: 10.5px;
+                          font-weight: 600;
+                          text-align: center;
+                          padding: 4px 6px;
+                          backdrop-filter: blur(4px);
+                        "
+                      >
+                        📸 Breadboard
+                      </div>
+                    </div>
+                    <div
+                      style="
+                        height: 100px;
+                        position: relative;
+                        cursor: pointer;
+                        overflow: hidden;
+                        border-radius: 12px;
+                        border: 2px solid var(--border);
+                        background: var(--bg);
+                      "
+                      onclick="
+                        openLB(
+                          'LED Circuit on Breadboard',
+                          'assets/images/breadboard_led_circuit.jpg',
+                          '9V → 470Ω → LED → GND circuit correctly wired on breadboard.',
+                          [
+                            '470Ω in series',
+                            'Red=9V',
+                            'Black=GND',
+                            'Polarity correct',
+                          ],
+                        )
+                      "
+                      title="Click to view photo"
+                    >
+                      <img
+                        src="assets/images/breadboard_led_circuit.jpg"
+                        alt="LED Circuit on Breadboard"
+                        style="
+                          width: 100%;
+                          height: 100%;
+                          object-fit: cover;
+                          display: block;
+                          transition: transform 0.22s;
+                        "
+                        onmouseover="this.style.transform = 'scale(1.05)'"
+                        onmouseout="this.style.transform = 'scale(1)'"
+                        onerror="
+                          this.style.display = 'none';
+                          this.nextElementSibling.style.display = 'flex';
+                        "
+                      />
+                      <div
+                        style="
+                          display: none;
+                          flex-direction: column;
+                          align-items: center;
+                          justify-content: center;
+                          width: 100%;
+                          height: 100%;
+                          gap: 4px;
+                          position: absolute;
+                          inset: 0;
+                          background: var(--bg);
+                        "
+                      >
+                        <div style="font-size: 22px; opacity: 0.3">📷</div>
+                        <div
+                          style="
+                            font-size: 10px;
+                            color: #64748b;
+                            font-weight: 600;
+                          "
+                        >
+                          breadboard_led_circuit.jpg
+                        </div>
+                      </div>
+                      <div
+                        style="
+                          position: absolute;
+                          bottom: 0;
+                          left: 0;
+                          right: 0;
+                          background: rgba(15, 23, 42, 0.75);
+                          color: white;
+                          font-size: 10.5px;
+                          font-weight: 600;
+                          text-align: center;
+                          padding: 4px 6px;
+                          backdrop-filter: blur(4px);
+                        "
+                      >
+                        📸 LED on Breadboard
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s2')">
+              ← Electricity
+            </button>
+            <span class="lesson-info">Lesson 3 of 10 · Breadboard</span>
+            <button class="navbtn pri" onclick="goSection('s4')">
+              Next: Digital vs Analog →
+            </button>
+          </div>
+        </section>

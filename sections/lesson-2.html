@@ -1,0 +1,765 @@
+        <section class="section" id="s2">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: var(--amber)">2</div>
+              <div>
+                <div class="ltitle">Electricity Basics</div>
+                <div class="lsub">
+                  Voltage · Current · Resistance · Ohm's Law — the science
+                  behind every circuit
+                </div>
+                <div class="lmeta">
+                  <span class="ltag amber">⚡ Physics</span
+                  ><span class="ltag blue">Interactive</span
+                  ><span class="ltag green">Formulas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <div
+              class="kc"
+              style="
+                background: linear-gradient(135deg, var(--amber-l), #fff9f0);
+                border-color: var(--amber-m);
+              "
+            >
+              <div class="kc-icon">💡</div>
+              <div>
+                <div class="kc-title" style="color: var(--amber)">
+                  Three quantities. One law.
+                </div>
+                <div class="kc-sub">
+                  Every circuit obeys: <strong>V = I × R</strong> — know two,
+                  calculate the third
+                </div>
+              </div>
+            </div>
+
+            <!-- Big 3 cards -->
+            <div class="g3">
+              <!-- Voltage -->
+              <div class="card-big" style="border-top: 4px solid var(--amber)">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      width: 52px;
+                      height: 52px;
+                      background: var(--amber-l);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 26px;
+                    "
+                  >
+                    ⚡
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 22px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      "
+                    >
+                      Voltage
+                    </div>
+                    <div style="font-size: 13px; color: var(--t3)">
+                      V — Volts
+                    </div>
+                  </div>
+                </div>
+                <div class="kp amber" style="margin-bottom: 14px">
+                  <div class="kp-icon">💧</div>
+                  <div class="kp-text">
+                    Electrical pressure<span
+                      >Like water pressure in a pipe</span
+                    >
+                  </div>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    gap: 8px;
+                    align-items: flex-end;
+                    justify-content: center;
+                    padding: 10px 0;
+                  "
+                >
+                  <div style="text-align: center">
+                    <div
+                      style="
+                        width: 36px;
+                        height: 52px;
+                        background: var(--blue-l);
+                        border: 2px solid var(--blue-m);
+                        border-radius: 5px;
+                        display: flex;
+                        align-items: flex-end;
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 100%;
+                          height: 28%;
+                          background: var(--blue);
+                        "
+                      ></div>
+                    </div>
+                    <div
+                      style="
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: var(--t3);
+                        margin-top: 5px;
+                      "
+                    >
+                      1.5V
+                    </div>
+                    <div style="font-size: 10px; color: var(--t4)">Battery</div>
+                  </div>
+                  <div style="text-align: center">
+                    <div
+                      style="
+                        width: 36px;
+                        height: 52px;
+                        background: var(--blue-l);
+                        border: 2px solid var(--blue-m);
+                        border-radius: 5px;
+                        display: flex;
+                        align-items: flex-end;
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 100%;
+                          height: 62%;
+                          background: var(--blue);
+                        "
+                      ></div>
+                    </div>
+                    <div
+                      style="
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: var(--blue);
+                        margin-top: 5px;
+                      "
+                    >
+                      5V
+                    </div>
+                    <div style="font-size: 10px; color: var(--t4)">Arduino</div>
+                  </div>
+                  <div style="text-align: center">
+                    <div
+                      style="
+                        width: 36px;
+                        height: 52px;
+                        background: var(--blue-l);
+                        border: 2px solid var(--blue-m);
+                        border-radius: 5px;
+                        display: flex;
+                        align-items: flex-end;
+                        overflow: hidden;
+                      "
+                    >
+                      <div
+                        style="
+                          width: 100%;
+                          height: 100%;
+                          background: var(--blue);
+                        "
+                      ></div>
+                    </div>
+                    <div
+                      style="
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: var(--t3);
+                        margin-top: 5px;
+                      "
+                    >
+                      9V
+                    </div>
+                    <div style="font-size: 10px; color: var(--t4)">DC Jack</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Current -->
+              <div class="card-big" style="border-top: 4px solid var(--blue)">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      width: 52px;
+                      height: 52px;
+                      background: var(--blue-l);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 26px;
+                    "
+                  >
+                    〰️
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 22px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      "
+                    >
+                      Current
+                    </div>
+                    <div style="font-size: 13px; color: var(--t3)">
+                      I — Amperes (A)
+                    </div>
+                  </div>
+                </div>
+                <div class="kp" style="margin-bottom: 14px">
+                  <div class="kp-icon">🌊</div>
+                  <div class="kp-text">
+                    Rate of electron flow<span
+                      >How many electrons pass per second</span
+                    >
+                  </div>
+                </div>
+                <div
+                  style="
+                    height: 40px;
+                    background: var(--blue-l);
+                    border-radius: 20px;
+                    overflow: hidden;
+                    border: 2px solid var(--blue-m);
+                    position: relative;
+                  "
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      display: flex;
+                      gap: 20px;
+                      animation: flowEl 1.8s linear infinite;
+                      padding-left: 8px;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 50%;
+                        background: var(--blue);
+                        flex-shrink: 0;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 50%;
+                        background: var(--blue);
+                        flex-shrink: 0;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 50%;
+                        background: var(--blue);
+                        flex-shrink: 0;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 50%;
+                        background: var(--blue);
+                        flex-shrink: 0;
+                      "
+                    ></div>
+                  </div>
+                  <div
+                    style="
+                      position: absolute;
+                      right: 12px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      font-size: 16px;
+                    "
+                  >
+                    💡
+                  </div>
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    font-size: 12px;
+                    color: var(--t3);
+                    margin-top: 6px;
+                  "
+                >
+                  Electrons → Light
+                </div>
+                <div class="kp green" style="margin-top: 12px">
+                  <div class="kp-icon">📏</div>
+                  <div class="kp-text">
+                    LED needs 20mA<span>Arduino pin max: 40mA</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resistance -->
+              <div class="card-big" style="border-top: 4px solid var(--coral)">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      width: 52px;
+                      height: 52px;
+                      background: var(--coral-l);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 26px;
+                    "
+                  >
+                    🔲
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 22px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      "
+                    >
+                      Resistance
+                    </div>
+                    <div style="font-size: 13px; color: var(--t3)">
+                      R — Ohms (Ω)
+                    </div>
+                  </div>
+                </div>
+                <div class="kp coral" style="margin-bottom: 14px">
+                  <div class="kp-icon">🚰</div>
+                  <div class="kp-text">
+                    Opposes current flow<span
+                      >Like a narrow pipe slowing water</span
+                    >
+                  </div>
+                </div>
+                <div
+                  style="
+                    font-size: 12.5px;
+                    color: var(--t3);
+                    margin-bottom: 6px;
+                    font-weight: 500;
+                  "
+                >
+                  Drag → change resistance → watch LED:
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  value="5"
+                  id="resist-slider"
+                  oninput="updateResist(this.value)"
+                  style="margin-bottom: 8px"
+                />
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <div
+                    id="resist-val"
+                    style="
+                      font-size: 13.5px;
+                      font-weight: 700;
+                      color: var(--t2);
+                    "
+                  >
+                    220Ω — Safe for LED
+                  </div>
+                  <div
+                    id="resist-led"
+                    style="
+                      width: 28px;
+                      height: 28px;
+                      border-radius: 50%;
+                      background: #ffd700;
+                      transition: all 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ohm's Law — Redesigned -->
+            <div class="card-big">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:6px;">
+                <div style="font-size:30px">⚡</div>
+                <div>
+                  <div style="font-size:22px;font-weight:800;font-family:'Space Grotesk',sans-serif;">Ohm's Law</div>
+                  <div style="font-size:14px;color:var(--t3)">The most important formula in electronics — it connects voltage, current, and resistance</div>
+                </div>
+              </div>
+
+              <!-- Water Pipe Analogy Banner -->
+              <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid var(--amber-m);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+                <div style="font-size:28px">🚰</div>
+                <div style="flex:1;min-width:200px;">
+                  <div style="font-size:14px;font-weight:700;color:var(--amber);font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">Think of water in a pipe!</div>
+                  <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--t2);">
+                    <span>💧 <strong>Voltage</strong> = Water pressure — pushes electrons</span>
+                    <span>〰️ <strong>Current</strong> = Flow rate — electrons per second</span>
+                    <span>🚰 <strong>Resistance</strong> = Pipe width — how hard it is to flow</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Formula Triangle -->
+              <div style="background:var(--text);border-radius:14px;padding:18px;margin-bottom:20px;text-align:center;">
+                <div style="color:rgba(255,255,255,.5);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">The Magic Triangle — cover what you want to find!</div>
+                <div style="display:flex;justify-content:center;gap:0;margin-bottom:12px;">
+                  <svg viewBox="0 0 220 130" width="220" height="130">
+                    <polygon points="110,8 210,120 10,120" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+                    <!-- V top -->
+                    <rect x="75" y="10" width="70" height="44" rx="8" fill="#b45309"/>
+                    <text x="110" y="28" text-anchor="middle" fill="white" font-size="11" font-family="Space Grotesk" font-weight="700">VOLTAGE</text>
+                    <text x="110" y="46" text-anchor="middle" fill="#fcd34d" font-size="20" font-family="Space Grotesk" font-weight="800">V</text>
+                    <!-- divider line -->
+                    <line x1="30" y1="70" x2="190" y2="70" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-dasharray="4 3"/>
+                    <!-- I left -->
+                    <rect x="18" y="76" width="82" height="44" rx="8" fill="#1d4ed8"/>
+                    <text x="59" y="94" text-anchor="middle" fill="white" font-size="11" font-family="Space Grotesk" font-weight="700">CURRENT</text>
+                    <text x="59" y="112" text-anchor="middle" fill="#93c5fd" font-size="20" font-family="Space Grotesk" font-weight="800">I</text>
+                    <!-- × symbol -->
+                    <text x="108" y="105" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="18" font-weight="700">×</text>
+                    <!-- R right -->
+                    <rect x="120" y="76" width="82" height="44" rx="8" fill="#b91c1c"/>
+                    <text x="161" y="94" text-anchor="middle" fill="white" font-size="11" font-family="Space Grotesk" font-weight="700">RESISTANCE</text>
+                    <text x="161" y="112" text-anchor="middle" fill="#fca5a5" font-size="20" font-family="Space Grotesk" font-weight="800">R</text>
+                  </svg>
+                </div>
+                <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;">
+                  <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:6px 14px;font-family:monospace;font-size:13px;color:#fcd34d;">V = I × R</div>
+                  <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:6px 14px;font-family:monospace;font-size:13px;color:#93c5fd;">I = V ÷ R</div>
+                  <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:6px 14px;font-family:monospace;font-size:13px;color:#fca5a5;">R = V ÷ I</div>
+                </div>
+              </div>
+
+              <!-- Live Calculator -->
+              <div style="background:var(--bg);border-radius:14px;padding:18px;margin-bottom:16px;">
+                <div style="font-size:14px;font-weight:700;color:var(--t2);margin-bottom:14px;font-family:'Space Grotesk',sans-serif;">🎛️ Live Calculator — drag sliders to explore</div>
+                <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:14px;">
+                  <div style="flex:1;min-width:180px;">
+                    <div style="font-size:13px;font-weight:600;color:var(--t3);margin-bottom:4px;">🔋 Voltage: <span id="ohm-slider-V-lbl" style="color:var(--amber);font-size:15px;font-weight:800;">5.0V</span></div>
+                    <input type="range" min="1" max="12" step=".1" value="5" id="ohm-slider-V" oninput="ohmUpdate()"/>
+                  </div>
+                  <div style="flex:1;min-width:180px;">
+                    <div style="font-size:13px;font-weight:600;color:var(--t3);margin-bottom:4px;">🚰 Resistance: <span id="ohm-slider-R-lbl" style="color:var(--coral);font-size:15px;font-weight:800;">250Ω</span></div>
+                    <input type="range" min="10" max="10000" step="10" value="250" id="ohm-slider-R" oninput="ohmUpdate()"/>
+                  </div>
+                </div>
+                <!-- Result Cards -->
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;">
+                  <div class="ohm-part active" id="ohm-V" style="background:var(--amber-l);cursor:default;" onclick="ohmSelect('V')">
+                    <div class="ohm-num" style="color:var(--amber)" id="ohm-V-val">5.0<span style="font-size:16px">V</span></div>
+                    <div class="ohm-lbl">⚡ Voltage</div>
+                    <div class="ohm-eq" style="color:var(--amber);font-size:10px;background:rgba(180,83,9,.1);border-radius:6px;padding:2px 6px;margin-top:5px;">V = I × R</div>
+                  </div>
+                  <div class="ohm-part" id="ohm-I" style="background:var(--blue-l);cursor:default;" onclick="ohmSelect('I')">
+                    <div class="ohm-num" style="color:var(--blue)" id="ohm-I-val">20<span style="font-size:16px">mA</span></div>
+                    <div class="ohm-lbl">〰️ Current</div>
+                    <div class="ohm-eq" style="color:var(--blue);font-size:10px;background:rgba(29,78,216,.1);border-radius:6px;padding:2px 6px;margin-top:5px;">I = V ÷ R</div>
+                  </div>
+                  <div class="ohm-part" id="ohm-R" style="background:var(--coral-l);cursor:default;" onclick="ohmSelect('R')">
+                    <div class="ohm-num" style="color:var(--coral)" id="ohm-R-val">250<span style="font-size:16px">Ω</span></div>
+                    <div class="ohm-lbl">🚰 Resistance</div>
+                    <div class="ohm-eq" style="color:var(--coral);font-size:10px;background:rgba(185,28,28,.1);border-radius:6px;padding:2px 6px;margin-top:5px;">R = V ÷ I</div>
+                  </div>
+                  <div class="ohm-part" id="ohm-P" style="background:var(--purple-l);cursor:default;" onclick="ohmSelect('P')">
+                    <div class="ohm-num" style="color:var(--purple)" id="ohm-P-val">0.10<span style="font-size:16px">W</span></div>
+                    <div class="ohm-lbl">⚡ Power</div>
+                    <div class="ohm-eq" style="color:var(--purple);font-size:10px;background:rgba(109,40,217,.1);border-radius:6px;padding:2px 6px;margin-top:5px;">P = V × I</div>
+                  </div>
+                </div>
+              </div>
+              <div id="ohm-explain" class="kp amber" style="font-size:14px"></div>
+            </div>
+
+            <!-- LED polarity + Water analogy -->
+            <div class="g2">
+              <div class="card-big">
+                <div
+                  style="
+                    font-size: 20px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 14px;
+                  "
+                >
+                  💡 LED Polarity
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    gap: 32px;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px 0;
+                  "
+                >
+                  <div style="text-align: center">
+                    <svg
+                      viewBox="0 0 80 100"
+                      width="80"
+                      style="display: block; margin: 0 auto"
+                    >
+                      <line
+                        x1="40"
+                        y1="5"
+                        x2="40"
+                        y2="28"
+                        stroke="#2563EB"
+                        stroke-width="3"
+                      />
+                      <polygon points="24,28 56,28 40,56" fill="#FFD700" />
+                      <line
+                        x1="56"
+                        y1="28"
+                        x2="24"
+                        y2="56"
+                        stroke="#2563EB"
+                        stroke-width="3"
+                      />
+                      <line
+                        x1="40"
+                        y1="56"
+                        x2="40"
+                        y2="80"
+                        stroke="#2563EB"
+                        stroke-width="3"
+                      />
+                      <line
+                        x1="58"
+                        y1="36"
+                        x2="72"
+                        y2="27"
+                        stroke="#FFD700"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <line
+                        x1="62"
+                        y1="48"
+                        x2="78"
+                        y2="45"
+                        stroke="#FFD700"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                      />
+                      <text
+                        x="10"
+                        y="13"
+                        fill="#059669"
+                        font-size="12"
+                        font-family="Space Grotesk"
+                        font-weight="800"
+                      >
+                        +
+                      </text>
+                      <text
+                        x="10"
+                        y="86"
+                        fill="#64748B"
+                        font-size="12"
+                        font-family="Space Grotesk"
+                        font-weight="800"
+                      >
+                        –
+                      </text>
+                      <circle
+                        cx="40"
+                        cy="42"
+                        r="22"
+                        fill="#FFD700"
+                        opacity=".1"
+                        style="animation: glow 2s ease-in-out infinite"
+                      />
+                    </svg>
+                    <div
+                      style="
+                        margin-top: 8px;
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: var(--green);
+                      "
+                    >
+                      ✓ Correct
+                    </div>
+                    <div style="font-size: 12px; color: var(--t3)">
+                      + → long leg
+                    </div>
+                  </div>
+                  <div style="font-size: 40px; color: var(--t4)">vs</div>
+                  <div style="text-align: center">
+                    <svg
+                      viewBox="0 0 80 100"
+                      width="80"
+                      style="display: block; margin: 0 auto"
+                    >
+                      <line
+                        x1="40"
+                        y1="5"
+                        x2="40"
+                        y2="28"
+                        stroke="#94A3B8"
+                        stroke-width="3"
+                      />
+                      <polygon points="24,28 56,28 40,56" fill="#CBD5E1" />
+                      <line
+                        x1="56"
+                        y1="28"
+                        x2="24"
+                        y2="56"
+                        stroke="#94A3B8"
+                        stroke-width="3"
+                      />
+                      <line
+                        x1="40"
+                        y1="56"
+                        x2="40"
+                        y2="80"
+                        stroke="#94A3B8"
+                        stroke-width="3"
+                      />
+                      <text
+                        x="10"
+                        y="13"
+                        fill="#DC2626"
+                        font-size="12"
+                        font-family="Space Grotesk"
+                        font-weight="800"
+                      >
+                        –
+                      </text>
+                      <text
+                        x="10"
+                        y="86"
+                        fill="#64748B"
+                        font-size="12"
+                        font-family="Space Grotesk"
+                        font-weight="800"
+                      >
+                        +
+                      </text>
+                    </svg>
+                    <div
+                      style="
+                        margin-top: 8px;
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: var(--coral);
+                      "
+                    >
+                      ✗ Reversed
+                    </div>
+                    <div style="font-size: 12px; color: var(--t3)">
+                      No light
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-big">
+                <div
+                  style="
+                    font-size: 20px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 14px;
+                  "
+                >
+                  🌊 Water Analogy
+                </div>
+                <table class="wtbl">
+                  <tr>
+                    <th>Water System</th>
+                    <th>Electricity</th>
+                  </tr>
+                  <tr>
+                    <td>💧 Pressure (PSI)</td>
+                    <td>
+                      <strong style="color: var(--amber)">Voltage (V)</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>🌊 Flow rate (L/s)</td>
+                    <td>
+                      <strong style="color: var(--blue)">Current (A)</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>🚰 Narrow pipe</td>
+                    <td>
+                      <strong style="color: var(--coral)"
+                        >Resistance (Ω)</strong
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>⚡ Pump</td>
+                    <td><strong>Battery / Power Supply</strong></td>
+                  </tr>
+                  <tr>
+                    <td>💡 Water wheel</td>
+                    <td><strong>Motor / LED</strong></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s1')">
+              ← Arduino Uno
+            </button>
+            <span class="lesson-info">Lesson 2 of 10 · Electricity</span>
+            <button class="navbtn pri" onclick="goSection('s3')">
+              Next: Breadboard →
+            </button>
+          </div>
+        </section>

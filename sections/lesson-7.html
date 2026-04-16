@@ -1,0 +1,654 @@
+        <section class="section" id="s7">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: var(--coral)">7</div>
+              <div>
+                <div class="ltitle">Actuators</div>
+                <div class="lsub">
+                  Outputs that convert Arduino's signals into light, sound, and
+                  motion
+                </div>
+                <div class="lmeta">
+                  <span class="ltag coral">⚙️ Outputs</span
+                  ><span class="ltag blue">Interactive</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <div
+              class="kc"
+              style="
+                background: linear-gradient(135deg, var(--coral-l), #fff0f0);
+                border-color: var(--coral-m);
+              "
+            >
+              <div class="kc-icon">⚡</div>
+              <div>
+                <div class="kc-title" style="color: var(--coral)">
+                  Electrical signal → Physical action
+                </div>
+                <div class="kc-sub">
+                  HIGH/LOW for on/off · PWM for variable control of speed,
+                  brightness, angle
+                </div>
+              </div>
+            </div>
+
+            <div class="g4">
+              <!-- LED -->
+              <div class="scard">
+                <div class="siz" style="background: var(--amber-l)">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                    "
+                    onclick="
+                      openLB(
+                        'LED Assortment',
+                        'assets/images/leds_assorted.jpeg',
+                        '5mm LEDs: red, green, blue, yellow. Always use 220Ω series resistor. Forward voltage ~2V red/yellow, ~3V blue/green.',
+                        [
+                          '220Ω in series',
+                          '20mA operating',
+                          'Digital or PWM pin',
+                          'Polarity matters',
+                        ],
+                      )
+                    "
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                      position: relative;
+                      cursor: pointer;
+                      overflow: hidden;
+                    "
+                    title="Click to view photo"
+                  >
+                    <img
+                      src="assets/images/leds_assorted.jpeg"
+                      alt="LED Assortment"
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: transform 0.22s;
+                      "
+                      onmouseover="this.style.transform = 'scale(1.05)'"
+                      onmouseout="this.style.transform = 'scale(1)'"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div
+                      style="
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        gap: 5px;
+                        position: absolute;
+                        inset: 0;
+                      "
+                    >
+                      <div style="font-size: 26px; opacity: 0.3">📷</div>
+                      <div
+                        style="
+                          font-size: 10.5px;
+                          color: #64748b;
+                          font-weight: 600;
+                          text-align: center;
+                          padding: 0 8px;
+                        "
+                      >
+                        leds_assorted.jpeg
+                      </div>
+                      <div style="font-size: 10px; color: #94a3b8">
+                        Click to open
+                      </div>
+                    </div>
+                    <div
+                      class="imgc-lbl"
+                      style="opacity: 0; transition: opacity 0.2s"
+                      onmouseover="this.style.opacity = '1'"
+                      onmouseout="this.style.opacity = '0'"
+                    >
+                      🔍 View
+                    </div>
+                  </div>
+                </div>
+                <div class="scard-body">
+                  <div class="scard-title">💡 LED</div>
+                  <div class="scard-desc">
+                    Light Emitting Diode — brightness via PWM duty cycle
+                  </div>
+                  <div
+                    id="act-led"
+                    style="
+                      width: 52px;
+                      height: 52px;
+                      border-radius: 50%;
+                      background: #ffd700;
+                      margin: 0 auto 8px;
+                      box-shadow: 0 0 24px rgba(255, 215, 0, 0.85);
+                      transition: all 0.3s;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      font-size: 12px;
+                      color: var(--t3);
+                      text-align: center;
+                      margin-bottom: 4px;
+                    "
+                  >
+                    PWM Duty Cycle
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="80"
+                    id="led-bright-slider"
+                    oninput="updateLedBrightness(this.value)"
+                  />
+                  <div
+                    id="led-bright-pct"
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--t2);
+                      text-align: center;
+                      margin-top: 4px;
+                    "
+                  >
+                    80%
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: flex-end;
+                      gap: 1px;
+                      height: 28px;
+                      background: var(--bg);
+                      border-radius: 5px;
+                      padding: 2px 3px;
+                      margin-top: 8px;
+                    "
+                    id="pwm-viz"
+                  ></div>
+                </div>
+              </div>
+
+              <!-- Buzzer -->
+              <div class="scard">
+                <div class="siz" style="background: var(--blue-l)">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                    "
+                    onclick="
+                      openLB(
+                        'Piezo Buzzer',
+                        'assets/images/piezo_buzzer.jpg',
+                        'Piezoelectric disc vibrates when voltage applied — creates sound. Frequency determines pitch. Active beeps at 5V; passive needs PWM.',
+                        [
+                          'Active: 5V beep',
+                          'Passive: needs PWM',
+                          '2 pins: + and –',
+                          'Any digital pin',
+                        ],
+                      )
+                    "
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                      position: relative;
+                      cursor: pointer;
+                      overflow: hidden;
+                    "
+                    title="Click to view photo"
+                  >
+                    <img
+                      src="assets/images/piezo_buzzer.jpg"
+                      alt="Piezo Buzzer"
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: transform 0.22s;
+                      "
+                      onmouseover="this.style.transform = 'scale(1.05)'"
+                      onmouseout="this.style.transform = 'scale(1)'"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div
+                      style="
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        gap: 5px;
+                        position: absolute;
+                        inset: 0;
+                      "
+                    >
+                      <div style="font-size: 26px; opacity: 0.3">📷</div>
+                      <div
+                        style="
+                          font-size: 10.5px;
+                          color: #64748b;
+                          font-weight: 600;
+                          text-align: center;
+                          padding: 0 8px;
+                        "
+                      >
+                        piezo_buzzer.jpg
+                      </div>
+                      <div style="font-size: 10px; color: #94a3b8">
+                        Click to open
+                      </div>
+                    </div>
+                    <div
+                      class="imgc-lbl"
+                      style="opacity: 0; transition: opacity 0.2s"
+                      onmouseover="this.style.opacity = '1'"
+                      onmouseout="this.style.opacity = '0'"
+                    >
+                      🔍 View
+                    </div>
+                  </div>
+                </div>
+                <div class="scard-body">
+                  <div class="scard-title">🔊 Buzzer</div>
+                  <div class="scard-desc">
+                    Piezoelectric vibration → sound waves
+                  </div>
+                  <div
+                    id="buzzer-waves"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      gap: 4px;
+                      height: 50px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 5px;
+                        border-radius: 2px;
+                        background: var(--blue);
+                        animation: wave 0.7s ease-in-out infinite;
+                        height: 6px;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 5px;
+                        border-radius: 2px;
+                        background: var(--blue);
+                        animation: wave 0.7s ease-in-out 0.1s infinite;
+                        height: 6px;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 5px;
+                        border-radius: 2px;
+                        background: var(--blue);
+                        animation: wave 0.7s ease-in-out 0.2s infinite;
+                        height: 6px;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 5px;
+                        border-radius: 2px;
+                        background: var(--blue);
+                        animation: wave 0.7s ease-in-out 0.3s infinite;
+                        height: 6px;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 5px;
+                        border-radius: 2px;
+                        background: var(--blue);
+                        animation: wave 0.7s ease-in-out 0.4s infinite;
+                        height: 6px;
+                      "
+                    ></div>
+                  </div>
+                  <button
+                    id="buzz-btn"
+                    onclick="toggleBuzzer()"
+                    class="btn"
+                    style="width: 100%; text-align: center"
+                  >
+                    ▶ Play
+                  </button>
+                </div>
+              </div>
+
+              <!-- Servo -->
+              <div class="scard">
+                <div class="siz" style="background: var(--green-l)">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                    "
+                    onclick="
+                      openLB(
+                        'SG90 Servo',
+                        'assets/images/sg90_servo.png',
+                        'Micro servo 9g. PWM signal positions arm 0–180°. Brown=GND, Red=5V, Orange=Signal.',
+                        [
+                          '0° to 180° range',
+                          '3 wires',
+                          'PWM control',
+                          'Precise positioning',
+                        ],
+                      )
+                    "
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                      position: relative;
+                      cursor: pointer;
+                      overflow: hidden;
+                    "
+                    title="Click to view photo"
+                  >
+                    <img
+                      src="assets/images/sg90_servo.png"
+                      alt="SG90 Servo"
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: transform 0.22s;
+                      "
+                      onmouseover="this.style.transform = 'scale(1.05)'"
+                      onmouseout="this.style.transform = 'scale(1)'"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div
+                      style="
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        gap: 5px;
+                        position: absolute;
+                        inset: 0;
+                      "
+                    >
+                      <div style="font-size: 26px; opacity: 0.3">📷</div>
+                      <div
+                        style="
+                          font-size: 10.5px;
+                          color: #64748b;
+                          font-weight: 600;
+                          text-align: center;
+                          padding: 0 8px;
+                        "
+                      >
+                        sg90_servo.png
+                      </div>
+                      <div style="font-size: 10px; color: #94a3b8">
+                        Click to open
+                      </div>
+                    </div>
+                    <div
+                      class="imgc-lbl"
+                      style="opacity: 0; transition: opacity 0.2s"
+                      onmouseover="this.style.opacity = '1'"
+                      onmouseout="this.style.opacity = '0'"
+                    >
+                      🔍 View
+                    </div>
+                  </div>
+                </div>
+                <div class="scard-body">
+                  <div class="scard-title">⚙️ Servo Motor</div>
+                  <div class="scard-desc">
+                    PWM signal → precise angle 0–180°
+                  </div>
+                  <svg
+                    viewBox="0 0 84 84"
+                    width="80"
+                    height="80"
+                    style="display: block; margin: 0 auto 8px"
+                  >
+                    <circle
+                      cx="42"
+                      cy="42"
+                      r="37"
+                      fill="#E2E8F0"
+                      stroke="#CBD5E1"
+                      stroke-width="2.5"
+                    />
+                    <circle cx="42" cy="42" r="16" fill="#475569" />
+                    <line
+                      id="servo-arm"
+                      x1="42"
+                      y1="42"
+                      x2="42"
+                      y2="12"
+                      stroke="var(--blue)"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="42" cy="42" r="5" fill="white" />
+                  </svg>
+                  <input
+                    type="range"
+                    min="0"
+                    max="180"
+                    value="90"
+                    id="servo-slider"
+                    oninput="updateServo(this.value)"
+                    style="margin-bottom: 4px"
+                  />
+                  <div
+                    id="servo-angle"
+                    style="
+                      font-size: 20px;
+                      font-weight: 800;
+                      color: var(--blue);
+                      text-align: center;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    90°
+                  </div>
+                </div>
+              </div>
+
+              <!-- DC Motor -->
+              <div class="scard">
+                <div class="siz" style="background: var(--coral-l)">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                    "
+                    onclick="
+                      openLB(
+                        'DC Motor + L298N',
+                        'assets/images/dc_motor_l298n.jpg',
+                        'DC gear motor + L298N H-Bridge driver. L298N controls speed (PWM via ENA) and direction (IN1/IN2 logic).',
+                        [
+                          'L298N: 2A/channel',
+                          'PWM speed control',
+                          'H-Bridge direction',
+                          'Separate power supply',
+                        ],
+                      )
+                    "
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      border: none;
+                      border-radius: 0;
+                      position: relative;
+                      cursor: pointer;
+                      overflow: hidden;
+                    "
+                    title="Click to view photo"
+                  >
+                    <img
+                      src="assets/images/dc_motor_l298n.jpg"
+                      alt="DC Motor + L298N"
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: transform 0.22s;
+                      "
+                      onmouseover="this.style.transform = 'scale(1.05)'"
+                      onmouseout="this.style.transform = 'scale(1)'"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div
+                      style="
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        gap: 5px;
+                        position: absolute;
+                        inset: 0;
+                      "
+                    >
+                      <div style="font-size: 26px; opacity: 0.3">📷</div>
+                      <div
+                        style="
+                          font-size: 10.5px;
+                          color: #64748b;
+                          font-weight: 600;
+                          text-align: center;
+                          padding: 0 8px;
+                        "
+                      >
+                        dc_motor_l298n.jpg
+                      </div>
+                      <div style="font-size: 10px; color: #94a3b8">
+                        Click to open
+                      </div>
+                    </div>
+                    <div
+                      class="imgc-lbl"
+                      style="opacity: 0; transition: opacity 0.2s"
+                      onmouseover="this.style.opacity = '1'"
+                      onmouseout="this.style.opacity = '0'"
+                    >
+                      🔍 View
+                    </div>
+                  </div>
+                </div>
+                <div class="scard-body">
+                  <div class="scard-title">🔄 DC Motor</div>
+                  <div class="scard-desc">
+                    Continuous rotation — speed via PWM, direction via H-Bridge
+                  </div>
+                  <div
+                    id="motor-circle"
+                    style="
+                      width: 58px;
+                      height: 58px;
+                      border-radius: 50%;
+                      border: 5px solid #e2e8f0;
+                      border-top-color: var(--green);
+                      margin: 0 auto 10px;
+                      animation: spin 1s linear infinite;
+                    "
+                  ></div>
+                  <div style="display: flex; gap: 6px; justify-content: center">
+                    <button onclick="setMotorSpeed(0)" class="btn sm">
+                      ■ Stop
+                    </button>
+                    <button
+                      onclick="setMotorSpeed(1)"
+                      style="
+                        padding: 7px 12px;
+                        border-radius: 7px;
+                        border: 1.5px solid var(--blue);
+                        background: var(--blue-l);
+                        color: var(--blue);
+                        font-size: 12px;
+                        cursor: pointer;
+                        font-weight: 600;
+                      "
+                    >
+                      Slow
+                    </button>
+                    <button
+                      onclick="setMotorSpeed(3)"
+                      style="
+                        padding: 7px 12px;
+                        border-radius: 7px;
+                        border: 1.5px solid var(--green);
+                        background: var(--green-l);
+                        color: var(--green);
+                        font-size: 12px;
+                        cursor: pointer;
+                        font-weight: 600;
+                      "
+                    >
+                      Fast
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s6')">← Sensors</button>
+            <span class="lesson-info">Lesson 7 of 10 · Actuators</span>
+            <button class="navbtn pri" onclick="goSection('s8')">
+              Next: Robot Thinking →
+            </button>
+          </div>
+        </section>

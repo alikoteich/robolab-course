@@ -1,0 +1,910 @@
+        <section class="section" id="s10">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: var(--purple)">10</div>
+              <div>
+                <div class="ltitle">How Arduino is Programmed</div>
+                <div class="lsub">
+                  From idea to physical action — PictoBlox blocks become real
+                  C++ code
+                </div>
+                <div class="lmeta">
+                  <span class="ltag purple">💻 Programming</span
+                  ><span class="ltag blue">PictoBlox</span
+                  ><span class="ltag green">Conceptual</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <!-- Pipeline big visual -->
+            <div class="card-big" style="margin-bottom: 24px">
+              <div class="slbl" style="margin-bottom: 18px">
+                The Programming Pipeline
+              </div>
+              <div class="flow-chain">
+                <div
+                  class="fn-box"
+                  style="
+                    background: var(--purple-l);
+                    border: 2px solid var(--purple-m);
+                  "
+                >
+                  <div style="font-size: 36px; margin-bottom: 8px">💡</div>
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--purple);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    Your Idea
+                  </div>
+                </div>
+                <div class="f-arrow">→</div>
+                <div
+                  class="fn-box"
+                  style="
+                    background: var(--blue-l);
+                    border: 2px solid var(--blue-m);
+                  "
+                >
+                  <div style="font-size: 36px; margin-bottom: 8px">🖥️</div>
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--blue);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    PictoBlox
+                  </div>
+                </div>
+                <div class="f-arrow">→</div>
+                <div
+                  class="fn-box"
+                  style="
+                    background: var(--amber-l);
+                    border: 2px solid var(--amber-m);
+                  "
+                >
+                  <div style="font-size: 36px; margin-bottom: 8px">📝</div>
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--amber);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    Compile
+                  </div>
+                </div>
+                <div class="f-arrow">→</div>
+                <div
+                  class="fn-box"
+                  style="
+                    background: var(--green-l);
+                    border: 2px solid var(--green-m);
+                  "
+                >
+                  <div style="font-size: 36px; margin-bottom: 8px">🔌</div>
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--green);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    USB Upload
+                  </div>
+                </div>
+                <div class="f-arrow">→</div>
+                <div
+                  class="fn-box"
+                  style="
+                    background: var(--coral-l);
+                    border: 2px solid var(--coral-m);
+                  "
+                >
+                  <div style="font-size: 36px; margin-bottom: 8px">🤖</div>
+                  <div
+                    style="
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: var(--coral);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    Arduino Acts
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 pillars big cards -->
+            <div class="slbl" style="margin-bottom: 16px">
+              4 Core Concepts — click to expand
+            </div>
+            <div class="g4" style="margin-bottom: 24px">
+              <div class="pconcept" onclick="showPillar('seq')">
+                <div
+                  style="
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 12px;
+                    background: var(--blue-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 26px;
+                    margin-bottom: 12px;
+                  "
+                >
+                  📋
+                </div>
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 6px;
+                  "
+                >
+                  Sequence
+                </div>
+                <div style="font-size: 13.5px; color: var(--t3)">
+                  Like a recipe — do step 1, then step 2, then step 3
+                </div>
+              </div>
+              <div class="pconcept" onclick="showPillar('cond')">
+                <div
+                  style="
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 12px;
+                    background: var(--amber-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 26px;
+                    margin-bottom: 12px;
+                  "
+                >
+                  🔀
+                </div>
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 6px;
+                  "
+                >
+                  Condition
+                </div>
+                <div style="font-size: 13.5px; color: var(--t3)">
+                  Ask a yes/no question, then choose what to do
+                </div>
+              </div>
+              <div class="pconcept" onclick="showPillar('loop')">
+                <div
+                  style="
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 12px;
+                    background: var(--green-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 26px;
+                    margin-bottom: 12px;
+                  "
+                >
+                  🔁
+                </div>
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 6px;
+                  "
+                >
+                  Loop
+                </div>
+                <div style="font-size: 13.5px; color: var(--t3)">
+                  Keeps checking and reacting — never stops!
+                </div>
+              </div>
+              <div class="pconcept" onclick="showPillar('var')">
+                <div
+                  style="
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 12px;
+                    background: var(--purple-l);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 26px;
+                    margin-bottom: 12px;
+                  "
+                >
+                  📦
+                </div>
+                <div
+                  style="
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    margin-bottom: 6px;
+                  "
+                >
+                  Variable
+                </div>
+                <div style="font-size: 13.5px; color: var(--t3)">
+                  A labelled box that stores a number for you
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="pillar-panel"
+              class="kp"
+              style="
+                display: none;
+                margin-bottom: 24px;
+                font-size: 15px;
+                line-height: 1.7;
+                border-width: 4px;
+              "
+            ></div>
+
+            <!-- PictoBlox blocks visual -->
+            <div class="card-big">
+              <div
+                style="
+                  font-size: 20px;
+                  font-weight: 800;
+                  font-family: &quot;Space Grotesk&quot;, sans-serif;
+                  margin-bottom: 16px;
+                "
+              >
+                🖥️ PictoBlox Block Example — LED Blink
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 8px;
+                  margin-bottom: 16px;
+                "
+              >
+                <div
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 9px;
+                    background: #ff6680;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 700;
+                  "
+                >
+                  When 🚩 Clicked
+                </div>
+                <div
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 9px;
+                    background: #5cb1d6;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 700;
+                  "
+                >
+                  Repeat Forever ↺
+                </div>
+                <div
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 9px;
+                    background: #4c97ff;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 700;
+                  "
+                >
+                  Set Pin 13 HIGH
+                </div>
+                <div
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 9px;
+                    background: #9966ff;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 700;
+                  "
+                >
+                  Wait 1 second
+                </div>
+                <div
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 9px;
+                    background: #4c97ff;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 700;
+                  "
+                >
+                  Set Pin 13 LOW
+                </div>
+                <div
+                  style="
+                    padding: 10px 16px;
+                    border-radius: 9px;
+                    background: #9966ff;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 700;
+                  "
+                >
+                  Wait 1 second
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap">
+                <div class="pstep">
+                  <div class="pnum">1</div>
+                  <div>
+                    <div class="pstep-title">Connect LED to Pin 13</div>
+                    <div class="pstep-desc">
+                      Long leg → pin 13 via 220Ω. Short leg → GND.
+                    </div>
+                  </div>
+                </div>
+                <div class="pstep">
+                  <div class="pnum">2</div>
+                  <div>
+                    <div class="pstep-title">Open PictoBlox → Upload Mode</div>
+                    <div class="pstep-desc">
+                      Upload Mode stores code in flash memory permanently.
+                    </div>
+                  </div>
+                </div>
+                <div class="pstep">
+                  <div class="pnum">3</div>
+                  <div>
+                    <div class="pstep-title">Build blocks → Click Upload</div>
+                    <div class="pstep-desc">
+                      PictoBlox compiles to C++ and sends via USB.
+                    </div>
+                  </div>
+                </div>
+                <div class="pstep">
+                  <div class="pnum g">✓</div>
+                  <div>
+                    <div class="pstep-title">
+                      Unplug USB — LED still blinks!
+                    </div>
+                    <div class="pstep-desc">
+                      Code stored in 32KB flash — runs on any power source
+                      forever.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ═══ NEW SECTION: How the 4 concepts work together ═══ -->
+            <div class="card-big" style="margin-top: 24px">
+              <div
+                style="
+                  font-size: 20px;
+                  font-weight: 800;
+                  font-family: &quot;Space Grotesk&quot;, sans-serif;
+                  margin-bottom: 6px;
+                "
+              >
+                🧩 How Do They All Fit Together?
+              </div>
+              <p style="font-size: 14px; color: var(--t3); margin-bottom: 18px">
+                Every Arduino program — no matter how complicated — is built
+                from just these 4 ideas working as a team. Here's how they
+                combine in a real robot:
+              </p>
+              <div
+                style="
+                  background: var(--bg);
+                  border-radius: 14px;
+                  padding: 18px 20px;
+                  font-size: 13.5px;
+                  line-height: 2.3;
+                  font-family: monospace;
+                  border: 1px solid var(--border-l);
+                "
+              >
+                <div
+                  style="
+                    color: var(--t3);
+                    margin-bottom: 4px;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 12px;
+                  "
+                >
+                  // 🤖 Obstacle-Avoiding Robot — full program idea
+                </div>
+                <div>
+                  <span style="color: var(--purple); font-weight: 700"
+                    >distance</span
+                  >
+                  = <span style="color: var(--blue)">0</span> &nbsp;<span
+                    style="
+                      color: var(--t4);
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                    "
+                    >← 📦 Variable: a box to store the sensor reading</span
+                  >
+                </div>
+                <div style="margin-top: 4px">
+                  <span style="color: var(--green); font-weight: 700"
+                    >Repeat Forever:</span
+                  >
+                  &nbsp;<span
+                    style="
+                      color: var(--t4);
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                    "
+                    >← 🔁 Loop: keep doing this non-stop</span
+                  >
+                </div>
+                <div style="padding-left: 20px">
+                  <span style="color: var(--blue)"
+                    >📡 Read sensor → store in </span
+                  ><span style="color: var(--purple); font-weight: 700"
+                    >distance</span
+                  >
+                  &nbsp;<span
+                    style="
+                      color: var(--t4);
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                    "
+                    >← 📋 Sequence Step 1</span
+                  >
+                </div>
+                <div style="padding-left: 20px">
+                  <span style="color: var(--amber); font-weight: 700">IF</span>
+                  <span style="color: var(--purple)">distance</span>
+                  <span style="color: var(--blue)">&lt; 20</span> &nbsp;<span
+                    style="
+                      color: var(--t4);
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                    "
+                    >← 🔀 Condition: yes/no question</span
+                  >
+                </div>
+                <div style="padding-left: 40px">
+                  <span style="color: var(--coral)">Turn motors LEFT 🔄</span>
+                  &nbsp;<span
+                    style="
+                      color: var(--t4);
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                    "
+                    >← 📋 Sequence Step 2a (if YES)</span
+                  >
+                </div>
+                <div style="padding-left: 20px">
+                  <span style="color: var(--amber); font-weight: 700"
+                    >ELSE</span
+                  >
+                  &nbsp;<span
+                    style="
+                      color: var(--t4);
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                    "
+                    >(if NO — path is clear)</span
+                  >
+                </div>
+                <div style="padding-left: 40px">
+                  <span style="color: var(--green)">Go FORWARD ➡️</span>
+                  &nbsp;<span
+                    style="
+                      color: var(--t4);
+                      font-family: &quot;Inter&quot;, sans-serif;
+                      font-size: 12px;
+                    "
+                    >← 📋 Sequence Step 2b</span
+                  >
+                </div>
+                <div
+                  style="
+                    padding-left: 20px;
+                    color: var(--t3);
+                    font-style: italic;
+                    font-family: &quot;Inter&quot;, sans-serif;
+                    font-size: 12px;
+                    margin-top: 2px;
+                  "
+                >
+                  ↩ loop jumps back to top and runs again instantly...
+                </div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 10px;
+                  flex-wrap: wrap;
+                  margin-top: 16px;
+                "
+              >
+                <div
+                  style="
+                    background: var(--blue-l);
+                    border: 1.5px solid var(--blue-m);
+                    border-radius: 8px;
+                    padding: 8px 14px;
+                    font-size: 12.5px;
+                    font-weight: 700;
+                    color: var(--blue);
+                  "
+                >
+                  📋 Sequence = the order
+                </div>
+                <div
+                  style="
+                    background: var(--amber-l);
+                    border: 1.5px solid var(--amber-m);
+                    border-radius: 8px;
+                    padding: 8px 14px;
+                    font-size: 12.5px;
+                    font-weight: 700;
+                    color: var(--amber);
+                  "
+                >
+                  🔀 Condition = the choice
+                </div>
+                <div
+                  style="
+                    background: var(--green-l);
+                    border: 1.5px solid var(--green-m);
+                    border-radius: 8px;
+                    padding: 8px 14px;
+                    font-size: 12.5px;
+                    font-weight: 700;
+                    color: var(--green);
+                  "
+                >
+                  🔁 Loop = the heartbeat
+                </div>
+                <div
+                  style="
+                    background: var(--purple-l);
+                    border: 1.5px solid var(--purple-m);
+                    border-radius: 8px;
+                    padding: 8px 14px;
+                    font-size: 12.5px;
+                    font-weight: 700;
+                    color: var(--purple);
+                  "
+                >
+                  📦 Variable = the memory
+                </div>
+              </div>
+            </div>
+
+            <!-- ═══ NEW SECTION: Mini Simulator ═══ -->
+            <div class="card-big" style="margin-top: 24px">
+              <div
+                style="
+                  font-size: 20px;
+                  font-weight: 800;
+                  font-family: &quot;Space Grotesk&quot;, sans-serif;
+                  margin-bottom: 4px;
+                "
+              >
+                🎮 Try It — Mini Robot Simulator
+              </div>
+              <p style="font-size: 14px; color: var(--t3); margin-bottom: 18px">
+                Move the slider to change how far away the obstacle is. Watch
+                the robot's loop run and decide what to do — just like a real
+                Arduino!
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 16px">
+                <!-- Sensor slider -->
+                <div
+                  style="
+                    background: var(--bg);
+                    border-radius: 12px;
+                    padding: 16px 20px;
+                  "
+                >
+                  <div
+                    style="
+                      font-size: 13px;
+                      font-weight: 700;
+                      color: var(--t2);
+                      margin-bottom: 10px;
+                    "
+                  >
+                    📡 Ultrasonic Sensor — drag to set obstacle distance
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 14px;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <span
+                      style="
+                        font-size: 12px;
+                        color: var(--coral);
+                        font-weight: 600;
+                        white-space: nowrap;
+                      "
+                      >Very close (5 cm) 🧱</span
+                    >
+                    <input
+                      type="range"
+                      id="sim-slider"
+                      min="5"
+                      max="60"
+                      value="35"
+                      style="
+                        flex: 1;
+                        min-width: 120px;
+                        accent-color: var(--blue);
+                        cursor: pointer;
+                      "
+                      oninput="updateSim(this.value)"
+                    />
+                    <span
+                      style="
+                        font-size: 12px;
+                        color: var(--green);
+                        font-weight: 600;
+                        white-space: nowrap;
+                      "
+                      >Far away (60 cm) 🛣️</span
+                    >
+                  </div>
+                  <div
+                    style="
+                      margin-top: 10px;
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <div style="font-size: 13px; color: var(--t2)">
+                      Sensor reading:
+                    </div>
+                    <div
+                      id="sim-dist-badge"
+                      style="
+                        background: var(--blue);
+                        color: white;
+                        border-radius: 20px;
+                        padding: 4px 16px;
+                        font-size: 15px;
+                        font-weight: 700;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        min-width: 75px;
+                        text-align: center;
+                        transition: background 0.3s;
+                      "
+                    >
+                      35 cm
+                    </div>
+                    <div
+                      id="sim-zone-badge"
+                      style="
+                        background: var(--green-l);
+                        color: var(--green);
+                        border: 1.5px solid var(--green-m);
+                        border-radius: 20px;
+                        padding: 4px 14px;
+                        font-size: 12.5px;
+                        font-weight: 700;
+                        transition: all 0.3s;
+                      "
+                    >
+                      ✅ Safe Zone
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Variable memory box -->
+                <div
+                  style="
+                    background: var(--purple-l);
+                    border: 2px solid var(--purple-m);
+                    border-radius: 12px;
+                    padding: 14px 20px;
+                  "
+                >
+                  <div
+                    style="
+                      font-size: 11.5px;
+                      font-weight: 700;
+                      color: var(--purple);
+                      text-transform: uppercase;
+                      letter-spacing: 0.06em;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    📦 Variable in Memory
+                  </div>
+                  <div style="font-family: monospace; font-size: 15px">
+                    <span style="color: var(--purple); font-weight: 700"
+                      >distance</span
+                    >
+                    &nbsp;=&nbsp;
+                    <span
+                      id="sim-var-val"
+                      style="
+                        color: var(--blue);
+                        font-weight: 800;
+                        font-size: 20px;
+                        transition: all 0.2s;
+                      "
+                      >35</span
+                    >
+                  </div>
+                  <div
+                    style="font-size: 12px; color: var(--t3); margin-top: 5px"
+                  >
+                    The Arduino updates this number every loop from the sensor
+                    🔄
+                  </div>
+                </div>
+
+                <!-- IF condition check -->
+                <div
+                  id="sim-if-box"
+                  style="
+                    background: var(--amber-l);
+                    border: 2px solid var(--amber-m);
+                    border-radius: 12px;
+                    padding: 14px 20px;
+                    transition: all 0.3s;
+                  "
+                >
+                  <div
+                    style="
+                      font-size: 11.5px;
+                      font-weight: 700;
+                      color: var(--amber);
+                      text-transform: uppercase;
+                      letter-spacing: 0.06em;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    🔀 Condition Check (runs every loop)
+                  </div>
+                  <div
+                    style="
+                      font-family: monospace;
+                      font-size: 13.5px;
+                      color: var(--t2);
+                      line-height: 1.9;
+                    "
+                  >
+                    <span style="color: var(--amber); font-weight: 700">IF</span
+                    >&nbsp;<span style="color: var(--purple); font-weight: 700"
+                      >distance</span
+                    >&nbsp;&lt;&nbsp;<span
+                      style="color: var(--blue); font-weight: 700"
+                      >20</span
+                    >&nbsp;
+                    <span
+                      style="
+                        font-family: &quot;Inter&quot;, sans-serif;
+                        font-size: 12px;
+                        color: var(--t3);
+                      "
+                      >(is the obstacle closer than 20 cm?)</span
+                    ><br />
+                    &nbsp;&nbsp;→
+                    <span
+                      id="sim-if-result"
+                      style="
+                        font-weight: 700;
+                        color: var(--coral);
+                        transition: all 0.3s;
+                      "
+                      >FALSE ✘ — 35 is NOT less than 20</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Robot action -->
+                <div
+                  id="sim-action-box"
+                  style="
+                    border-radius: 12px;
+                    padding: 18px 22px;
+                    display: flex;
+                    align-items: center;
+                    gap: 18px;
+                    flex-wrap: wrap;
+                    transition: all 0.4s;
+                    background: var(--green-l);
+                    border: 2px solid var(--green-m);
+                  "
+                >
+                  <div
+                    style="font-size: 48px; transition: all 0.3s"
+                    id="sim-robot-emoji"
+                  >
+                    🤖➡️
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 16px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                        transition: all 0.3s;
+                      "
+                      id="sim-action-title"
+                    >
+                      Going FORWARD
+                    </div>
+                    <div
+                      style="
+                        font-size: 13px;
+                        color: var(--t2);
+                        margin-top: 4px;
+                        line-height: 1.6;
+                      "
+                      id="sim-action-desc"
+                    >
+                      Path is clear — the ELSE branch runs. Both motors spin
+                      forward at full speed!
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Loop reminder -->
+                <div
+                  style="
+                    text-align: center;
+                    font-size: 12.5px;
+                    color: var(--t3);
+                    padding: 10px;
+                    background: var(--bg);
+                    border-radius: 8px;
+                    border: 1px solid var(--border-l);
+                  "
+                >
+                  🔁 The <strong>loop</strong> runs this whole check again
+                  <strong>immediately</strong> after — hundreds of times per
+                  second. Move the slider and watch it react!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s9')">
+              ← Robot Systems
+            </button>
+            <span class="lesson-info">Lesson 10 of 10 · Programming</span>
+            <button class="navbtn pri" onclick="goSection('s1')">
+              ↩ Start Over
+            </button>
+          </div>
+        </section>

@@ -1,0 +1,487 @@
+        <section class="section" id="s4">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: var(--purple)">4</div>
+              <div>
+                <div class="ltitle">Digital vs Analog</div>
+                <div class="lsub">
+                  Two completely different signal types — wiring the wrong pin
+                  breaks everything
+                </div>
+                <div class="lmeta">
+                  <span class="ltag purple">📊 Signals</span
+                  ><span class="ltag amber">PWM</span
+                  ><span class="ltag blue">Interactive</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <div class="g2" style="margin-bottom: 24px">
+              <!-- Digital -->
+              <div class="card-big" style="border-top: 5px solid var(--amber)">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      width: 52px;
+                      height: 52px;
+                      background: var(--amber);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 24px;
+                    "
+                  >
+                    🔘
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 24px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      "
+                    >
+                      Digital Pins
+                    </div>
+                    <div style="font-size: 13px; color: var(--t3)">
+                      Pins 0–13
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 12px; margin-bottom: 16px">
+                  <div
+                    style="
+                      flex: 1;
+                      background: var(--green-l);
+                      border: 2px solid var(--green);
+                      border-radius: 10px;
+                      padding: 16px;
+                      text-align: center;
+                    "
+                  >
+                    <div
+                      style="
+                        font-size: 28px;
+                        font-weight: 800;
+                        color: var(--green);
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      "
+                    >
+                      HIGH
+                    </div>
+                    <div style="font-size: 14px; color: var(--t2)">
+                      = 5V = ON = 1
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      flex: 1;
+                      background: var(--coral-l);
+                      border: 2px solid var(--coral);
+                      border-radius: 10px;
+                      padding: 16px;
+                      text-align: center;
+                    "
+                  >
+                    <div
+                      style="
+                        font-size: 28px;
+                        font-weight: 800;
+                        color: var(--coral);
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      "
+                    >
+                      LOW
+                    </div>
+                    <div style="font-size: 14px; color: var(--t2)">
+                      = 0V = OFF = 0
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: var(--bg);
+                    border-radius: 10px;
+                    padding: 14px;
+                    margin-bottom: 14px;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 12px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    <button
+                      class="btn"
+                      id="dig-btn"
+                      onclick="toggleDigital()"
+                      style="padding: 12px 22px; font-size: 14px"
+                    >
+                      Toggle PIN 13
+                    </button>
+                    <div
+                      id="dig-led"
+                      style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: 50%;
+                        background: #ddd;
+                        transition: all 0.15s;
+                      "
+                    ></div>
+                    <span
+                      id="dig-state"
+                      style="
+                        font-size: 15px;
+                        font-weight: 700;
+                        color: var(--t3);
+                      "
+                      >LOW</span
+                    >
+                  </div>
+                  <!-- Pin 13 State Label -->
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:11px;font-weight:600;color:var(--t4);">
+                    <span>LOW (0V)</span><span style="color:var(--amber);">Pin 13 Signal History</span><span>HIGH (5V)</span>
+                  </div>
+                  <canvas
+                    id="dig-canvas"
+                    width="400"
+                    height="80"
+                    style="width:100%;border-radius:8px;background:#f8fafc;border:1px solid var(--border-l);"
+                  ></canvas>
+                </div>
+                <div class="kp amber">
+                  <div class="kp-icon">〜</div>
+                  <div class="kp-text">
+                    PWM pins (3,5,6,9,10,11)<span
+                      >Simulate variable voltage via rapid ON/OFF
+                      switching</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Analog -->
+              <div class="card-big" style="border-top: 5px solid var(--blue)">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      width: 52px;
+                      height: 52px;
+                      background: var(--blue);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 24px;
+                      color: white;
+                    "
+                  >
+                    〰️
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        font-size: 24px;
+                        font-weight: 800;
+                        font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      "
+                    >
+                      Analog Pins
+                    </div>
+                    <div style="font-size: 13px; color: var(--t3)">
+                      Pins A0–A5
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: var(--bg);
+                    border-radius: 10px;
+                    padding: 14px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <span
+                      style="
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: var(--t3);
+                      "
+                      >Raw value:
+                      <strong
+                        id="analog-demo-val"
+                        style="color: var(--blue); font-size: 16px"
+                        >512</strong
+                      ></span
+                    >
+                    <span
+                      style="
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: var(--t3);
+                      "
+                      >Voltage:
+                      <strong
+                        id="analog-volt-val"
+                        style="color: var(--blue); font-size: 16px"
+                        >2.50</strong
+                      >V</span
+                    >
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1023"
+                    step="1"
+                    value="512"
+                    id="analog-slider"
+                    style="margin-bottom: 8px"
+                  />
+                  <canvas
+                    id="analog-canvas"
+                    width="360"
+                    height="56"
+                    style="width: 100%; border-radius: 6px; background: #f8fafc"
+                  ></canvas>
+                </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 14px">
+                  <div
+                    class="stat-box"
+                    style="
+                      flex: 1;
+                      background: var(--blue-l);
+                      border: 1px solid var(--blue-m);
+                      padding: 14px;
+                    "
+                  >
+                    <div
+                      class="stat-num"
+                      style="color: var(--blue); font-size: 28px"
+                    >
+                      0
+                    </div>
+                    <div class="stat-label">= 0V</div>
+                  </div>
+                  <div
+                    style="
+                      font-size: 28px;
+                      color: var(--t4);
+                      align-self: center;
+                    "
+                  >
+                    →
+                  </div>
+                  <div
+                    class="stat-box"
+                    style="
+                      flex: 1;
+                      background: var(--blue-l);
+                      border: 1px solid var(--blue-m);
+                      padding: 14px;
+                    "
+                  >
+                    <div
+                      class="stat-num"
+                      style="color: var(--blue); font-size: 28px"
+                    >
+                      1023
+                    </div>
+                    <div class="stat-label">= 5V</div>
+                  </div>
+                </div>
+                <div class="kp">
+                  <div class="kp-icon">📐</div>
+                  <div class="kp-text">
+                    10-bit ADC built in<span
+                      >1024 steps of resolution per pin</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3-wire wiring -->
+            <div class="card-big">
+              <div
+                style="
+                  font-size: 20px;
+                  font-weight: 800;
+                  font-family: &quot;Space Grotesk&quot;, sans-serif;
+                  margin-bottom: 16px;
+                "
+              >
+                🔌 3 Wires — Every Sensor
+              </div>
+              <div class="g3">
+                <div
+                  style="
+                    background: var(--coral-l);
+                    border: 2px solid var(--coral);
+                    border-radius: var(--r);
+                    padding: 20px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                  "
+                  onclick="showWireInfo('vcc')"
+                >
+                  <div style="font-size: 36px; margin-bottom: 10px">🔴</div>
+                  <div
+                    style="
+                      font-size: 18px;
+                      font-weight: 800;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 4px;
+                    "
+                  >
+                    VCC
+                  </div>
+                  <div style="font-size: 14px; color: var(--t2)">
+                    Power to sensor → Arduino 5V
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: #f1f5f9;
+                    border: 2px solid #475569;
+                    border-radius: var(--r);
+                    padding: 20px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                  "
+                  onclick="showWireInfo('gnd')"
+                >
+                  <div style="font-size: 36px; margin-bottom: 10px">⬛</div>
+                  <div
+                    style="
+                      font-size: 18px;
+                      font-weight: 800;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 4px;
+                    "
+                  >
+                    GND
+                  </div>
+                  <div style="font-size: 14px; color: var(--t2)">
+                    Completes circuit → Arduino GND
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: var(--blue-l);
+                    border: 2px solid var(--blue);
+                    border-radius: var(--r);
+                    padding: 20px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                  "
+                  onclick="showWireInfo('sig')"
+                >
+                  <div style="font-size: 36px; margin-bottom: 10px">🔵</div>
+                  <div
+                    style="
+                      font-size: 18px;
+                      font-weight: 800;
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 4px;
+                    "
+                  >
+                    SIGNAL
+                  </div>
+                  <div style="font-size: 14px; color: var(--t2)">
+                    Data to Arduino → Digital or Analog pin
+                  </div>
+                </div>
+              </div>
+              <div
+                id="wire-info-panel"
+                class="kp"
+                style="display: none; margin-top: 12px; font-size: 15px"
+              ></div>
+            </div>
+
+            <!-- Sensor Pin Diagram Image Box -->
+            <div class="card-big" style="border-top: 4px solid var(--purple)">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+                <div style="width:52px;height:52px;background:var(--purple-l);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;">📌</div>
+                <div>
+                  <div style="font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;">Sample Sensor — Pin Layout</div>
+                  <div style="font-size:13px;color:var(--t3);">Example: HC-SR04 Ultrasonic Sensor — click to view labeled diagram</div>
+                </div>
+              </div>
+              <div
+                style="position:relative;cursor:pointer;overflow:hidden;border-radius:14px;border:2px dashed var(--purple-m);background:linear-gradient(135deg,var(--purple-l),#f8f5ff);min-height:180px;display:flex;align-items:center;justify-content:center;"
+                onclick="openLB('DHT-11 — Labeled Pin Diagram','assets/images/sensor_pins.jpg','Pin layout: VCC (5V power), DATA (sends data), GND (ground). Connect DATA to a digital input pin on the Arduino.',['VCC → 5V','GND → GND','DATA → Digital In'])"
+                title="Click to view labeled sensor diagram"
+              >
+                <img src="assets/images/sensor_pins.jpg" alt="Sensor Pin Diagram"
+                  style="width:100%;height:100%;object-fit:contain;display:block;transition:transform 0.22s;max-height:200px;"
+                  onmouseover="this.style.transform='scale(1.04)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:30px;text-align:center;position:absolute;inset:0;">
+                  <div style="font-size:48px;opacity:0.25">📷</div>
+                  <div style="font-size:13px;font-weight:700;color:var(--purple);">sensor_pins.jpg</div>
+                  <div style="font-size:12px;color:var(--t3);max-width:280px;line-height:1.6;">Place a labeled photo of your sensor here showing each pin (VCC, TRIG, ECHO, GND) with annotations.</div>
+                  <div style="font-size:11px;color:var(--t4);">📌 Click to open full view</div>
+                </div>
+                <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(109,40,217,0.75);color:white;font-size:11px;font-weight:600;text-align:center;padding:6px 8px;backdrop-filter:blur(4px);">
+                  🔍 Click to view labeled pin diagram
+                </div>
+              </div>
+              <div class="g3" style="margin-top:16px;margin-bottom:0;">
+                <div style="background:var(--coral-l);border:1.5px solid var(--coral-m);border-radius:10px;padding:12px;text-align:center;">
+                  <div style="font-size:20px;">🔴</div>
+                  <div style="font-size:13px;font-weight:800;color:var(--coral);margin-top:4px;">VCC</div>
+                  <div style="font-size:11px;color:var(--t3);">Connect to 5V</div>
+                </div>
+                <div style="background:#f1f5f9;border:1.5px solid #475569;border-radius:10px;padding:12px;text-align:center;">
+                  <div style="font-size:20px;">⬛</div>
+                  <div style="font-size:13px;font-weight:800;color:#475569;margin-top:4px;">GND</div>
+                  <div style="font-size:11px;color:var(--t3);">Connect to GND</div>
+                </div>
+                <div style="background:var(--blue-l);border:1.5px solid var(--blue-m);border-radius:10px;padding:12px;text-align:center;">
+                  <div style="font-size:20px;">🔵</div>
+                  <div style="font-size:13px;font-weight:800;color:var(--blue);margin-top:4px;">SIGNAL</div>
+                  <div style="font-size:11px;color:var(--t3);">Data to Arduino → Digital or Analog pin</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s3')">
+              ← Breadboard
+            </button>
+            <span class="lesson-info">Lesson 4 of 10 · Digital vs Analog</span>
+            <button class="navbtn pri" onclick="goSection('s5')">
+              Next: Inputs vs Outputs →
+            </button>
+          </div>
+        </section>

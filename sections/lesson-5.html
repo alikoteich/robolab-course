@@ -1,0 +1,276 @@
+        <section class="section" id="s5">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum" style="background: var(--slate)">5</div>
+              <div>
+                <div class="ltitle">Inputs vs Outputs</div>
+                <div class="lsub">
+                  Drag each component to the correct zone — inputs sense,
+                  outputs act
+                </div>
+                <div class="lmeta">
+                  <span class="ltag green">📥 Inputs</span
+                  ><span class="ltag coral">📤 Outputs</span
+                  ><span class="ltag blue">Drag &amp; Drop</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+
+            <!-- Input/Output Definitions -->
+            <div class="g2" style="margin-bottom:24px;">
+              <div class="card-big" style="border-top:4px solid var(--green);">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                  <div style="width:52px;height:52px;background:var(--green-l);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;">📥</div>
+                  <div>
+                    <div style="font-size:22px;font-weight:800;font-family:'Space Grotesk',sans-serif;color:var(--green);">What is an Input?</div>
+                    <div style="font-size:13px;color:var(--t3);">Sends data <strong>to</strong> the Arduino</div>
+                  </div>
+                </div>
+                <p style="font-size:14.5px;color:var(--t2);line-height:1.75;margin-bottom:12px;">An <strong>input</strong> is anything that gives the Arduino information about the world. Sensors and buttons are inputs — they detect something (light, distance, a press) and report it as an electrical signal the Arduino can read.</p>
+                <div class="kp green">
+                  <div class="kp-icon">💡</div>
+                  <div class="kp-text">Think of inputs as the robot's senses<span>Push button, light sensor, ultrasonic sensor → all inputs</span></div>
+                </div>
+              </div>
+              <div class="card-big" style="border-top:4px solid var(--coral);">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                  <div style="width:52px;height:52px;background:var(--coral-l);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;">📤</div>
+                  <div>
+                    <div style="font-size:22px;font-weight:800;font-family:'Space Grotesk',sans-serif;color:var(--coral);">What is an Output?</div>
+                    <div style="font-size:13px;color:var(--t3);">Receives commands <strong>from</strong> the Arduino</div>
+                  </div>
+                </div>
+                <p style="font-size:14.5px;color:var(--t2);line-height:1.75;margin-bottom:12px;">An <strong>output</strong> is anything the Arduino controls to make something happen in the real world. LEDs, buzzers, and motors are outputs — the Arduino sends them a signal and they respond with light, sound, or movement.</p>
+                <div class="kp coral">
+                  <div class="kp-icon">⚡</div>
+                  <div class="kp-text">Think of outputs as the robot's actions<span>LED, buzzer, servo motor → all outputs</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                margin-bottom: 20px;
+              "
+            >
+              <div
+                style="
+                  font-size: 34px;
+                  font-weight: 800;
+                  font-family: &quot;Space Grotesk&quot;, sans-serif;
+                  color: var(--green);
+                "
+                id="score-display"
+              >
+                0 / 7
+              </div>
+              <div style="font-size: 14px; color: var(--t3); font-weight: 500">
+                correct
+              </div>
+              <button
+                class="btn sm"
+                onclick="resetDnD()"
+                style="margin-left: auto"
+              >
+                ↺ Reset
+              </button>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 20px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+              "
+            >
+              <div style="flex: 0 0 200px">
+                <div class="slbl" style="margin-bottom: 10px">Components</div>
+                <div id="dnd-pool">
+                  <div
+                    class="dnd-component"
+                    draggable="true"
+                    data-id="button"
+                    data-type="input"
+                    ondragstart="drag(event)"
+                  >
+                    <span class="dnd-icon">🔘</span> Push Button
+                  </div>
+                  <div
+                    class="dnd-component"
+                    draggable="true"
+                    data-id="light"
+                    data-type="input"
+                    ondragstart="drag(event)"
+                  >
+                    <span class="dnd-icon">☀️</span> Light Sensor
+                  </div>
+                  <div
+                    class="dnd-component"
+                    draggable="true"
+                    data-id="ultra"
+                    data-type="input"
+                    ondragstart="drag(event)"
+                  >
+                    <span class="dnd-icon">📡</span> Ultrasonic
+                  </div>
+                  <div
+                    class="dnd-component"
+                    draggable="true"
+                    data-id="pot"
+                    data-type="input"
+                    ondragstart="drag(event)"
+                  >
+                    <span class="dnd-icon">🎛️</span> Potentiometer
+                  </div>
+                  <div
+                    class="dnd-component"
+                    draggable="true"
+                    data-id="led2"
+                    data-type="output"
+                    ondragstart="drag(event)"
+                  >
+                    <span class="dnd-icon">💡</span> LED
+                  </div>
+                  <div
+                    class="dnd-component"
+                    draggable="true"
+                    data-id="buzzer"
+                    data-type="output"
+                    ondragstart="drag(event)"
+                  >
+                    <span class="dnd-icon">🔊</span> Buzzer
+                  </div>
+                  <div
+                    class="dnd-component"
+                    draggable="true"
+                    data-id="servo"
+                    data-type="output"
+                    ondragstart="drag(event)"
+                  >
+                    <span class="dnd-icon">⚙️</span> Servo Motor
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 8px;
+                  padding-top: 36px;
+                "
+              >
+                <div
+                  style="
+                    background: white;
+                    border: 2px solid var(--border);
+                    border-radius: var(--r);
+                    padding: 20px 14px;
+                    text-align: center;
+                    box-shadow: var(--sh-lg);
+                  "
+                >
+                  <div style="font-size: 36px; margin-bottom: 6px">🤖</div>
+                  <div
+                    style="
+                      font-size: 13px;
+                      font-weight: 700;
+                      color: var(--blue);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    ARDUINO
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 16px; flex: 1; min-width: 320px">
+                <div
+                  class="dnd-zone iz"
+                  id="zone-input"
+                  ondragover="allowDrop(event)"
+                  ondrop="dropItem(event, 'input')"
+                  ondragenter="this.classList.add('drag-over')"
+                  ondragleave="this.classList.remove('drag-over')"
+                  style="flex: 1"
+                >
+                  <div
+                    style="
+                      font-size: 18px;
+                      font-weight: 800;
+                      color: var(--green);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    📥 Inputs
+                  </div>
+                  <div
+                    style="
+                      font-size: 13px;
+                      color: var(--t3);
+                      margin-bottom: 12px;
+                      line-height: 1.5;
+                    "
+                  >
+                    Send data <strong>TO</strong> Arduino
+                  </div>
+                </div>
+                <div
+                  class="dnd-zone oz"
+                  id="zone-output"
+                  ondragover="allowDrop(event)"
+                  ondrop="dropItem(event, 'output')"
+                  ondragenter="this.classList.add('drag-over')"
+                  ondragleave="this.classList.remove('drag-over')"
+                  style="flex: 1"
+                >
+                  <div
+                    style="
+                      font-size: 18px;
+                      font-weight: 800;
+                      color: var(--coral);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    📤 Outputs
+                  </div>
+                  <div
+                    style="
+                      font-size: 13px;
+                      color: var(--t3);
+                      margin-bottom: 12px;
+                      line-height: 1.5;
+                    "
+                  >
+                    Receive commands <strong>FROM</strong> Arduino
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="dnd-feedback"
+              class="kp"
+              style="display: none; margin-top: 14px; font-size: 15px"
+            ></div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s4')">
+              ← Digital vs Analog
+            </button>
+            <span class="lesson-info">Lesson 5 of 10 · Inputs vs Outputs</span>
+            <button class="navbtn pri" onclick="goSection('s6')">
+              Next: Sensors →
+            </button>
+          </div>
+        </section>

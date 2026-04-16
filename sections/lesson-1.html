@@ -1,0 +1,1735 @@
+        <section class="section active" id="s1">
+          <div class="lhdr">
+            <div class="lhdr-inner">
+              <div class="lnum">1</div>
+              <div>
+                <div class="ltitle">Arduino Uno R3</div>
+                <div class="lsub">
+                  Programmable microcontroller board — click any component to
+                  explore
+                </div>
+                <div class="lmeta">
+                  <span class="ltag blue">🤖 Hardware</span
+                  ><span class="ltag green">Interactive</span
+                  ><span class="ltag amber">Foundation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lbody">
+            <div class="kc">
+              <div class="kc-icon">🧠</div>
+              <div>
+                <div class="kc-title">The brain of your robot</div>
+                <div class="kc-sub">
+                  Reads sensors · Executes programs · Controls outputs
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                gap: 28px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                margin-bottom: 24px;
+              "
+            >
+              <!-- LARGE Arduino board -->
+              <div style="position: relative; flex-shrink: 0">
+                <svg
+                  id="ard-board"
+                  viewBox="0 0 540 380"
+                  width="560"
+                  height="395"
+                  style="
+                    filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.22));
+                    border-radius: 8px;
+                    display: block;
+                  "
+                  style="
+                    filter: drop-shadow(0 8px 28px rgba(0, 0, 0, 0.2));
+                    border-radius: 6px;
+                    display: block;
+                  "
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <pattern
+                      id="pcbGrid"
+                      patternUnits="userSpaceOnUse"
+                      width="12"
+                      height="12"
+                    >
+                      <path
+                        d="M0 6h12M6 0v12"
+                        stroke="white"
+                        stroke-width=".25"
+                        fill="none"
+                        opacity=".06"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect
+                    x="50"
+                    y="10"
+                    width="480"
+                    height="360"
+                    rx="6"
+                    fill="#00549E"
+                  />
+                  <rect
+                    x="50"
+                    y="10"
+                    width="480"
+                    height="360"
+                    rx="6"
+                    fill="url(#pcbGrid)"
+                  />
+                  <rect
+                    x="50"
+                    y="10"
+                    width="480"
+                    height="360"
+                    rx="6"
+                    fill="none"
+                    stroke="#003E7A"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="70"
+                    cy="30"
+                    r="7"
+                    fill="#002B5C"
+                    stroke="#001A40"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="70"
+                    cy="350"
+                    r="7"
+                    fill="#002B5C"
+                    stroke="#001A40"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="510"
+                    cy="52"
+                    r="7"
+                    fill="#002B5C"
+                    stroke="#001A40"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="497"
+                    cy="340"
+                    r="7"
+                    fill="#002B5C"
+                    stroke="#001A40"
+                    stroke-width="1.5"
+                  />
+                  <polygon points="50,10 86,10 86,32 50,32" fill="#003E7A" />
+                  <!-- USB -->
+                  <g
+                    id="ard-usb"
+                    style="cursor: pointer"
+                    onclick="ardClick('usb')"
+                    onmouseover="
+                      ardTip(event, 'USB-B Port — Upload programs &amp; power')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="50"
+                      y="145"
+                      width="54"
+                      height="60"
+                      rx="3"
+                      fill="#7A8490"
+                    />
+                    <rect
+                      x="53"
+                      y="149"
+                      width="48"
+                      height="52"
+                      rx="2"
+                      fill="#5A6168"
+                    />
+                    <rect
+                      x="56"
+                      y="152"
+                      width="42"
+                      height="46"
+                      rx="1.5"
+                      fill="#9AA2AC"
+                    />
+                    <rect
+                      x="58"
+                      y="155"
+                      width="38"
+                      height="40"
+                      rx="1"
+                      fill="#3A4047"
+                    />
+                    <rect
+                      x="60"
+                      y="157"
+                      width="34"
+                      height="36"
+                      rx="1"
+                      fill="#4A5260"
+                    />
+                    <rect
+                      x="60"
+                      y="157"
+                      width="14"
+                      height="36"
+                      rx="1"
+                      fill="rgba(255,255,255,.10)"
+                    />
+                    <text
+                      x="79"
+                      y="212"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.45)"
+                      font-size="7.5"
+                      font-family="Figtree"
+                      font-weight="700"
+                    >
+                      USB-B
+                    </text>
+                  </g>
+                  <!-- Barrel Jack -->
+                  <g
+                    id="ard-pwrjack"
+                    style="cursor: pointer"
+                    onclick="ardClick('pwr')"
+                    onmouseover="
+                      ardTip(event, 'DC Barrel Jack — 7–12V standalone power')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="50"
+                      y="225"
+                      width="56"
+                      height="50"
+                      rx="4"
+                      fill="#2A2A2C"
+                    />
+                    <ellipse cx="78" cy="250" rx="19" ry="18" fill="#1A1A1C" />
+                    <ellipse cx="78" cy="250" rx="11" ry="11" fill="#333" />
+                    <ellipse cx="78" cy="250" rx="5" ry="5" fill="#0A0A0C" />
+                    <text
+                      x="78"
+                      y="286"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.38)"
+                      font-size="7.5"
+                      font-family="Figtree"
+                    >
+                      DC 7-12V
+                    </text>
+                  </g>
+                  <!-- Voltage reg -->
+                  <g
+                    onmouseover="
+                      ardTip(
+                        event,
+                        'Voltage Regulator — Steps input to stable 5V',
+                      )
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="110"
+                      y="305"
+                      width="34"
+                      height="46"
+                      rx="2"
+                      fill="#1A1A1C"
+                      stroke="#333"
+                      stroke-width="1"
+                    />
+                    <rect
+                      x="113"
+                      y="351"
+                      width="7"
+                      height="14"
+                      rx="1"
+                      fill="#777"
+                    />
+                    <rect
+                      x="123"
+                      y="351"
+                      width="7"
+                      height="14"
+                      rx="1"
+                      fill="#777"
+                    />
+                    <rect
+                      x="133"
+                      y="351"
+                      width="7"
+                      height="14"
+                      rx="1"
+                      fill="#777"
+                    />
+                    <text
+                      x="127"
+                      y="334"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.45)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                      font-weight="700"
+                    >
+                      7805
+                    </text>
+                  </g>
+                  <!-- 16U2 -->
+                  <g
+                    onmouseover="
+                      ardTip(event, 'ATmega16U2 — USB-to-serial converter')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="112"
+                      y="210"
+                      width="44"
+                      height="44"
+                      rx="3"
+                      fill="#1a1a2a"
+                    />
+                    <rect
+                      x="106"
+                      y="218"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <rect
+                      x="106"
+                      y="226"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <rect
+                      x="106"
+                      y="234"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <rect
+                      x="106"
+                      y="242"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <rect
+                      x="155"
+                      y="218"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <rect
+                      x="155"
+                      y="226"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <rect
+                      x="155"
+                      y="234"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <rect
+                      x="155"
+                      y="242"
+                      width="7"
+                      height="4"
+                      rx="1"
+                      fill="#888"
+                    />
+                    <text
+                      x="134"
+                      y="236"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.65)"
+                      font-size="5"
+                      font-family="Syne"
+                      font-weight="700"
+                    >
+                      ATmega
+                    </text>
+                    <text
+                      x="134"
+                      y="246"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.45)"
+                      font-size="4.5"
+                      font-family="Figtree"
+                    >
+                      16U2
+                    </text>
+                  </g>
+                  <!-- Crystal -->
+                  <g
+                    onmouseover="
+                      ardTip(
+                        event,
+                        '16MHz Crystal — Sets processor clock speed',
+                      )
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="248"
+                      y="270"
+                      width="36"
+                      height="18"
+                      rx="5"
+                      fill="#C0A040"
+                      stroke="#A08020"
+                      stroke-width="1"
+                    />
+                    <text
+                      x="266"
+                      y="283"
+                      text-anchor="middle"
+                      fill="#5A3A00"
+                      font-size="7"
+                      font-family="Figtree"
+                      font-weight="700"
+                    >
+                      16MHz
+                    </text>
+                  </g>
+                  <!-- ATmega328P -->
+                  <g
+                    id="ard-chip"
+                    style="cursor: pointer"
+                    onclick="ardClick('chip')"
+                    onmouseover="
+                      ardTip(
+                        event,
+                        'ATmega328P — The main CPU running your code',
+                      )
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="210"
+                      y="165"
+                      width="130"
+                      height="90"
+                      rx="5"
+                      fill="#1C1C1C"
+                    />
+                    <rect
+                      x="212"
+                      y="167"
+                      width="126"
+                      height="86"
+                      rx="4"
+                      fill="#1A1A2E"
+                    />
+                    <circle cx="216" cy="171" r="3" fill="#777" />
+                    <rect
+                      x="198"
+                      y="178"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="198"
+                      y="188"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="198"
+                      y="198"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="198"
+                      y="208"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="198"
+                      y="218"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="198"
+                      y="228"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="339"
+                      y="178"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="339"
+                      y="188"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="339"
+                      y="198"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="339"
+                      y="208"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="339"
+                      y="218"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="339"
+                      y="228"
+                      width="13"
+                      height="6"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="224"
+                      y="153"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="236"
+                      y="153"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="248"
+                      y="153"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="260"
+                      y="153"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="272"
+                      y="153"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="284"
+                      y="153"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="296"
+                      y="153"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="224"
+                      y="255"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="236"
+                      y="255"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="248"
+                      y="255"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="260"
+                      y="255"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <rect
+                      x="272"
+                      y="255"
+                      width="6"
+                      height="13"
+                      rx="1"
+                      fill="#9AA0A6"
+                    />
+                    <text
+                      x="275"
+                      y="207"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.8)"
+                      font-size="10"
+                      font-family="Syne"
+                      font-weight="700"
+                    >
+                      ATmega328P
+                    </text>
+                    <text
+                      x="275"
+                      y="221"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.38)"
+                      font-size="7.5"
+                      font-family="Figtree"
+                    >
+                      MICROCONTROLLER
+                    </text>
+                    <text
+                      x="275"
+                      y="234"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.28)"
+                      font-size="6.5"
+                      font-family="Figtree"
+                    >
+                      ARDUINO UNO R3
+                    </text>
+                  </g>
+                  <!-- Reset button -->
+                  <g
+                    id="ard-reset"
+                    style="cursor: pointer"
+                    onclick="ardClick('reset')"
+                    onmouseover="
+                      ardTip(event, 'Reset Button — Restarts your program')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="414"
+                      y="310"
+                      width="26"
+                      height="26"
+                      rx="4"
+                      fill="#1a4a1a"
+                      stroke="#0d3a0d"
+                      stroke-width="1"
+                    />
+                    <circle
+                      cx="427"
+                      cy="323"
+                      r="10"
+                      fill="#1a8a1a"
+                      stroke="#0d6a0d"
+                      stroke-width="1"
+                    />
+                    <circle cx="427" cy="323" r="5.5" fill="#22cc22" />
+                    <text
+                      x="427"
+                      y="348"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.4)"
+                      font-size="7"
+                      font-family="Figtree"
+                    >
+                      RESET
+                    </text>
+                  </g>
+                  <!-- LEDs -->
+                  <g
+                    onmouseover="
+                      ardTip(event, 'ON LED — Always on when board has power')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <circle
+                      cx="455"
+                      cy="320"
+                      r="5.5"
+                      fill="#00DD00"
+                      style="animation: ledBlink 1.4s ease-in-out infinite"
+                    />
+                    <text
+                      x="455"
+                      y="337"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.4)"
+                      font-size="6.5"
+                      font-family="Figtree"
+                    >
+                      ON
+                    </text>
+                  </g>
+                  <g
+                    onmouseover="
+                      ardTip(
+                        event,
+                        'TX LED — Flashes when sending data via USB',
+                      )
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <circle cx="473" cy="320" r="5.5" fill="#FFD700" />
+                    <text
+                      x="473"
+                      y="337"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.4)"
+                      font-size="6.5"
+                      font-family="Figtree"
+                    >
+                      TX
+                    </text>
+                  </g>
+                  <g
+                    onmouseover="
+                      ardTip(event, 'RX LED — Flashes when receiving data')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <circle cx="491" cy="320" r="5.5" fill="#FFD700" />
+                    <text
+                      x="491"
+                      y="337"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.4)"
+                      font-size="6.5"
+                      font-family="Figtree"
+                    >
+                      RX
+                    </text>
+                  </g>
+                  <g
+                    onmouseover="
+                      ardTip(
+                        event,
+                        'L LED — Connected to Digital Pin 13 for testing',
+                      )
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <circle cx="509" cy="320" r="5.5" fill="#FF8800" />
+                    <text
+                      x="509"
+                      y="337"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.4)"
+                      font-size="6.5"
+                      font-family="Figtree"
+                    >
+                      L
+                    </text>
+                  </g>
+                  <!-- Digital pins 0-13 -->
+                  <g
+                    id="ard-digital"
+                    style="cursor: pointer"
+                    onclick="ardClick('digital')"
+                    onmouseover="
+                      ardTip(event, 'Digital Pins 0–13 — HIGH/LOW + PWM~')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="200"
+                      y="10"
+                      width="330"
+                      height="22"
+                      rx="2"
+                      fill="#0B3D6B"
+                    />
+                    <rect
+                      x="204"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#C0C0C0"
+                    />
+                    <!-- AREF -->
+                    <rect
+                      x="214"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#333"
+                    />
+                    <!-- GND -->
+                    <rect
+                      x="228"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#FFD700"
+                    />
+                    <rect
+                      x="238"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="248"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="258"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="268"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="278"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="288"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="302"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="312"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="322"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="332"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="342"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="352"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="362"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#E0C030"
+                    />
+                    <rect
+                      x="372"
+                      y="12"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#FFD700"
+                    />
+                    <!-- pin13 -->
+                    <text
+                      x="208"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      AREF
+                    </text>
+                    <text
+                      x="218"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      GND
+                    </text>
+                    <text
+                      x="231"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.6)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      13
+                    </text>
+                    <text
+                      x="241"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      12
+                    </text>
+                    <text
+                      x="251"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      ~11
+                    </text>
+                    <text
+                      x="261"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      ~10
+                    </text>
+                    <text
+                      x="271"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      ~9
+                    </text>
+                    <text
+                      x="281"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      8
+                    </text>
+                    <text
+                      x="305"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      7
+                    </text>
+                    <text
+                      x="315"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      ~6
+                    </text>
+                    <text
+                      x="325"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      ~5
+                    </text>
+                    <text
+                      x="335"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      4
+                    </text>
+                    <text
+                      x="345"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      ~3
+                    </text>
+                    <text
+                      x="355"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      2
+                    </text>
+                    <text
+                      x="365"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      TX1
+                    </text>
+                    <text
+                      x="375"
+                      y="44"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.55)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      RX0
+                    </text>
+                    <text
+                      x="300"
+                      y="70"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.3)"
+                      font-size="9"
+                      font-family="Figtree"
+                      font-weight="600"
+                    >
+                      DIGITAL (PWM~)
+                    </text>
+                  </g>
+                  <!-- ICSP -->
+                  <g
+                    onmouseover="
+                      ardTip(
+                        event,
+                        'ICSP Header — SPI &amp; advanced programming',
+                      )
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="398"
+                      y="12"
+                      width="42"
+                      height="18"
+                      rx="2"
+                      fill="#0B3D6B"
+                    />
+                    <circle cx="406" cy="21" r="3.5" fill="#E0C030" />
+                    <circle cx="416" cy="21" r="3.5" fill="#E0C030" />
+                    <circle cx="426" cy="21" r="3.5" fill="#E0C030" />
+                    <circle
+                      cx="432"
+                      cy="14"
+                      r="2.5"
+                      fill="#888"
+                      stroke="#666"
+                      stroke-width=".5"
+                    />
+                    <text
+                      x="415"
+                      y="43"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.3)"
+                      font-size="6"
+                      font-family="Figtree"
+                    >
+                      ICSP
+                    </text>
+                  </g>
+                  <!-- Analog pins -->
+                  <g
+                    id="ard-analog"
+                    style="cursor: pointer"
+                    onclick="ardClick('analog')"
+                    onmouseover="
+                      ardTip(event, 'Analog Pins A0–A5 — Read values 0–1023')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="168"
+                      y="358"
+                      width="188"
+                      height="22"
+                      rx="2"
+                      fill="#0B3D6B"
+                    />
+                    <rect
+                      x="172"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#4080FF"
+                    />
+                    <rect
+                      x="182"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#4080FF"
+                    />
+                    <rect
+                      x="192"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#4080FF"
+                    />
+                    <rect
+                      x="202"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#4080FF"
+                    />
+                    <rect
+                      x="212"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#4080FF"
+                    />
+                    <rect
+                      x="222"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#4080FF"
+                    />
+                    <text
+                      x="175"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      A0
+                    </text>
+                    <text
+                      x="185"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      A1
+                    </text>
+                    <text
+                      x="195"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      A2
+                    </text>
+                    <text
+                      x="205"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      A3
+                    </text>
+                    <text
+                      x="215"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      A4
+                    </text>
+                    <text
+                      x="225"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.5)"
+                      font-size="5.5"
+                      font-family="Figtree"
+                    >
+                      A5
+                    </text>
+                    <text
+                      x="200"
+                      y="393"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.3)"
+                      font-size="9"
+                      font-family="Figtree"
+                      font-weight="600"
+                    >
+                      ANALOG IN
+                    </text>
+                  </g>
+                  <!-- Power pins -->
+                  <g
+                    id="ard-power"
+                    style="cursor: pointer"
+                    onclick="ardClick('power')"
+                    onmouseover="
+                      ardTip(event, 'Power Pins — 5V, 3.3V, GND, VIN')
+                    "
+                    onmouseout="ardHide()"
+                  >
+                    <rect
+                      x="368"
+                      y="358"
+                      width="136"
+                      height="22"
+                      rx="2"
+                      fill="#3D0B0B"
+                    />
+                    <rect
+                      x="372"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#FF6666"
+                    />
+                    <rect
+                      x="382"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#888"
+                    />
+                    <rect
+                      x="392"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#888"
+                    />
+                    <rect
+                      x="402"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#FF3333"
+                    />
+                    <rect
+                      x="412"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#FF8866"
+                    />
+                    <rect
+                      x="422"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#44AA44"
+                    />
+                    <rect
+                      x="432"
+                      y="360"
+                      width="7"
+                      height="17"
+                      rx="1.5"
+                      fill="#AAAAAA"
+                    />
+                    <text
+                      x="374"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,150,150,.7)"
+                      font-size="5"
+                      font-family="Figtree"
+                    >
+                      VIN
+                    </text>
+                    <text
+                      x="384"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(200,200,200,.6)"
+                      font-size="5"
+                      font-family="Figtree"
+                    >
+                      GND
+                    </text>
+                    <text
+                      x="394"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(200,200,200,.6)"
+                      font-size="5"
+                      font-family="Figtree"
+                    >
+                      GND
+                    </text>
+                    <text
+                      x="404"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,120,120,.8)"
+                      font-size="5"
+                      font-family="Figtree"
+                    >
+                      5V
+                    </text>
+                    <text
+                      x="414"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(255,150,120,.7)"
+                      font-size="5"
+                      font-family="Figtree"
+                    >
+                      3.3V
+                    </text>
+                    <text
+                      x="424"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(100,200,100,.6)"
+                      font-size="5"
+                      font-family="Figtree"
+                    >
+                      RST
+                    </text>
+                    <text
+                      x="436"
+                      y="352"
+                      text-anchor="middle"
+                      fill="rgba(180,180,180,.5)"
+                      font-size="5"
+                      font-family="Figtree"
+                    >
+                      IOREF
+                    </text>
+                    <text
+                      x="404"
+                      y="393"
+                      text-anchor="middle"
+                      fill="rgba(255,255,255,.3)"
+                      font-size="9"
+                      font-family="Figtree"
+                      font-weight="600"
+                    >
+                      POWER
+                    </text>
+                  </g>
+                  <!-- Power flow -->
+                  <path
+                    id="pwr-flow"
+                    d="M 402 358 Q 402 300 340 250"
+                    stroke="#FFD700"
+                    stroke-width="2.5"
+                    fill="none"
+                    stroke-dasharray="7 4"
+                    style="
+                      animation: pflow 0.7s linear infinite;
+                      opacity: 0;
+                      transition: opacity 0.4s;
+                    "
+                  />
+                  <style>
+                    @keyframes pflow {
+                      to {
+                        stroke-dashoffset: -22;
+                      }
+                    }
+                  </style>
+                  <!-- Board label -->
+                  <text
+                    x="490"
+                    y="200"
+                    text-anchor="middle"
+                    fill="rgba(255,255,255,.18)"
+                    font-size="9"
+                    font-family="Syne"
+                    font-weight="700"
+                    transform="rotate(90,490,200)"
+                  >
+                    ARDUINO UNO R3
+                  </text>
+                </svg>
+                <div
+                  id="ard-tooltip-float"
+                  style="
+                    position: absolute;
+                    background: rgba(10, 20, 40, 0.95);
+                    color: white;
+                    padding: 8px 14px;
+                    border-radius: 8px;
+                    font-size: 13px;
+                    font-weight: 600;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.15s;
+                    white-space: nowrap;
+                    z-index: 50;
+                    top: -40px;
+                    left: 0;
+                    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+                  "
+                ></div>
+              </div>
+
+              <!-- Right panel: info + specs -->
+              <div style="flex: 1; min-width: 240px; max-width: 340px">
+                <div class="card" style="min-height: 200px">
+                  <div
+                    id="ard-info-icon"
+                    style="font-size: 32px; margin-bottom: 10px"
+                  >
+                    👆
+                  </div>
+                  <div
+                    id="ard-info-title"
+                    style="
+                      font-size: 20px;
+                      font-weight: 700;
+                      margin-bottom: 8px;
+                      color: var(--blue);
+                      font-family: &quot;Space Grotesk&quot;, sans-serif;
+                    "
+                  >
+                    Click any part
+                  </div>
+                  <div
+                    id="ard-info-desc"
+                    style="
+                      font-size: 14.5px;
+                      color: var(--t2);
+                      line-height: 1.7;
+                      margin-bottom: 12px;
+                    "
+                  >
+                    Hover for a label. Click to see what each component does.
+                  </div>
+                  <div id="ard-info-extra"></div>
+                </div>
+
+                <!-- Specs grid -->
+                <div class="g2" style="gap: 12px; margin-bottom: 16px">
+                  <div
+                    class="stat-box"
+                    style="
+                      background: var(--blue-l);
+                      border: 1.5px solid var(--blue-m);
+                    "
+                  >
+                    <div class="stat-num" style="color: var(--blue)">
+                      16<span style="font-size: 22px">MHz</span>
+                    </div>
+                    <div class="stat-label">Clock Speed</div>
+                  </div>
+                  <div
+                    class="stat-box"
+                    style="
+                      background: var(--green-l);
+                      border: 1.5px solid var(--green-m);
+                    "
+                  >
+                    <div class="stat-num" style="color: var(--green)">
+                      32<span style="font-size: 22px">KB</span>
+                    </div>
+                    <div class="stat-label">Flash Memory</div>
+                  </div>
+                  <div
+                    class="stat-box"
+                    style="
+                      background: var(--amber-l);
+                      border: 1.5px solid var(--amber-m);
+                    "
+                  >
+                    <div class="stat-num" style="color: var(--amber)">14</div>
+                    <div class="stat-label">Digital Pins</div>
+                    <div class="stat-sub">6 with PWM~</div>
+                  </div>
+                  <div
+                    class="stat-box"
+                    style="
+                      background: var(--coral-l);
+                      border: 1.5px solid var(--coral-m);
+                    "
+                  >
+                    <div class="stat-num" style="color: var(--coral)">6</div>
+                    <div class="stat-label">Analog Pins</div>
+                    <div class="stat-sub">0–1023 range</div>
+                  </div>
+                </div>
+
+                <!-- Photo ref -->
+                <div
+                  style="
+                    height: 120px;
+                    position: relative;
+                    cursor: pointer;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    border: 2px solid var(--border);
+                    background: var(--bg);
+                  "
+                  onclick="
+                    openLB(
+                      'Arduino Uno R3 — Real Board',
+                      'assets/images/arduino_uno_r3.png',
+                      'Physical Arduino Uno R3 showing all labeled components. The official blue PCB measures 68mm × 53mm.',
+                      [
+                        'Official blue PCB',
+                        'USB-B connector',
+                        'ATmega328P brain',
+                        '5V · 3.3V · GND pins',
+                      ],
+                    )
+                  "
+                  title="Click to view photo"
+                >
+                  <img
+                    src="assets/images/arduino_uno_r3.png"
+                    alt="Arduino Uno R3"
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      display: block;
+                      transition: transform 0.22s;
+                    "
+                    onmouseover="this.style.transform = 'scale(1.05)'"
+                    onmouseout="this.style.transform = 'scale(1)'"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div
+                    style="
+                      display: none;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                      width: 100%;
+                      height: 100%;
+                      gap: 5px;
+                      position: absolute;
+                      inset: 0;
+                      background: var(--bg);
+                    "
+                  >
+                    <div style="font-size: 26px; opacity: 0.3">📷</div>
+                    <div
+                      style="
+                        font-size: 10.5px;
+                        color: #64748b;
+                        font-weight: 600;
+                      "
+                    >
+                      arduino_uno_r3.png
+                    </div>
+                    <div style="font-size: 10px; color: #94a3b8">
+                      Click to open
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      position: absolute;
+                      bottom: 0;
+                      left: 0;
+                      right: 0;
+                      background: rgba(15, 23, 42, 0.75);
+                      color: white;
+                      font-size: 11px;
+                      font-weight: 600;
+                      text-align: center;
+                      padding: 5px 8px;
+                      backdrop-filter: blur(4px);
+                    "
+                  >
+                    📸 Real Board Photo
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key points row -->
+            <div class="g3">
+              <div class="kp green">
+                <div class="kp-icon">✅</div>
+                <div class="kp-text">
+                  USB powers + uploads<span
+                    >Connect to laptop — one cable does both</span
+                  >
+                </div>
+              </div>
+              <div class="kp amber">
+                <div class="kp-icon">⚡</div>
+                <div class="kp-text">
+                  5V logic level<span
+                    >All pins operate at 5V — never connect 12V directly</span
+                  >
+                </div>
+              </div>
+              <div class="kp coral">
+                <div class="kp-icon">🔄</div>
+                <div class="kp-text">
+                  Code runs forever<span
+                    >Once uploaded, runs on any 7–12V power source</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lfooter">
+            <button class="navbtn" onclick="goSection('s10')">← Back</button>
+            <span class="lesson-info">Lesson 1 of 10 · Arduino Uno</span>
+            <button class="navbtn pri" onclick="goSection('s2')">
+              Next: Electricity →
+            </button>
+          </div>
+        </section>
