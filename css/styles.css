@@ -1223,3 +1223,13 @@
                         stroke-dashoffset: -22;
                       }
                     }
+
+/* ── imgc-lbl hover fix: parent hover controls visibility ── */
+.imgc-lbl {
+  opacity: 0 !important;
+  transition: opacity 0.22s;
+  pointer-events: none;
+}
+.siz:hover .imgc-lbl {
+  opacity: 1 !important;
+}
