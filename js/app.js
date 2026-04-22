@@ -1010,6 +1010,70 @@ Every time the loop runs, the Arduino <strong>reads the sensor and puts the fres
         if (code) code.textContent = m.c;
       }
 
+
+      // ── S6 NEW INTERACTIVES ──
+      function updateDHT(v) {
+        v = parseInt(v);
+        const temp = Math.round(10 + (v / 100) * 40); // 10°C to 50°C
+        const hum  = Math.round(20 + (v / 100) * 75); // 20% to 95%
+        document.getElementById('dht-temp').textContent = temp + '°C';
+        document.getElementById('dht-hum').textContent  = hum  + '%';
+        let status = '🌤️ Comfortable conditions';
+        if (temp > 38)       status = '🔥 Very hot! Heat alert';
+        else if (temp > 30)  status = '☀️ Warm — stay hydrated';
+        else if (temp < 15)  status = '🧊 Cold — check heating';
+        if (hum > 80)        status = '💦 High humidity — muggy!';
+        else if (hum < 30)   status = '🏜️ Very dry air';
+        document.getElementById('dht-status').textContent = status;
+      }
+
+      function updateWater(v) {
+        v = parseInt(v);
+        const analog = Math.round((v / 100) * 1023);
+        document.getElementById('water-fill').style.height = v + '%';
+        document.getElementById('water-val').textContent = analog;
+        let status = '💧 Partially submerged';
+        if (v === 0)      status = '⬜ Dry — no signal (0)';
+        else if (v < 25)  status = '💧 Low level detected';
+        else if (v < 60)  status = '💧 Partially submerged';
+        else if (v < 85)  status = '🌊 High water level!';
+        else              status = '🚨 Full / overflow risk!';
+        document.getElementById('water-status').textContent = status;
+      }
+      updateWater(40);
+
+      function toggleLED(el) {
+        const on = el.dataset.on === '1';
+        const color = el.dataset.color;
+        const glow  = el.dataset.glow;
+        if (!on) {
+          el.style.background  = color;
+          el.style.boxShadow   = '0 0 14px ' + glow + ', 0 0 4px ' + glow;
+          el.dataset.on = '1';
+        } else {
+          // dim version: use original light bg
+          el.style.background  = el.style.borderColor.replace(')', ', 0.18)').replace('rgb', 'rgba');
+          el.style.boxShadow   = 'none';
+          el.dataset.on = '0';
+        }
+        const hint = document.getElementById('led-hint');
+        const anyOn = Array.from(document.querySelectorAll('.scard [data-color]')).some(d => d.dataset.on === '1');
+        if (hint) hint.textContent = anyOn ? '💡 digitalWrite(pin, HIGH) — LED on' : '⬛ digitalWrite(pin, LOW) — LED off';
+      }
+
+      const partInfoMap = {
+        resistor:  '🟫 Resistors limit current flow. Without them, too much current burns your LED or Arduino pin. Common values: 220Ω (LED) or 10kΩ (pull-down).',
+        wire:      '🔵 Jumper wires connect components on the breadboard to Arduino pins. Red = power, black = ground, any color = signal.',
+        breadboard:'🟩 Breadboard lets you build circuits without soldering. Columns of 5 holes share a connection internally.',
+        rail:      '⚡ Power rails run along the sides. The red (+) rail distributes 5V; the blue (–) rail distributes GND to the whole circuit.'
+      };
+      function showPartInfo(key) {
+        const el = document.getElementById('part-info');
+        if (!el) return;
+        el.textContent = partInfoMap[key] || '';
+        el.style.borderColor = key === 'resistor' ? 'var(--amber)' : key === 'wire' ? 'var(--blue)' : key === 'breadboard' ? 'var(--green)' : 'var(--purple)';
+      }
+
 Object.assign(window, {
   openLB,
   closeLB,
@@ -1052,5 +1116,9 @@ Object.assign(window, {
   updateProgress,
   copyCode,
   sim11Update,
-  simBT
+  simBT,
+  updateDHT,
+  updateWater,
+  toggleLED,
+  showPartInfo,
 });
