@@ -37,11 +37,12 @@
         <div class="tnav" data-section="s9"><span class="nn">9</span> Robot Systems</div>
         <div class="tnav" data-section="s10"><span class="nn">10</span> Programming</div>
         <div class="tnav" data-section="s11"><span class="nn">11</span> Build a Robot</div>
+        <div class="tnav" data-section="s12"><span class="nn">12</span> Serial & Display</div>
       </nav>
       <div class="hdr-right">
         <div class="prog-pill">
           <div class="prog-bar">
-            <div class="prog-fill" id="prog-fill" style="width: 9%"></div>
+            <div class="prog-fill" id="prog-fill" style="width: 8%"></div>
           </div>
           <span class="prog-txt" id="prog-label">1 / 11</span>
         </div>
@@ -61,6 +62,7 @@
       <div class="sicon" data-section="s9" title="Robot Systems">🏗️<span class="sn">9</span></div>
       <div class="sicon" data-section="s10" title="Programming">💻<span class="sn">10</span></div>
       <div class="sicon" data-section="s11" title="Build a Robot">🔧<span class="sn">11</span></div>
+      <div class="sicon" data-section="s12" title="Serial & Display">🖥️<span class="sn">12</span></div>
     </aside>
 
     <!-- ══ TOOLTIP ══ -->
@@ -137,6 +139,7 @@
         s9:  9,
         s10: 10,
         s11: 11,
+        s12: 12,
       };
 
       const lessonCache = {};
@@ -182,8 +185,20 @@
         try {
           const html = await loadLesson(id);
 
-          // Swap content
+          // Cleanup any running lesson-specific timers before swapping content
+          if (typeof window._s12Cleanup === 'function') window._s12Cleanup();
+
+          // Swap content — innerHTML does NOT execute <script> tags, so we do it manually
           main.innerHTML = html;
+
+          // Re-execute any <script> tags injected with the lesson HTML
+          main.querySelectorAll('script').forEach(oldScript => {
+            const newScript = document.createElement('script');
+            // Copy attributes
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.textContent = oldScript.textContent;
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+          });
 
           // Ensure the section is visible and animated
           const section = main.querySelector('.section');

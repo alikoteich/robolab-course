@@ -1,0 +1,633 @@
+<section class="section" id="s12">
+
+  <!-- ══ HEADER ══ -->
+  <div class="lhdr">
+    <div class="lhdr-inner">
+      <div class="lnum" style="background: var(--purple)">12</div>
+      <div>
+        <div class="ltitle">Serial Monitor &amp; I²C Display</div>
+        <div class="lsub">Debug your Arduino with live text output — and display data on a 16×2 LCD screen</div>
+        <div class="lmeta">
+          <span class="ltag purple">🖥️ Communication</span>
+          <span class="ltag blue">📡 I²C Protocol</span>
+          <span class="ltag green">🎮 Live Simulators</span>
+          <span class="ltag amber">🔌 Wiring Guide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lbody">
+
+    <!-- Key concept -->
+    <div class="kc">
+      <div class="kc-icon">🔁</div>
+      <div>
+        <div class="kc-title">Two ways to see what your Arduino is doing</div>
+        <div class="kc-sub">Serial Monitor → text window on your computer &nbsp;|&nbsp; I²C LCD → a screen on the robot itself</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         PART 1 — SERIAL MONITOR THEORY
+    ══════════════════════════════════════ -->
+    <div class="slbl" style="margin-bottom:14px;">Part 1 — Serial Monitor</div>
+    <div class="g2" style="align-items:start; margin-bottom:24px;">
+
+      <div class="card-big" style="margin-bottom:0;">
+        <div style="font-size:22px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:12px;">What is the Serial Monitor?</div>
+        <p style="margin-bottom:14px;font-size:14.5px;">The Serial Monitor is a text window inside the Arduino IDE. Your Arduino sends messages to it <strong>over the same USB cable</strong> you use to upload code — no extra hardware needed.</p>
+        <div class="kp" style="margin-bottom:10px;">
+          <div class="kp-icon">🛠️</div>
+          <div class="kp-text">Your #1 debugging tool. If your robot misbehaves, print sensor values and you'll instantly see what the Arduino is actually reading.
+            <span>Think of it like a chat window between your computer and the board.</span>
+          </div>
+        </div>
+        <div class="kp amber">
+          <div class="kp-icon">⚠️</div>
+          <div class="kp-text">The <strong>baud rate in your code must match</strong> the rate selected in the Serial Monitor — or you'll see garbled characters.
+            <span>Safe default: 9600. Faster option: 115200.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="slbl" style="margin-bottom:2px;">The 3 Serial functions you need</div>
+
+        <div class="pstep" style="cursor:default;">
+          <div class="pnum" style="background:var(--purple);border-radius:8px;font-size:11px;width:42px;height:42px;flex-shrink:0;">begin</div>
+          <div>
+            <div class="pstep-title" style="font-family:monospace;font-size:15px;color:var(--purple);">Serial.begin(9600)</div>
+            <div class="pstep-desc">Put in <code style="background:var(--bg);padding:1px 5px;border-radius:4px;">setup()</code>. Starts the connection at the chosen speed. <strong>Nothing prints without this.</strong></div>
+          </div>
+        </div>
+
+        <div class="pstep" style="cursor:default;">
+          <div class="pnum" style="background:var(--blue);border-radius:8px;font-size:11px;width:42px;height:42px;flex-shrink:0;">print</div>
+          <div>
+            <div class="pstep-title" style="font-family:monospace;font-size:15px;color:var(--blue);">Serial.print(value)</div>
+            <div class="pstep-desc">Sends text/number — stays on the same line. Great for labels: <code style="background:var(--bg);padding:1px 5px;border-radius:4px;">Serial.print("Dist: ")</code></div>
+          </div>
+        </div>
+
+        <div class="pstep" style="cursor:default;">
+          <div class="pnum" style="background:var(--green);border-radius:8px;font-size:11px;width:42px;height:42px;flex-shrink:0;">println</div>
+          <div>
+            <div class="pstep-title" style="font-family:monospace;font-size:15px;color:var(--green);">Serial.println(value)</div>
+            <div class="pstep-desc">Same as print but <strong>adds a new line</strong> — each reading appears on its own row, keeping output readable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SERIAL MONITOR SIMULATOR
+    ══════════════════════════════════════ -->
+    <div class="slbl" style="margin-bottom:14px;">🎮 Serial Monitor — Live Simulator</div>
+    <div class="card-big" style="margin-bottom:28px;">
+      <div class="g2" style="align-items:start;gap:28px;margin-bottom:0;">
+
+        <!-- Left: sketch + baud picker -->
+        <div>
+          <div class="slbl" style="margin-bottom:10px;">Your sketch (code baud = 9600)</div>
+          <div style="background:#0f172a;border-radius:12px;padding:18px 20px;font-family:monospace;font-size:13.5px;line-height:2.1;color:#e2e8f0;margin-bottom:16px;">
+            <span style="color:#7dd3fc;">void</span> <span style="color:#86efac;">setup</span>() {<br>
+            &nbsp;&nbsp;Serial.<span style="color:#fbbf24;">begin</span>(<span style="color:#f9a8d4;">9600</span>);<br>
+            }<br><br>
+            <span style="color:#7dd3fc;">void</span> <span style="color:#86efac;">loop</span>() {<br>
+            &nbsp;&nbsp;<span style="color:#7dd3fc;">int</span> dist = readSensor();<br>
+            &nbsp;&nbsp;Serial.<span style="color:#fbbf24;">print</span>(<span style="color:#fde68a;">"Distance: "</span>);<br>
+            &nbsp;&nbsp;Serial.<span style="color:#fbbf24;">println</span>(dist);<br>
+            &nbsp;&nbsp;<span style="color:#a78bfa;">delay</span>(<span style="color:#f9a8d4;">500</span>);<br>
+            }
+          </div>
+
+          <div class="slbl" style="margin-bottom:8px;">Select Serial Monitor baud rate</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button id="L12_baud_9600"   onclick="L12_setBaud(9600)"   style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--blue);background:var(--blue);color:white;font-size:12.5px;font-weight:600;cursor:pointer;">9600 ✓ Match</button>
+            <button id="L12_baud_115200" onclick="L12_setBaud(115200)" style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">115200</button>
+            <button id="L12_baud_4800"   onclick="L12_setBaud(4800)"   style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--coral-m);background:var(--coral-l);color:var(--coral);font-size:12.5px;font-weight:600;cursor:pointer;">4800 ✗ Wrong</button>
+          </div>
+        </div>
+
+        <!-- Right: monitor output -->
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+            <div class="slbl" style="margin-bottom:0;">Serial Monitor Output</div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span id="L12_baud_label" style="font-size:11.5px;background:var(--green-l);color:var(--green);font-weight:700;padding:3px 10px;border-radius:20px;">9600 baud ✓</span>
+              <button onclick="L12_clearSerial()" style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">↺ Clear</button>
+              <button id="L12_run_btn" onclick="L12_toggleSerial()" style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--blue);background:var(--blue);color:white;font-size:12.5px;font-weight:600;cursor:pointer;">▶ Run</button>
+            </div>
+          </div>
+
+          <div id="L12_serial_out" style="background:#0f172a;border-radius:12px;padding:14px 18px;font-family:monospace;font-size:13px;color:#86efac;height:220px;overflow-y:auto;line-height:2;border:1px solid #1e293b;">
+            <span style="color:#475569;">— press ▶ Run to start —</span>
+          </div>
+
+          <div id="L12_baud_warn" style="display:none;margin-top:10px;align-items:flex-start;gap:12px;background:var(--coral-l);border-radius:10px;padding:14px 16px;border-left:4px solid var(--coral);">
+            <span style="font-size:20px;flex-shrink:0;">❌</span>
+            <div style="font-size:14px;font-weight:600;color:var(--coral);line-height:1.55;">Baud mismatch! Code uses 9600 but monitor is set to <span id="L12_wrong_baud">115200</span>. Output is garbled. Match both sides.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         PART 2 — I²C PROTOCOL
+    ══════════════════════════════════════ -->
+    <div class="slbl" style="margin-bottom:14px;">Part 2 — I²C Protocol</div>
+    <div class="g2" style="align-items:start;margin-bottom:24px;">
+
+      <div class="card-big" style="margin-bottom:0;">
+        <div style="font-size:22px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:12px;">What is I²C?</div>
+        <p style="margin-bottom:14px;font-size:14.5px;">I²C (<em>Inter-Integrated Circuit</em>) lets Arduino talk to multiple devices using just <strong>two wires</strong>: <strong>SDA</strong> (data) and <strong>SCL</strong> (clock).</p>
+        <p style="margin-bottom:14px;font-size:14.5px;">Each device has a unique <strong>address</strong> like <code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-weight:700;">0x27</code>. Arduino calls that address and only the matching device responds — all others stay quiet.</p>
+        <div class="kp green">
+          <div class="kp-icon">✅</div>
+          <div class="kp-text">Connect an LCD, compass, gyroscope, and temperature sensor all to the same two wires — no extra pins per device.
+            <span>The bus is shared; addresses keep devices separate.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pinout + wiring -->
+      <div>
+        <div class="card-big" style="margin-bottom:14px;">
+          <div style="font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:14px;">I²C Pinout — Arduino Uno &nbsp;<span style="font-size:13px;font-weight:500;color:var(--t3);">click each pin to learn more</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+
+            <div class="bb-rule" style="cursor:pointer;" onclick="L12_showPin('sda')">
+              <div class="bb-dot" style="background:#fef9c3;font-size:20px;">🟡</div>
+              <div>
+                <div style="font-weight:700;font-size:14px;margin-bottom:2px;">SDA — Pin A4</div>
+                <div style="font-size:12.5px;color:var(--t3);">Serial Data — carries the actual data bits</div>
+              </div>
+            </div>
+
+            <div class="bb-rule" style="cursor:pointer;" onclick="L12_showPin('scl')">
+              <div class="bb-dot" style="background:#ede9fe;font-size:20px;">🟣</div>
+              <div>
+                <div style="font-weight:700;font-size:14px;margin-bottom:2px;">SCL — Pin A5</div>
+                <div style="font-size:12.5px;color:var(--t3);">Serial Clock — keeps devices in sync</div>
+              </div>
+            </div>
+
+            <div class="bb-rule" style="cursor:pointer;" onclick="L12_showPin('vcc')">
+              <div class="bb-dot" style="background:#fee2e2;font-size:20px;">🔴</div>
+              <div>
+                <div style="font-weight:700;font-size:14px;margin-bottom:2px;">VCC — 5V pin</div>
+                <div style="font-size:12.5px;color:var(--t3);">Powers the LCD module</div>
+              </div>
+            </div>
+
+            <div class="bb-rule" style="cursor:pointer;" onclick="L12_showPin('gnd')">
+              <div class="bb-dot" style="background:#f1f5f9;font-size:20px;">⚫</div>
+              <div>
+                <div style="font-weight:700;font-size:14px;margin-bottom:2px;">GND — GND pin</div>
+                <div style="font-size:12.5px;color:var(--t3);">Shared ground for all devices</div>
+              </div>
+            </div>
+          </div>
+          <div id="L12_pin_panel" style="display:none;padding:12px 14px;border-radius:10px;border-left:3px solid var(--blue);font-size:13.5px;color:var(--t2);line-height:1.7;"></div>
+        </div>
+
+        <div class="card" style="margin-bottom:0;">
+          <div style="font-size:14px;font-weight:700;margin-bottom:10px;font-family:'Space Grotesk',sans-serif;">Wiring — I²C LCD → Arduino Uno</div>
+          <table class="wtbl">
+            <thead><tr><th>LCD Pin</th><th>Arduino Pin</th><th>Wire colour</th></tr></thead>
+            <tbody>
+              <tr><td><strong>VCC</strong></td><td>5V</td><td style="color:#dc2626;">🔴 Red</td></tr>
+              <tr><td><strong>GND</strong></td><td>GND</td><td>⚫ Black</td></tr>
+              <tr><td><strong>SDA</strong></td><td>A4</td><td style="color:#ca8a04;">🟡 Yellow</td></tr>
+              <tr><td><strong>SCL</strong></td><td>A5</td><td style="color:#7c3aed;">🟣 Purple</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         I²C LCD SIMULATOR
+    ══════════════════════════════════════ -->
+    <div class="slbl" style="margin-bottom:14px;">🎮 I²C LCD — Live Simulator</div>
+    <div class="card-big" style="margin-bottom:28px;">
+      <div class="g2" style="align-items:start;gap:28px;margin-bottom:0;">
+
+        <!-- Controls -->
+        <div>
+          <div class="slbl" style="margin-bottom:12px;">What to display</div>
+
+          <div style="margin-bottom:12px;">
+            <div style="font-size:12px;font-weight:600;color:var(--t3);margin-bottom:6px;">Line 1 (max 16 chars)</div>
+            <input type="text" id="L12_lcd_l1" maxlength="16" value="Hello World!"
+              oninput="L12_updateLCD()"
+              style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:monospace;font-size:14px;background:white;outline:none;box-sizing:border-box;"/>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <div style="font-size:12px;font-weight:600;color:var(--t3);margin-bottom:6px;">Line 2 (max 16 chars)</div>
+            <input type="text" id="L12_lcd_l2" maxlength="16" value="RoboLab v1.0"
+              oninput="L12_updateLCD()"
+              style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:monospace;font-size:14px;background:white;outline:none;box-sizing:border-box;"/>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <div style="font-size:12px;font-weight:600;color:var(--t3);margin-bottom:8px;">Backlight</div>
+            <div style="display:flex;gap:8px;">
+              <button id="L12_bl_on"  onclick="L12_setBacklight(true)"  style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--amber);background:var(--amber);color:white;font-size:12.5px;font-weight:600;cursor:pointer;">💡 On</button>
+              <button id="L12_bl_off" onclick="L12_setBacklight(false)" style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">Off</button>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--t3);margin-bottom:8px;">Quick presets</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button onclick="L12_lcdPreset('sensor')" style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">📡 Sensor reading</button>
+              <button onclick="L12_lcdPreset('status')" style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">🤖 Robot status</button>
+              <button onclick="L12_lcdPreset('temp')"   style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">🌡️ Temperature</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LCD preview + code -->
+        <div>
+          <div class="slbl" style="margin-bottom:12px;">LCD 1602 Preview</div>
+
+          <div style="background:#1a3a1a;border-radius:10px;padding:16px 18px 18px;display:inline-block;box-shadow:0 6px 24px rgba(0,0,0,.4);margin-bottom:16px;">
+            <div style="background:#0d1f0d;border-radius:6px;padding:10px 14px;">
+              <div id="L12_lcd_screen" style="background:#4a7c2e;border-radius:4px;padding:10px 14px;font-family:'Courier New',monospace;font-size:17px;font-weight:700;letter-spacing:3px;line-height:2;min-width:272px;color:#0d1f0d;text-shadow:0 0 3px rgba(0,0,0,.25);transition:background .3s,color .3s;">
+                <div id="L12_lcd_r1" style="white-space:pre;">Hello World!    </div>
+                <div id="L12_lcd_r2" style="white-space:pre;">RoboLab v1.0    </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#0f172a;border-radius:10px;padding:14px 16px;font-family:monospace;font-size:12.5px;line-height:1.95;color:#e2e8f0;">
+            <div style="color:#64748b;margin-bottom:4px;">// Generated code</div>
+            <div><span style="color:#7dd3fc;">#include</span> &lt;<span style="color:#fde68a;">Wire.h</span>&gt;</div>
+            <div><span style="color:#7dd3fc;">#include</span> &lt;<span style="color:#fde68a;">LiquidCrystal_I2C.h</span>&gt;</div>
+            <div style="margin-top:4px;"><span style="color:#86efac;">LiquidCrystal_I2C</span> lcd(<span style="color:#f9a8d4;">0x27</span>, 16, 2);</div>
+            <div style="margin-top:4px;"><span style="color:#7dd3fc;">void</span> <span style="color:#86efac;">setup</span>() {</div>
+            <div>&nbsp;&nbsp;lcd.<span style="color:#fbbf24;">init</span>();</div>
+            <div>&nbsp;&nbsp;lcd.<span style="color:#fbbf24;">backlight</span>();</div>
+            <div>&nbsp;&nbsp;lcd.<span style="color:#fbbf24;">setCursor</span>(0, 0);</div>
+            <div>&nbsp;&nbsp;lcd.<span style="color:#fbbf24;">print</span>("<span id="L12_code_l1" style="color:#fde68a;">Hello World!</span>");</div>
+            <div>&nbsp;&nbsp;lcd.<span style="color:#fbbf24;">setCursor</span>(0, 1);</div>
+            <div>&nbsp;&nbsp;lcd.<span style="color:#fbbf24;">print</span>("<span id="L12_code_l2" style="color:#fde68a;">RoboLab v1.0</span>");</div>
+            <div>}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         I²C ADDRESS SCANNER
+    ══════════════════════════════════════ -->
+    <div class="slbl" style="margin-bottom:14px;">🔍 I²C Address Scanner</div>
+    <div class="card-big" style="margin-bottom:28px;">
+      <div class="g2" style="align-items:start;gap:28px;margin-bottom:0;">
+
+        <div>
+          <div style="font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:10px;">My LCD isn't working — wrong address?</div>
+          <p style="font-size:14px;margin-bottom:12px;">Most LCD modules use address <code style="background:var(--bg);padding:2px 6px;border-radius:5px;font-weight:700;">0x27</code>, but some ship with <code style="background:var(--bg);padding:2px 6px;border-radius:5px;font-weight:700;">0x3F</code>. Upload this sketch and it will print the real address of every connected I²C device.</p>
+
+          <div class="kp green" style="margin-bottom:14px;">
+            <div class="kp-icon">🔍</div>
+            <div class="kp-text">Upload this sketch, open Serial Monitor at 9600 baud, and it prints the address of every I²C device found.
+              <span>Use that exact address in your LiquidCrystal_I2C constructor.</span>
+            </div>
+          </div>
+
+          <div style="background:#0f172a;border-radius:10px;padding:14px 16px;font-family:monospace;font-size:12px;line-height:1.9;color:#e2e8f0;">
+            <span style="color:#7dd3fc;">#include</span> &lt;<span style="color:#fde68a;">Wire.h</span>&gt;<br>
+            <span style="color:#7dd3fc;">void</span> <span style="color:#86efac;">setup</span>() {<br>
+            &nbsp;&nbsp;Wire.<span style="color:#fbbf24;">begin</span>();<br>
+            &nbsp;&nbsp;Serial.<span style="color:#fbbf24;">begin</span>(<span style="color:#f9a8d4;">9600</span>);<br>
+            }<br>
+            <span style="color:#7dd3fc;">void</span> <span style="color:#86efac;">loop</span>() {<br>
+            &nbsp;&nbsp;<span style="color:#7dd3fc;">for</span>(<span style="color:#7dd3fc;">byte</span> a=1; a&lt;127; a++) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Wire.<span style="color:#fbbf24;">beginTransmission</span>(a);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7dd3fc;">if</span>(Wire.<span style="color:#fbbf24;">endTransmission</span>()==0)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial.<span style="color:#fbbf24;">println</span>(a, HEX);<br>
+            &nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;<span style="color:#a78bfa;">delay</span>(<span style="color:#f9a8d4;">5000</span>);<br>
+            }
+          </div>
+        </div>
+
+        <!-- Scanner simulator -->
+        <div>
+          <div class="slbl" style="margin-bottom:12px;">Scanner simulator — toggle devices then scan</div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+            <button id="L12_scan_lcd"  onclick="L12_scanToggle('lcd')"  style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--blue);background:var(--blue);color:white;font-size:12.5px;font-weight:600;cursor:pointer;">📺 LCD 1602</button>
+            <button id="L12_scan_mpu"  onclick="L12_scanToggle('mpu')"  style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">🌀 MPU-6050</button>
+            <button id="L12_scan_bmp"  onclick="L12_scanToggle('bmp')"  style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">🌡️ BMP280</button>
+            <button id="L12_scan_oled" onclick="L12_scanToggle('oled')" style="padding:7px 14px;border-radius:9px;border:1.5px solid var(--border);background:white;font-size:12.5px;font-weight:600;cursor:pointer;">🖥️ OLED 128×64</button>
+          </div>
+
+          <button onclick="L12_runScanner()" style="width:100%;padding:10px 20px;border-radius:9px;border:1.5px solid var(--blue);background:var(--blue);color:white;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:12px;">🔍 Run I²C Scanner</button>
+
+          <div id="L12_scan_out" style="background:#0f172a;border-radius:10px;padding:12px 16px;font-family:monospace;font-size:13px;color:#86efac;min-height:110px;line-height:2;border:1px solid #1e293b;">
+            <span style="color:#475569;">— toggle devices above then click Run —</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Common mistakes -->
+    <div class="slbl" style="margin-bottom:14px;">⚠️ Common Mistakes to Avoid</div>
+    <div class="g2" style="margin-bottom:14px;">
+      <div class="kp coral">
+        <div class="kp-icon">❌</div>
+        <div class="kp-text">Wrong baud rate in Serial Monitor
+          <span>Code says 9600 but monitor is 115200 → garbled output. Always match both.</span>
+        </div>
+      </div>
+      <div class="kp coral">
+        <div class="kp-icon">❌</div>
+        <div class="kp-text">Missing LiquidCrystal_I2C library
+          <span>Install "LiquidCrystal I2C" by Frank de Brabander via Arduino Library Manager.</span>
+        </div>
+      </div>
+      <div class="kp coral">
+        <div class="kp-icon">❌</div>
+        <div class="kp-text">Wrong I²C address
+          <span>lcd(0x27) but module is 0x3F → blank screen. Run the scanner to find the real address.</span>
+        </div>
+      </div>
+      <div class="kp coral">
+        <div class="kp-icon">❌</div>
+        <div class="kp-text">Forgetting lcd.init() or lcd.backlight()
+          <span>Without init() the LCD ignores commands. Without backlight() it's on but invisible.</span>
+        </div>
+      </div>
+      <div class="kp amber">
+        <div class="kp-icon">⚠️</div>
+        <div class="kp-text">No delay() inside loop()
+          <span>Serial output floods too fast to read. Add delay(500) or delay(1000) between prints.</span>
+        </div>
+      </div>
+      <div class="kp amber">
+        <div class="kp-icon">⚠️</div>
+        <div class="kp-text">Not clearing LCD between updates
+          <span>Old characters show through. Call lcd.clear() or pad with spaces before reprinting.</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /lbody -->
+
+  <div class="lfooter">
+    <button class="navbtn" onclick="goSection('s11')">← Build a Robot</button>
+    <span class="lesson-info">Lesson 12 of 12 · Serial Monitor &amp; I²C Display</span>
+    <button class="navbtn pri" onclick="goSection('s1')">↩ Back to Start</button>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+  LESSON 12 — ALL INTERACTIVE LOGIC
+  NOTE: This <script> tag is executed by index.html's goSection() which
+  clones and re-appends script nodes so browsers actually run the code.
+═══════════════════════════════════════════════════════════════════ -->
+<script id="L12_script">
+(function () {
+
+  /* ── helpers ── */
+  function g(id) { return document.getElementById(id); }
+  function styleBtn(id, bg, color, border) {
+    var b = g(id);
+    if (!b) return;
+    b.style.background  = bg;
+    b.style.color       = color;
+    b.style.borderColor = border;
+  }
+
+  /* ══════════════════════════════
+     SERIAL MONITOR SIMULATOR
+  ══════════════════════════════ */
+  var _running  = false;
+  var _interval = null;
+  var _tick     = 0;
+  var _baud     = 9600;
+  var CODE_BAUD = 9600;
+
+  window.L12_setBaud = function (rate) {
+    _baud = rate;
+    var match = (rate === CODE_BAUD);
+
+    /* style each baud button */
+    var configs = {
+      9600:   { activeBg: match ? 'var(--blue)' : 'var(--coral)', defBg: 'white',           defColor: '',             defBorder: 'var(--border)' },
+      115200: { activeBg: match ? 'var(--blue)' : 'var(--coral)', defBg: 'white',           defColor: '',             defBorder: 'var(--border)' },
+      4800:   { activeBg: 'var(--coral)',                          defBg: 'var(--coral-l)',  defColor: 'var(--coral)', defBorder: 'var(--coral-m)' },
+    };
+    [9600, 115200, 4800].forEach(function (r) {
+      var b = g('L12_baud_' + r);
+      if (!b) return;
+      var cfg = configs[r];
+      if (r === rate) {
+        b.style.background  = cfg.activeBg;
+        b.style.color       = 'white';
+        b.style.borderColor = cfg.activeBg;
+      } else {
+        b.style.background  = cfg.defBg;
+        b.style.color       = cfg.defColor;
+        b.style.borderColor = cfg.defBorder;
+      }
+    });
+
+    /* status badge */
+    var lbl = g('L12_baud_label');
+    if (lbl) {
+      lbl.textContent      = match ? rate + ' baud ✓' : rate + ' baud ✗ Mismatch!';
+      lbl.style.background = match ? 'var(--green-l)' : 'var(--coral-l)';
+      lbl.style.color      = match ? 'var(--green)'   : 'var(--coral)';
+    }
+
+    /* warning bar */
+    var warn = g('L12_baud_warn');
+    if (warn) {
+      warn.style.display = match ? 'none' : 'flex';
+      var ws = g('L12_wrong_baud');
+      if (ws) ws.textContent = rate;
+    }
+
+    if (_running) { _stopSerial(); _startSerial(); }
+  };
+
+  window.L12_toggleSerial = function () {
+    _running ? _stopSerial() : _startSerial();
+  };
+
+  function _startSerial() {
+    _running = true;
+    _tick    = 0;
+    var btn = g('L12_run_btn');
+    if (btn) { btn.textContent = '■ Stop'; btn.style.background = 'var(--coral)'; btn.style.borderColor = 'var(--coral)'; }
+
+    var match = (_baud === CODE_BAUD);
+    _interval = setInterval(function () {
+      var out = g('L12_serial_out');
+      if (!out) { _stopSerial(); return; }
+      _tick++;
+
+      var line;
+      if (match) {
+        var dist = Math.round(20 + Math.sin(_tick * 0.4) * 15 + Math.random() * 4);
+        line = '<span style="color:#94a3b8;">Distance: </span>'
+             + '<span style="color:#86efac;font-weight:700;">' + dist + '</span>'
+             + '<span style="color:#64748b;"> cm</span>';
+      } else {
+        var junk = ['Ã¿Â¥', '###!@', '§¶ÿ??', 'Ð¸Ñ‚', 'â€˜Â¿', 'ÿÿ##', '!!!Ã'];
+        line = '<span style="color:#ef4444;">' + junk[_tick % 7] + '</span>';
+      }
+
+      out.innerHTML += line + '<br>';
+      out.scrollTop  = out.scrollHeight;
+
+      /* trim to last 50 lines */
+      var parts = out.innerHTML.split('<br>');
+      if (parts.length > 55) out.innerHTML = parts.slice(-50).join('<br>');
+    }, match ? 500 : 130);
+  }
+
+  function _stopSerial() {
+    _running = false;
+    clearInterval(_interval);
+    _interval = null;
+    var btn = g('L12_run_btn');
+    if (btn) { btn.textContent = '▶ Run'; btn.style.background = 'var(--blue)'; btn.style.borderColor = 'var(--blue)'; }
+  }
+
+  window.L12_clearSerial = function () {
+    var out = g('L12_serial_out');
+    if (out) out.innerHTML = '<span style="color:#475569;">— press ▶ Run to start —</span>';
+  };
+
+  /* expose cleanup so goSection stops the timer on navigation */
+  window._s12Cleanup = _stopSerial;
+
+  /* ══════════════════════════════
+     PINOUT INFO PANEL
+  ══════════════════════════════ */
+  var _pinData = {
+    sda: { bg: 'var(--amber-l)',  border: 'var(--amber)',  html: '🟡 <strong>SDA (A4) — Serial Data Line.</strong> Carries data bits between Arduino and all I²C devices. Bidirectional: Arduino writes to LCD, reads from sensors. Standard: 100 kHz.' },
+    scl: { bg: 'var(--purple-l)', border: 'var(--purple)', html: '🟣 <strong>SCL (A5) — Serial Clock Line.</strong> Only Arduino drives this. Data on SDA is only valid when the clock pulses. Standard: 100 kHz; fast mode: 400 kHz.' },
+    vcc: { bg: 'var(--coral-l)',  border: 'var(--coral)',  html: '🔴 <strong>VCC (5V) — Powers the LCD.</strong> Both the PCF8574 backpack and the LCD panel run on 5V. Some OLEDs use 3.3V — always check the datasheet first.' },
+    gnd: { bg: '#f1f5f9',         border: '#475569',       html: '⚫ <strong>GND — Common Ground.</strong> Every device must share the same GND as Arduino. It is the return path for all current — without it nothing works.' },
+  };
+
+  window.L12_showPin = function (pin) {
+    var p = _pinData[pin];
+    var panel = g('L12_pin_panel');
+    if (!p || !panel) return;
+    panel.style.display         = 'block';
+    panel.innerHTML             = p.html;
+    panel.style.background      = p.bg;
+    panel.style.borderLeftColor = p.border;
+  };
+
+  /* ══════════════════════════════
+     LCD SIMULATOR
+  ══════════════════════════════ */
+  window.L12_updateLCD = function () {
+    var raw1 = g('L12_lcd_l1') ? g('L12_lcd_l1').value : '';
+    var raw2 = g('L12_lcd_l2') ? g('L12_lcd_l2').value : '';
+    var v1 = raw1.padEnd(16).slice(0, 16);
+    var v2 = raw2.padEnd(16).slice(0, 16);
+    if (g('L12_lcd_r1'))  g('L12_lcd_r1').textContent  = v1;
+    if (g('L12_lcd_r2'))  g('L12_lcd_r2').textContent  = v2;
+    if (g('L12_code_l1')) g('L12_code_l1').textContent = raw1.slice(0, 16);
+    if (g('L12_code_l2')) g('L12_code_l2').textContent = raw2.slice(0, 16);
+  };
+
+  window.L12_setBacklight = function (on) {
+    var screen = g('L12_lcd_screen');
+    if (screen) {
+      screen.style.background = on ? '#4a7c2e' : '#1c1c1c';
+      screen.style.color      = on ? '#0d1f0d' : '#1a1a1a';
+    }
+    var btnOn  = g('L12_bl_on');
+    var btnOff = g('L12_bl_off');
+    if (btnOn)  { btnOn.style.background  = on  ? 'var(--amber)' : 'white'; btnOn.style.color  = on  ? 'white' : ''; btnOn.style.borderColor  = on  ? 'var(--amber)' : 'var(--border)'; }
+    if (btnOff) { btnOff.style.background = !on ? '#475569'      : 'white'; btnOff.style.color = !on ? 'white' : ''; btnOff.style.borderColor = !on ? '#475569'      : 'var(--border)'; }
+  };
+
+  window.L12_lcdPreset = function (type) {
+    var presets = {
+      sensor: { l1: 'Dist: 42 cm',   l2: 'Light: 768'  },
+      status: { l1: 'Robot: MOVING', l2: 'Speed: 80%'  },
+      temp:   { l1: 'Temp: 24.5C',   l2: 'Hum:  55%'   },
+    };
+    var p = presets[type];
+    if (!p) return;
+    if (g('L12_lcd_l1')) g('L12_lcd_l1').value = p.l1;
+    if (g('L12_lcd_l2')) g('L12_lcd_l2').value = p.l2;
+    L12_updateLCD();
+  };
+
+  /* ══════════════════════════════
+     I²C ADDRESS SCANNER
+  ══════════════════════════════ */
+  var _devices = {
+    lcd:  { addr: '0x27', name: 'LCD 1602 (PCF8574)',    on: true  },
+    mpu:  { addr: '0x68', name: 'MPU-6050 Gyro',         on: false },
+    bmp:  { addr: '0x76', name: 'BMP280 Temp/Pressure',  on: false },
+    oled: { addr: '0x3C', name: 'OLED 128×64 (SSD1306)', on: false },
+  };
+
+  window.L12_scanToggle = function (id) {
+    var dev = _devices[id];
+    if (!dev) return;
+    dev.on = !dev.on;
+    var btn = g('L12_scan_' + id);
+    if (btn) {
+      btn.style.background  = dev.on ? 'var(--blue)' : 'white';
+      btn.style.color       = dev.on ? 'white'       : '';
+      btn.style.borderColor = dev.on ? 'var(--blue)' : 'var(--border)';
+    }
+  };
+
+  window.L12_runScanner = function () {
+    var out = g('L12_scan_out');
+    if (!out) return;
+
+    var keys   = Object.keys(_devices);
+    var active = keys.filter(function (k) { return _devices[k].on; }).map(function (k) { return _devices[k]; });
+
+    out.innerHTML = '<span style="color:#64748b;">Scanning I²C bus (0x01 – 0x7F)…</span><br>';
+
+    if (active.length === 0) {
+      setTimeout(function () {
+        out.innerHTML += '<span style="color:#ef4444;">No I²C devices found.</span><br>'
+                       + '<span style="color:#475569;">Check wiring: SDA→A4, SCL→A5, VCC→5V, GND→GND</span>';
+      }, 700);
+      return;
+    }
+
+    active.forEach(function (d, i) {
+      setTimeout(function () {
+        out.innerHTML += '<span style="color:#94a3b8;">Found device at </span>'
+                       + '<span style="color:#fbbf24;font-weight:700;">' + d.addr + '</span>'
+                       + '<span style="color:#64748b;"> — ' + d.name + '</span><br>';
+        out.scrollTop = out.scrollHeight;
+      }, 500 + i * 650);
+    });
+
+    setTimeout(function () {
+      out.innerHTML += '<span style="color:#86efac;font-weight:700;">✓ Done. ' + active.length + ' device(s) found.</span>';
+      out.scrollTop  = out.scrollHeight;
+    }, 500 + active.length * 650);
+  };
+
+  /* ══════════════════════════════
+     AUTO-INIT
+  ══════════════════════════════ */
+  L12_updateLCD();
+  L12_setBacklight(true);
+
+}());
+</script>
