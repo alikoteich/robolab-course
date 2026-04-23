@@ -146,16 +146,11 @@
       let currentSection = null;
 
       async function loadLesson(id) {
-        // Return immediately if already cached
-        if (lessonCache[id]) return lessonCache[id];
-
         const num = LESSON_MAP[id];
-        const res = await fetch(`lessons/lesson-${num}.html`);
+        // Always fetch fresh — no caching — so edits to lesson files show immediately
+        const res = await fetch(`lessons/lesson-${num}.html?v=${Date.now()}`);
         if (!res.ok) throw new Error(`Could not load lessons/lesson-${num}.html (${res.status})`);
-
-        const html = await res.text();
-        lessonCache[id] = html;
-        return html;
+        return await res.text();
       }
 
       async function goSection(id) {

@@ -395,7 +395,7 @@
                   <div
                     onclick="
                       openLB(
-                        'DHT11 Temperature & Humidity Sensor',
+                        'DHT11 Temperature &amp; Humidity Sensor',
                         'assets/images/sensor_pins.jpg',
                         'Digital sensor that measures air temperature and humidity, then sends both values to Arduino over a single data pin.',
                         [
@@ -409,44 +409,51 @@
                     style="
                       width: 100%;
                       height: 100%;
+                      border: none;
+                      border-radius: 0;
                       position: relative;
                       cursor: pointer;
                       overflow: hidden;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
                     "
-                    title="Click to view diagram"
+                    title="Click to view photo"
                   >
-                    <div style="text-align: center; padding: 16px">
-                      <div style="font-size: 46px; margin-bottom: 10px">
-                        🌡️💧
-                      </div>
-                      <div
-                        style="
-                          font-size: 22px;
-                          font-weight: 800;
-                          color: var(--green);
-                          font-family: 'Space Grotesk', sans-serif;
-                          margin-bottom: 6px;
-                        "
-                      >
-                        DHT11
-                      </div>
-                      <div
-                        style="
-                          font-size: 13px;
-                          color: var(--t2);
-                          line-height: 1.6;
-                        "
-                      >
-                        Measures room temperature and air humidity in one module.
-                      </div>
+                    <img
+                      src="assets/images/sensor_pins.jpg"
+                      alt="DHT11 Sensor"
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: transform 0.22s;
+                      "
+                      onmouseover="this.style.transform = 'scale(1.05)'"
+                      onmouseout="this.style.transform = 'scale(1)'"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div
+                      style="
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        gap: 5px;
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+                      "
+                    >
+                      <div style="font-size: 36px; margin-bottom: 4px">🌡️💧</div>
+                      <div style="font-size: 12px; font-weight: 800; color: var(--green); font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px;">DHT11</div>
+                      <div style="font-size: 10.5px; color: #64748b; font-weight: 600; text-align: center; padding: 0 8px;">dht11_sensor.jpg</div>
+                      <div style="font-size: 10px; color: #94a3b8;">Click to open</div>
                     </div>
-                    <div class="imgc-lbl">
-                      🔍 View
-                    </div>
+                    <div class="imgc-lbl">🔍 View</div>
                   </div>
                 </div>
                 <div class="scard-body">
@@ -481,51 +488,66 @@
               <div class="scard">
                 <div class="siz" style="background: var(--coral-l)">
                   <div
+                    onclick="
+                      openLB(
+                        'Water Level Sensor',
+                        'assets/images/water-level.png',
+                        'Resistive probe sensor — the more of the sensor submerged in water, the higher the analog reading. Used in tank alarms, plant watering, and leak detection.',
+                        [
+                          'Analog input A0–A5',
+                          'Dry: ~0',
+                          'Submerged: ~1023',
+                          'Common in IoT projects',
+                        ],
+                      )
+                    "
                     style="
                       width: 100%;
                       height: 100%;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      background: linear-gradient(180deg, #fff 0%, #fee2e2 100%);
+                      border: none;
+                      border-radius: 0;
                       position: relative;
+                      cursor: pointer;
                       overflow: hidden;
                     "
+                    title="Click to view photo"
                   >
+                    <img
+                      src="assets/images/water-level.png"
+                      alt="Water Level Sensor"
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: transform 0.22s;
+                      "
+                      onmouseover="this.style.transform = 'scale(1.05)'"
+                      onmouseout="this.style.transform = 'scale(1)'"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
                     <div
                       style="
-                        width: 74px;
-                        height: 92px;
-                        border: 3px solid var(--coral-m);
-                        border-bottom-width: 6px;
-                        border-radius: 0 0 18px 18px;
-                        position: relative;
-                        background: rgba(255,255,255,0.75);
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                        gap: 5px;
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(180deg, #fff 0%, #fee2e2 100%);
                       "
                     >
-                      <div
-                        style="
-                          position: absolute;
-                          left: 0;
-                          right: 0;
-                          bottom: 0;
-                          height: 48%;
-                          background: linear-gradient(180deg, #7dd3fc, #0ea5e9);
-                          border-radius: 0 0 14px 14px;
-                        "
-                      ></div>
-                      <div
-                        style="
-                          position: absolute;
-                          top: -18px;
-                          left: 50%;
-                          transform: translateX(-50%);
-                          font-size: 24px;
-                        "
-                      >
-                        💧
-                      </div>
+                      <div style="font-size: 32px; margin-bottom: 4px">💧</div>
+                      <div style="font-size: 10.5px; color: #64748b; font-weight: 600; text-align: center; padding: 0 8px;">water_level_sensor.jpg</div>
+                      <div style="font-size: 10px; color: #94a3b8;">Click to open</div>
                     </div>
+                    <div class="imgc-lbl">🔍 View</div>
                   </div>
                 </div>
                 <div class="scard-body">
@@ -1027,7 +1049,7 @@
             <button class="navbtn" onclick="goSection('s5')">
               ← Inputs vs Outputs
             </button>
-            <span class="lesson-info">Lesson 6 of 10 · Sensors</span>
+            <span class="lesson-info">Lesson 6 of 12 · Sensors</span>
             <button class="navbtn pri" onclick="goSection('s7')">
               Next: Actuators →
             </button>
