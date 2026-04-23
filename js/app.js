@@ -128,7 +128,8 @@ function ohmSelect(q) {
   ["V","I","R","P"].forEach((x) => document.getElementById("ohm-" + x).classList.remove("active"));
   document.getElementById("ohm-" + q).classList.add("active");
 }
-// ohmUpdate / updateResist deferred to onLessonLoad(s2)
+// ohmUpdate / updateResist called from onLessonLoad('s2')
+function updateResist(v) {
   const vals = [
     "22Ω — Dangerous! LED will burn!", "47Ω — Too low", "100Ω — Risky",
     "150Ω — Borderline", "220Ω — Safe for LED", "330Ω — Good",
@@ -136,11 +137,11 @@ function ohmSelect(q) {
   ];
   const b   = Math.max(0, 1 - (v - 1) / 12);
   const led = document.getElementById("resist-led");
+  if (!led) return;
   document.getElementById("resist-val").textContent = vals[parseInt(v) - 1] || "220Ω";
   led.style.opacity   = 0.15 + b * 0.85;
   led.style.boxShadow = `0 0 ${b * 18}px rgba(255,215,0,${b * 0.9})`;
 }
-// updateResist(5) deferred to onLessonLoad(s2)
 
 // ── S3 BREADBOARD ──
 const bbMessages = {
@@ -1028,4 +1029,5 @@ Object.assign(window, {
   setSerialBaud, toggleSerial, startSerial, stopSerial, clearSerial,
   i2cClick, showPinInfo, updateLCD, setLCDBacklight, lcdPreset,
   scannerToggle, runScanner,
+  onLessonLoad,
 });
